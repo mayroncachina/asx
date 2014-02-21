@@ -98,7 +98,7 @@
 	        <label for="senha" style="text-align:left">Senha:</label>
 	        <input name="senha" id="login-senha" value="" type="password">
 	            <a href="#recuperar-senha" data-role="none">Esqueci minha senha</a>
-	        <a href="#" data-role="button" onclick="login()">Login</a>
+	        <a href="#" data-role="button" onclick="fazerLogin()">Login</a>
 	          
 		</div><!-- /content -->
 	
@@ -374,17 +374,11 @@
 	
 
 
-			<div class="ui-grid-a">
-			    	<div class="ui-block-a">
-					<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" />
-				</div>
-				<div class="ui-block-b">
-					<h2>Holly ́s Pizzas - Burger</h2>
-					<h5>Av. Ipanema, 392 - Veleiros</h5>
-					<h3>(11) 5524-0369</h3>
-				</div>
+					<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" width="124" style="float: left;margin-right:5px" />
+					<h5>Holly ́s Pizzas - Burger</h5>
+					<h7>Av. Ipanema, 392 - Veleiros</h7>
+					<h6>(11) 5524-0369</h6>
 			
-			</div>
 			<div class="ui-grid-b">
 				<div class="ui-block-a">&nbsp;</div>
 				<div class="ui-block-b">&nbsp;</div>
@@ -400,28 +394,29 @@
 	
 		        <div data-role="navbar">
 		            <ul>
-		                <li><a href="#" data-icon="grid">Cartão na Loja</a></li>
-		                <li><a href="#" data-icon="star" >Cartão Delivery</a></li>
-		                <li><a href="#" data-icon="gear">Cartão Promoção</a></li>
+		                <li><a href="#" data-icon="grid">Loja</a></li>
+		                <li><a href="#" data-icon="star" >Delivery</a></li>
+		                <li><a href="#" data-icon="gear">Promoção</a></li>
 		            </ul>
 	        	</div><!-- /navbar -->
 	
-			<fieldset data-role="controlgroup" data-type="horizontal">
-				<p>Junte 10 pontos e ganhe Holly ́s Burger Completo.</p>
-	
-				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
-				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
-				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
-				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
-				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
+			<fieldset data-role="controlgroup" data-type="horizontal" style="background:none repeat scroll 0% 0% rgb(233, 233, 233)">
+				<p style="color:green;text-align:center"><strong>Junte 10 pontos e ganhe Holly ́s Burger Completo.</strong></p>
+	            <div style="text-align:center">
+				<img src="http://wiki.magnolia-cms.com/s/en_GB/3295/39/_/images/icons/emoticons/star_blue.png" />
+				<img src="http://wiki.magnolia-cms.com/s/en_GB/3295/39/_/images/icons/emoticons/star_blue.png" />
+				<img src="http://wiki.magnolia-cms.com/s/en_GB/3295/39/_/images/icons/emoticons/star_blue.png" />
+				<img src="http://wiki.magnolia-cms.com/s/en_GB/3295/39/_/images/icons/emoticons/star_blue.png" />
+				<img src="http://www.iconki.com/icons/Software-Applications/16x16-Application-Icons/Red%20star.ico" />
 				<br/>
-				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
-				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
-				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
-				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
-				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />			
-				<p>Validade: ___/___/________</p>
-				<p>Ao juntar 5 pontos em compras no salão, ganhe 1 refrigerante, e ao juntar 10 pontos ganhe um Holly ́s Burger Completo.</p>		</fieldset>
+				<img src="http://wiki.magnolia-cms.com/s/en_GB/3295/39/_/images/icons/emoticons/star_blue.png" />
+				<img src="http://wiki.magnolia-cms.com/s/en_GB/3295/39/_/images/icons/emoticons/star_blue.png" />
+				<img src="http://wiki.magnolia-cms.com/s/en_GB/3295/39/_/images/icons/emoticons/star_blue.png" />
+				<img src="http://wiki.magnolia-cms.com/s/en_GB/3295/39/_/images/icons/emoticons/star_blue.png" />
+				<img src="http://upload.wikimedia.org/wikipedia/en/0/0d/Yellow_star.gif" />			
+                </div>
+				<p style="text-align:center"><b>Validade: 10/05/2014</b></p>
+				<p style="text-align:center">Ao juntar 5 pontos em compras no salão, ganhe 1 refrigerante, e ao juntar 10 pontos ganhe um Holly ́s Burger Completo.</p>		</fieldset>
 	
 	
 		</div><!-- /content -->
@@ -836,6 +831,37 @@ $( document ).on( "pageinit", "#loja-localizacao", function() {
         });
     }
 });
+
+
+
+function fazerLogin(){
+$.mobile.changePage( "#acoes-menu");
+/*
+var email = $("#login-email").val();
+var senha = $("#login-senha").val();
+
+var url = "http://services.asxcard.com.br/CadastroService.svc/cadastros?email="+email+"&senha="+senha;
+alert(url);
+$.ajax({
+    url: url,
+    type: 'GET',
+    error : function (data){ 
+            alert('Acesso Negado! Login ou senha não conferem.');
+            console.log(data); 
+    }, 
+    success: function (data) {
+        //alert(data);
+        $.mobile.changePage( "#acoes-menu");
+    }
+});
+*/
+
+}
+
+
+
+
+
 </script>
 
 </body>
