@@ -1,0 +1,842 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Page Title</title> 
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script src="js/app.js"></script>
+	<!--
+		http://jsfiddle.net
+		http://demos.jquerymobile.com/1.4.0/icons/
+	-->
+	
+
+</head> 
+
+<body> 
+	
+	
+	
+	<div data-role="page" id="index">
+	
+		<div role="main" class="ui-content">
+	        <div style="text-align:center">
+	        <img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="30%" style="margin-botton:10px"/>
+	            <div style="margin-top: 90px;">
+	        <a href="#cadastro" data-role="button">Cadastre-se</a>
+	        <a href="#acessar-conta" data-role="button">Login</a>        
+	            </div>
+	        </div>
+		</div><!-- /content -->
+	
+	</div><!-- /page -->
+	
+	
+	
+	<div data-role="page" id="cadastro">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content">
+			<h1>Crie sua conta ASX Card</h1>
+	        
+	        <label for="nome">Nome:</label>
+	        <input name="nome" id="nome" value="" type="text">
+	    
+	        <label for="email">Email:</label>
+	        <input name="email" id="email" value="" type="email">
+	    
+	        <label for="fone">Telefone:</label>
+	        <input name="fone" id="fone" value="" type="tel">
+	    
+	        <label for="data">Data de Nascimento:</label>
+	        <input name="data" id="data" value="" type="date">
+	        
+	        <label for="senha">Senha:</label>
+	        <input name="data" id="senha" value="" type="password">
+	        
+	            
+	
+	    <fieldset data-role="controlgroup" data-type="horizontal">
+	        <legend>Sexo:</legend>
+	        <input name="radio-choice-h-2" id="radio-choice-h-2a" value="on" checked="checked" type="radio">
+	        <label for="radio-choice-h-2a">Masculino</label>
+	        <input name="radio-choice-h-2" id="radio-choice-h-2b" value="off" type="radio">
+	        <label for="radio-choice-h-2b">Feminino</label>
+	        
+	    </fieldset>
+	    <a href="#" data-role="button" onclick="cadastrar()">Criar Conta</a>
+	
+	          
+	        
+		</div><!-- /content -->
+	
+	</div><!-- /page -->
+	
+	
+	
+	<div data-role="page" id="acessar-conta">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content" style="text-align:center">
+			<h1>Acessar sua Conta</h1>
+	        
+	        <label for="nome" style="text-align:left">Email:</label>
+	        <input name="nome" id="login-email" value="" type="text">
+	    
+	        <label for="senha" style="text-align:left">Senha:</label>
+	        <input name="senha" id="login-senha" value="" type="password">
+	            <a href="#recuperar-senha" data-role="none">Esqueci minha senha</a>
+	        <a href="#" data-role="button" onclick="login()">Login</a>
+	          
+		</div><!-- /content -->
+	
+	</div><!-- /page -->
+	
+	
+	
+	<div data-role="page" id="recuperar-senha">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content" style="text-align:center">
+			<h1>Recuperar senha</h1>
+	        <h2>Informe o e-mail para
+	            enviar a sua senha</h2>
+	        
+	        <label for="nome" style="text-align:left">Email:</label>
+	        <input name="nome" id="nome" value="" type="text">
+	    
+	        <a href="#senha-recuperada" data-role="button">Confirmar</a>
+	          
+		</div><!-- /content -->
+	
+	    <div data-role="footer" data-position="fixed">  
+	        <div data-role="navbar">
+	        <ul>
+	            <li><a href="#" class="ui-btn-active">Voltar</a></li>
+	            <li><a href="#">Acoes</a></li>
+	        </ul>
+	        </div><!-- /navbar -->
+	    </div>    
+	</div><!-- /page -->
+	
+	
+	
+	<div data-role="page" id="senha-recuperada">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content" style="text-align:center">
+			<h1>Recuperar senha</h1>
+	        <h3>Obrigado!<h3>
+	        <h3>Verifique na caixa de entrada do seu e-mail .</h3>
+	        
+	        
+	        <a href="#acessar-conta" data-role="button">Confirmar</a>
+	          
+		</div><!-- /content -->
+	
+	    <div data-role="footer" data-position="fixed">  
+	        <div data-role="navbar">
+	        <ul>
+	            <li><a href="#" class="ui-btn-active">Voltar</a></li>
+	            <li><a href="#">Acoes</a></li>
+	        </ul>
+	        </div><!-- /navbar -->
+	    </div>    
+	</div><!-- /page -->
+	
+	
+	<div data-role="page" id="atualizar-cadastro">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content">
+			<h1>Minha Conta</h1>
+	        
+	        <label for="nome">Nome:</label>
+	        <input name="nome" id="nome" value="" type="text">
+	    
+	        <label for="email">Email:</label>
+	        <input name="email" id="email" value="" type="email">
+	    
+	        <label for="fone">Telefone:</label>
+	        <input name="fone" id="fone" value="" type="tel">
+	    
+	        <label for="data">Data de Nascimento:</label>
+	        <input name="data" id="data" value="" type="date">
+	        
+	    <button class="ui-btn">Atualizar</button>
+	          
+	        
+		</div><!-- /content -->
+	
+	    <div data-role="footer" data-position="fixed">  
+	        <div data-role="navbar">
+	        <ul>
+	            <li><a href="#" class="ui-btn-active">Voltar</a></li>
+	            <li><a href="#">Acoes</a></li>
+	        </ul>
+	        </div><!-- /navbar -->
+	    </div>    
+	</div><!-- /page -->
+	
+	
+	<div data-role="page" id="principal">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content">
+			<h1>Menu Principal</h1>
+	        
+	        <ul data-role="listview" data-inset="true">
+	    <li><a href="#sobre"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/done-01-16.png" alt="" class="ui-li-icon ui-corner-none">Sobre a ASX Card</a></li>
+	    <li><a href="#alterar-senha"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-16.png" alt="" class="ui-li-icon">Mudar Senha</a></li>
+	    <li><a href="#fale"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/user-01-16.png" alt=" " class="ui-li-icon">Fale Conosco</a></li>
+	    <li><a href="#termo"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/grid-01-16.png" alt="" class="ui-li-icon">Termo de Uso</a></li>
+	    <li><a href="#indique"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/like-01-16.png" alt="" class="ui-li-icon ui-corner-none">Indique um estabelecimento</a></li>
+        <li><a href="#acoes-menu"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/like-01-16.png" alt="" class="ui-li-icon ui-corner-none">Meus Cartões</a></li>
+	</ul>
+	          
+	        
+		</div><!-- /content -->
+	
+	    <div data-role="footer" data-position="fixed">  
+	        <div data-role="navbar">
+	        <ul>
+	            <li><a href="#" class="ui-btn-active">Voltar</a></li>
+	        </ul>
+	        </div><!-- /navbar -->
+	    </div>    
+	</div><!-- /page -->
+	
+	
+	<div data-role="page" id="acoes-menu">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content">
+			 <div data-role="navbar">
+	            <ul>
+	                <li><a href="#meus-cartoes" data-icon="grid">Meus Cartões</a></li>
+	                <li><a href="#pontuar" data-icon="tag">Pontuar</a></li>
+	                <li><a href="#meus-cartoes" data-icon="location">Perto de Mim</a></li>
+	                <li><a href="#meus-cartoes" data-icon="bullets">Visualizar Cartões</a></li>
+	            </ul>
+	        </div><!-- /navbar -->
+	          
+	        
+		</div><!-- /content -->
+	
+	</div><!-- /page -->
+	
+	<div data-role="page" id="menu-lista">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		
+	        <ul data-role="listview" data-inset="true">
+		    <li><a href="#meus-cartoes">
+		        <img src="https://cdn3.iconfinder.com/data/icons/faticons/32/grid-01-64.png" >
+		    <h2>Meus Cartões</h2></a>
+		    </li>
+		    <li><a href="#">
+		        <img src="https://cdn2.iconfinder.com/data/icons/snipicons/500/qrcode-64.png">
+		    <h2>Marcar Pontos</h2></a>
+		    </li>
+		    <li><a href="#meus-cartoes">
+		        <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/64/marker.png">
+		    <h2>Perto de Mim</h2></a>
+		    </li>
+		    <li><a href="#">
+		        <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/64/ticket.png">
+		    <h2>Meus Cupons</h2></a>
+		    </li>
+		    <li><a href="#">
+		        <img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/statistics-64.png">
+		    <h2>Estatisticas</h2></a>
+		    </li>
+		    <li><a href="#">
+		        <img src="https://cdn4.iconfinder.com/data/icons/sound-and-audio/32/black_5_favorite_cricle_star-64.png">
+		    <h2>Ofertas Especiais</h2></a>
+		    </li>
+		</ul>
+		          
+	        
+		</div><!-- /content -->
+	
+	</div><!-- /page -->
+	
+	
+	<div data-role="page" id="meus-cartoes">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content">
+			<div data-role="navbar">
+		            <ul>
+		                <li><a href="#" data-icon="grid" class="ui-btn-active">Meus Cartões</a></li>
+		                <li><a href="#pontuar" data-icon="tag" >Pontuar</a></li>
+		                <li><a href="#perto" data-icon="location">Perto de Mim</a></li>
+		                <li><a href="#meus-cartoes" data-icon="bullets">Visualizar Cartões</a></li>
+		            </ul>
+		        </div><!-- /navbar -->
+	
+			<ul data-role="listview" data-inset="true">
+			    <li data-role="list-divider">Seus Lugares <span class="ui-li-count">2</span></li>
+			    	<li><a href="#loja">
+				    <h2>Pizzaria Tia Ziza </h2>
+				    <p>Av. Brasil, 125 - Jd.Europa.</p>
+				    <p><strong>Distância: 525m</strong></p>
+				    <p>
+					<img src="https://cdn1.iconfinder.com/data/icons/officeicons/PNG/24/People.png" width="16"/><strong>15</strong>
+					<img src="https://cdn1.iconfinder.com/data/icons/customicondesignvalentine/16/heart.png" width="16"/><strong>8</strong>
+					<img src="https://cdn3.iconfinder.com/data/icons/eightyshades/512/59_Chat-16.png" width="16"/><strong>3</strong>
+				    </p>
+				        <p class="ui-li-aside">
+						<span><strong>[1] <span style="color:green;font-size:14px">3</span>/<span style="color:blue;font-size:14px">10</span></strong></span><br/>
+						<span><strong>[2] <span style="color:green;font-size:14px">1</span>/<span style="color:blue;font-size:14px">8</span></strong></span><br/>
+						<span><strong>[3] <span style="color:green;font-size:14px">2</span>/<span style="color:blue;font-size:14px">5</span></strong></span><br/>
+					</p>
+			    	</a></li> <!-- /Item -->
+	
+			    	<li><a href="#loja">
+				    <h2>Holly's Pizzas - Burger</h2>
+				    <p>Av. Ipanema, 392 - Veleiros</p>
+				    <p><strong>Distância: 525m</strong></p>
+				    <p>
+					<img src="https://cdn1.iconfinder.com/data/icons/pc_de_hamburg_icon_pack/16x16/ticket.png" width="16"/>
+					<img src="https://cdn1.iconfinder.com/data/icons/officeicons/PNG/24/People.png" width="16"/><strong>10</strong>
+					<img src="https://cdn1.iconfinder.com/data/icons/customicondesignvalentine/16/heart.png" width="16"/><strong>1</strong>
+					<img src="https://cdn3.iconfinder.com/data/icons/eightyshades/512/59_Chat-16.png" width="16"/><strong>5</strong>
+				    </p>
+				        <p class="ui-li-aside">
+						<span><strong>[1] <span style="color:green;font-size:14px">5</span>/<span style="color:blue;font-size:14px">10</span></strong></span><br/>
+						<span><strong>[2] <span style="color:green;font-size:14px">4</span>/<span style="color:blue;font-size:14px">10</span></strong></span><br/>
+						<span><strong>[3] <span style="color:green;font-size:14px">6</span>/<span style="color:blue;font-size:14px">10</span></strong></span><br/>
+					</p>
+			    	</a></li> <!-- /Item -->
+	
+			    </li>
+			    
+			</ul>
+	
+	        </div><!-- /main -->
+	
+		<div data-role="footer" data-position="fixed">  
+		        <div data-role="navbar">
+			        <ul>
+			            <li><a href="#principal" data-icon="back"></a></li>
+			            <li><a href="#" data-icon="grid"></a></li>
+			            <li><a href="#" data-icon="star"></a></li>
+			            <li><a href="#" data-icon="load"></a></li>
+			            <li><a href="#" data-icon="gear"></a></li>
+		        	</ul>
+	        	</div><!-- /navbar -->        
+		</div><!-- /footer -->
+	
+	</div><!-- /page -->
+	
+	
+	<div data-role="page" id="loja">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content">
+	
+
+
+			<div class="ui-grid-a">
+			    	<div class="ui-block-a">
+					<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" />
+				</div>
+				<div class="ui-block-b">
+					<h2>Holly ́s Pizzas - Burger</h2>
+					<h5>Av. Ipanema, 392 - Veleiros</h5>
+					<h3>(11) 5524-0369</h3>
+				</div>
+			
+			</div>
+			<div class="ui-grid-b">
+				<div class="ui-block-a">&nbsp;</div>
+				<div class="ui-block-b">&nbsp;</div>
+				<div class="ui-block-c">
+					<a href="#loja-localizacao"><img src="https://cdn1.iconfinder.com/data/icons/IconsLandVistaMapMarkersIconsDemo/24/MapMarker_Marker_Outside_Chartreuse.png" /></a>
+					<a href="#loja-menu"><img src="https://cdn3.iconfinder.com/data/icons/eightyshades/512/45_Menu-24.png" /></a>
+					<a href="#loja-comentarios"><img src="https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/06-24.png" /></a>
+					<a href="http://google.com.br"><img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/65-24.png" /></a>
+				</div>
+			</div>			
+			
+
+	
+		        <div data-role="navbar">
+		            <ul>
+		                <li><a href="#" data-icon="grid">Cartão na Loja</a></li>
+		                <li><a href="#" data-icon="star" >Cartão Delivery</a></li>
+		                <li><a href="#" data-icon="gear">Cartão Promoção</a></li>
+		            </ul>
+	        	</div><!-- /navbar -->
+	
+			<fieldset data-role="controlgroup" data-type="horizontal">
+				<p>Junte 10 pontos e ganhe Holly ́s Burger Completo.</p>
+	
+				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
+				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
+				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
+				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
+				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
+				<br/>
+				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
+				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
+				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
+				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />
+				<img src="https://cdn1.iconfinder.com/data/icons/fatcow/32x32/bullet_star.png" />			
+				<p>Validade: ___/___/________</p>
+				<p>Ao juntar 5 pontos em compras no salão, ganhe 1 refrigerante, e ao juntar 10 pontos ganhe um Holly ́s Burger Completo.</p>		</fieldset>
+	
+	
+		</div><!-- /content -->
+	          
+		<div data-role="footer" data-position="fixed">  
+		        <div data-role="navbar">
+			        <ul>
+			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
+		        	</ul>
+	        	</div><!-- /navbar -->        
+		</div><!-- /footer -->
+	
+	</div><!-- /page -->
+
+
+	<div data-role="page" id="loja-localizacao">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content">
+	
+
+
+			<div class="ui-grid-a">
+			    	<div class="ui-block-a">
+					<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" />
+				</div>
+				<div class="ui-block-b">
+					<h2>Holly ́s Pizzas - Burger</h2>
+					<h5>Av. Ipanema, 392 - Veleiros</h5>
+					<h3>(11) 5524-0369</h3>
+				</div>
+			
+			</div>
+			<div class="ui-grid-b">
+				<div class="ui-block-a">&nbsp;</div>
+				<div class="ui-block-b">&nbsp;</div>
+				<div class="ui-block-c">
+					<a href="#loja-localizacao"><img src="https://cdn1.iconfinder.com/data/icons/IconsLandVistaMapMarkersIconsDemo/24/MapMarker_Marker_Outside_Chartreuse.png" /></a>
+					<a href="#loja-menu"><img src="https://cdn3.iconfinder.com/data/icons/eightyshades/512/45_Menu-24.png" /></a>
+					<a href="#loja-comentarios"><img src="https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/06-24.png" /></a>
+					<a href="http://google.com.br"><img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/65-24.png" /></a>
+				</div>
+			</div>			
+			
+
+	
+		        <div data-role="navbar">
+		            <ul>
+		                <li><a href="#" data-icon="grid">Cartão na Loja</a></li>
+		                <li><a href="#" data-icon="star" >Cartão Delivery</a></li>
+		                <li><a href="#" data-icon="gear">Cartão Promoção</a></li>
+		            </ul>
+	        	</div><!-- /navbar -->
+	
+			<div role="main" class="ui-content" id="map-canvas" width="100%" heigth="400px">
+			        <!-- map loads here... -->
+			</div>
+			<p>
+				<img src="https://cdn1.iconfinder.com/data/icons/IconsLandVistaMapMarkersIconsDemo/24/MapMarker_Marker_Outside_Chartreuse.png" />
+				Sua Localização
+				<img src="https://cdn1.iconfinder.com/data/icons/IconsLandVistaMapMarkersIconsDemo/24/MapMarker_Marker_Outside_Chartreuse.png" />
+				Seu Destino
+			</p>
+			<p><strong>Distância: 500m</strong></p>
+		</div><!-- /content -->
+	          
+		<div data-role="footer" data-position="fixed">  
+		        <div data-role="navbar">
+			        <ul>
+			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
+		        	</ul>
+	        	</div><!-- /navbar -->        
+		</div><!-- /footer -->
+	
+	</div><!-- /page -->
+	
+	
+
+
+	<div data-role="page" id="loja-menu">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content">
+	
+
+
+			<div class="ui-grid-a">
+			    	<div class="ui-block-a">
+					<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" />
+				</div>
+				<div class="ui-block-b">
+					<h2>Holly ́s Pizzas - Burger</h2>
+					<h5>Av. Ipanema, 392 - Veleiros</h5>
+					<h3>(11) 5524-0369</h3>
+				</div>
+			
+			</div>
+			<div class="ui-grid-b">
+				<div class="ui-block-a">&nbsp;</div>
+				<div class="ui-block-b">&nbsp;</div>
+				<div class="ui-block-c">
+					<a href="#loja-localizacao"><img src="https://cdn1.iconfinder.com/data/icons/IconsLandVistaMapMarkersIconsDemo/24/MapMarker_Marker_Outside_Chartreuse.png" /></a>
+					<a href="#loja-menu"><img src="https://cdn3.iconfinder.com/data/icons/eightyshades/512/45_Menu-24.png" /></a>
+					<a href="#loja-comentarios"><img src="https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/06-24.png" /></a>
+					<a href="http://google.com.br"><img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/65-24.png" /></a>
+				</div>
+			</div>			
+			
+			<ul data-role="listview" data-inset="true">
+
+			    <li><a href="#">
+			        <img src="http://demos.jquerymobile.com/1.4.0/_assets/img/album-bb.jpg">
+			    <h2>Descrição do prato</h2>
+			    <p> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+			     <span class="ui-li-count"><strong>R$ 30,00</strong></span></p></a>
+			    </li> <!-- /item -->
+
+			    <li><a href="#">
+			        <img src="http://demos.jquerymobile.com/1.4.0/_assets/img/album-bb.jpg">
+			    <h2>Descrição do prato <img src="https://cdn1.iconfinder.com/data/icons/icojoy/noshadow/standart/png/24x24/001_14.png" width="16"></h2>
+			    <p> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+			     <span class="ui-li-count"><strong>R$ 30,00</strong></span></p></a>
+			    </li> <!-- /item -->
+			    
+			</ul>			
+
+
+	
+		</div><!-- /content -->
+	          
+		<div data-role="footer" data-position="fixed">  
+		        <div data-role="navbar">
+			        <ul>
+			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
+			            <li><a href="#" data-icon="heart"></a></li>
+		        	</ul>
+	        	</div><!-- /navbar -->        
+		</div><!-- /footer -->
+	
+	</div><!-- /page -->	
+	
+	
+
+
+	<div data-role="page" id="loja-comentarios">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content">
+	
+
+
+			<div class="ui-grid-a">
+			    	<div class="ui-block-a">
+					<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" />
+				</div>
+				<div class="ui-block-b">
+					<h2>Holly ́s Pizzas - Burger</h2>
+					<h5>Av. Ipanema, 392 - Veleiros</h5>
+					<h3>(11) 5524-0369</h3>
+				</div>
+			
+			</div>
+			<div class="ui-grid-b">
+				<div class="ui-block-a">&nbsp;</div>
+				<div class="ui-block-b">&nbsp;</div>
+				<div class="ui-block-c">
+					<a href="#loja-localizacao"><img src="https://cdn1.iconfinder.com/data/icons/IconsLandVistaMapMarkersIconsDemo/24/MapMarker_Marker_Outside_Chartreuse.png" /></a>
+					<a href="#loja-menu"><img src="https://cdn3.iconfinder.com/data/icons/eightyshades/512/45_Menu-24.png" /></a>
+					<a href="#loja-comentarios"><img src="https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/06-24.png" /></a>
+					<a href="http://google.com.br"><img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/65-24.png" /></a>
+				</div>
+			</div>			
+			
+			<ul data-role="listview" data-inset="true">
+
+			    <li><a href="#">
+			        <img src="http://demos.jquerymobile.com/1.4.0/_assets/img/album-bb.jpg">
+			    <h2>Adriana R. da Silva</h2>
+			    <p> pslum asm sass ka aslks lkasl lkas lkas Kjskjd kjsdk kjs dk lkjsd kl sjk kljsadlks
+			     <span class="ui-li-count"><strong>12/01/2014</strong></span></p></a>
+			    </li> <!-- /item -->
+
+			    <li data-icon="false"><a href="#">
+			        <img src="http://demos.jquerymobile.com/1.4.0/_assets/img/album-bb.jpg">
+			    <h2>José Roberto - 12/01/2014</h2>
+			    <p> pslum asm sass ka aslks lkasl lkas lkas Kjskjd kjsdk kjs dk lkjsd kl sjk kljsadlks
+			     <span class="ui-li-count"> <select id="test-slider3" data-role="slider"data-mini="true" name="testslider3">
+								<option value="off">off</option>
+								<option value="on">on</option>
+							</select>
+			     </span>
+			    </p></a>
+			    </li> <!-- /item -->
+
+			    
+			</ul>			
+
+
+	
+		</div><!-- /content -->
+	          
+		<div data-role="footer" data-position="fixed">  
+		        <div data-role="navbar">
+			        <ul>
+			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
+			            <li><a href="#" data-icon="comment"></a></li>
+		        	</ul>
+	        	</div><!-- /navbar -->        
+		</div><!-- /footer -->
+	
+	</div><!-- /page -->	
+	
+	
+
+
+
+	<div data-role="page" id="pontuar">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content">
+			<div data-role="navbar">
+		            <ul>
+		                <li><a href="#meus-cartoes" data-icon="grid" >Meus Cartões</a></li>
+		                <li><a href="#" data-icon="tag" class="ui-btn-active">Pontuar</a></li>
+		                <li><a href="#meus-cartoes" data-icon="location">Perto de Mim</a></li>
+		                <li><a href="#meus-cartoes" data-icon="bullets">Visualizar Cartões</a></li>
+		            </ul>
+		        </div><!-- /navbar -->
+			<h2>Marque Seu Ponto</h2>
+			<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQncGI8FA5lT_dscTPv5JdFiYmQQBIBANqJQN9Zp2hpcqGbQU_8Ew"/>
+
+
+			<a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-b">ADM...</a>
+			<div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+			    <div data-role="header" data-theme="a">
+			    <h1>ASX Card</h1>
+			    </div>
+			    <div role="main" class="ui-content">
+			        <h3 class="ui-title">Deseja registrar ponto para um cliente do estabelecimento?</h3>
+			    <p><label for="numero-cliente"><input id="numero-cliente" type="text"/></p>
+			        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancelar</a>
+			        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Cadastrar</a>
+			    </div>
+			</div>	
+
+
+
+
+
+	        </div><!-- /main -->
+	
+		<div data-role="footer" data-position="fixed">  
+		        <div data-role="navbar">
+			        <ul>
+			            <li><a href="#loja" data-icon="camera"></a></li>
+		        	</ul>
+	        	</div><!-- /navbar -->        
+		</div><!-- /footer -->
+	
+	</div><!-- /page -->
+
+
+
+
+
+	<div data-role="page" id="sobre">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content">
+			 <h1>Sobre</h1>
+			<p>Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum </p>
+		</div><!-- /content -->
+	          
+		<div data-role="footer" data-position="fixed">  
+		        <div data-role="navbar">
+			        <ul>
+			            <li><a href="#" data-rel="back"data-icon="back"></a></li>
+		        	</ul>
+	        	</div><!-- /navbar -->        
+		</div><!-- /footer -->
+	
+	</div><!-- /page -->
+	
+	<div data-role="page" id="termo">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content">
+			 <h1>Termo de uso</h1>
+			<p>Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum </p>
+		</div><!-- /content -->
+	          
+		<div data-role="footer" data-position="fixed">  
+		        <div data-role="navbar">
+			        <ul>
+			            <li><a href="#" data-rel="back">Voltar</a></li>
+		        	</ul>
+	        	</div><!-- /navbar -->        
+		</div><!-- /footer -->
+	
+	</div><!-- /page -->
+	
+	
+	<div data-role="page" id="fale">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content">
+			 <h1>Fale Conosco</h1>
+	
+			<label for="select-choice-1" class="select">Assunto</label>
+			<select name="select-choice-1" id="select-choice-1">
+			    <option value="standard">Standard: 7 day</option>
+			    <option value="rush">Rush: 3 days</option>
+			    <option value="express">Express: next day</option>
+			    <option value="overnight">Overnight</option>
+			</select>
+			<label for="textarea">Textarea:</label>
+			<textarea cols="40" rows="20" name="textarea" id="textarea"></textarea>
+	
+		</div><!-- /content -->
+	          
+		<div data-role="footer" data-position="fixed">  
+		        <div data-role="navbar">
+			        <ul>
+			            <li><a href="#" data-rel="back">Voltar</a></li>
+		        	</ul>
+	        	</div><!-- /navbar -->        
+		</div><!-- /footer -->
+	
+	</div><!-- /page -->
+
+	<div data-role="page" id="alterar-senha">
+	
+		<div data-role="header">
+			<img src="http://sandbox.cachina.com.br/Logo_ASXCard.jpg" width="20%" style="margin-botton:10px"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content">
+			 <h1>Mudar sua Senha</h1>
+	
+			<label for="nova-minha-senha">Senha Atual:</label>
+			<input type="password" id="minha-senha"/>
+
+			<label for="nova-nova-senha">Nova Senha:</label>
+			<input type="password" id="nova-nova-senha"/>
+
+			<label for="nova-confirmacao-senha">Confirmar Senha:</label>
+			<input type="password" id="nova-confirmacao-senha"/>
+	
+			<button>Alterar Senha</button>
+		</div><!-- /content -->
+	          
+		<div data-role="footer" data-position="fixed">  
+		        <div data-role="navbar">
+			        <ul>
+			            <li><a href="#" data-rel="back" data-icon="back"></a></li>
+		        	</ul>
+	        	</div><!-- /navbar -->        
+		</div><!-- /footer -->
+	
+	</div><!-- /page -->
+
+<script>
+$( document ).on( "pageinit", "#loja-localizacao", function() {
+    var defaultLatLng = new google.maps.LatLng(34.0983425, -118.3267434);  // Default to Hollywood, CA when no geolocation support
+    if ( navigator.geolocation ) {
+        function success(pos) {
+            // Location found, show map with these coordinates
+            drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+
+        }
+        function fail(error) {
+            drawMap(defaultLatLng);  // Failed to find location, show default map
+        }
+        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
+        navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
+    } else {
+        drawMap(defaultLatLng);  // No geolocation support, show default map
+    }
+    function drawMap(latlng) {
+        var myOptions = {
+            zoom: 10,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+        // Add an overlay to the map of current lat/lng
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map,
+            title: "Greetings!"
+        });
+    }
+});
+</script>
+
+</body>
+</html>
