@@ -18,7 +18,8 @@ $.ajax({
     success: function (data) {
         //alert(data);
         alert("Cadastrado com sucesso!");
-        $.mobile.changePage( "#acoes-menu");
+        $("#login-email").val(email);
+        $.mobile.changePage( "#acessar-conta");
     }
 });
 
