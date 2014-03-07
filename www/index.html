@@ -16,7 +16,12 @@
 		http://jsfiddle.net
 		http://demos.jquerymobile.com/1.4.0/icons/
 	-->
-	
+	<style>
+	#map-canvas {
+		width: 90%;
+		height: 400px;
+	}
+	</style>
 
 </head> 
 
@@ -30,8 +35,8 @@
 	        <div style="text-align:center" style="text-align:center">
 	        <img src="img/logo.png" width="30%" style="margin-botton:10px;"/>
 	            <div style="margin-top: 90px;">
-	        <a href="#cadastro"><img src="img/btCadastrese.jpg"/></a>
-	        <a href="#acessar-conta"><img src="img/btLogin.jpg"/></a>        
+	        <a href="#cadastro"><img src="img/btCadastrese.png"/></a><br/>
+	        <a href="#acessar-conta"><img src="img/btLogin.png"/></a>        
 	            </div>
 	        </div>
 		</div><!-- /content -->
@@ -74,7 +79,8 @@
 	        <label for="radio-choice-h-2b">Feminino</label>
 	        
 	    </fieldset>
-	    <a href="#" data-role="button" onclick="cadastrar()">Criar Conta</a>
+	    <a href="#" onclick="cadastrar()"><img src="img/btCriarConta.png"/></a> 
+	    
 	
 	          
 	        
@@ -98,8 +104,9 @@
 	    
 	        <label for="senha" style="text-align:left">Senha:</label>
 	        <input name="senha" id="login-senha" value="" type="password">
-	            <a href="#recuperar-senha" data-role="none">Esqueci minha senha</a>
-	        <a href="#" data-role="button" onclick="fazerLogin()">Login</a>
+	        <a href="#recuperar-senha" data-role="none">Esqueci minha senha</a>
+	        <br/>
+	        <a href="#" onclick="fazerLogin()"><img src="img/btLogin.png"/></a>
 	          
 		</div><!-- /content -->
 	
@@ -222,19 +229,13 @@
 	        
 		</div><!-- /content -->
 	
-	    <div data-role="footer" data-position="fixed">  
-	        <div data-role="navbar">
-	        <ul>
-	            <li><a href="#" class="ui-btn-active">Voltar</a></li>
-	        </ul>
-	        </div><!-- /navbar -->
-	    </div>    
 	</div><!-- /page -->
 	
 	
 	<div data-role="page" id="acoes-menu">
 	
 		<div data-role="header" style="text-align:center">
+			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
 			<img src="img/logo.png" width="20%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
 	
@@ -244,7 +245,7 @@
 	                <li><a href="#meus-cartoes" data-icon="grid">Meus<br/>Cartões</a></li>
 	                <li><a href="#pontuar" data-icon="tag">Pontuar<br/>&nbsp;</a></li>
 	                <li><a href="#meus-cartoes" data-icon="location">Perto<br/>de Mim</a></li>
-	                <li><a href="#meus-cartoes" data-icon="bullets">Visualizar<br/>Cartões</a></li>
+	                <li><a href="#menu-lista" data-icon="bullets">Visualizar<br/>Cartões</a></li>
 	            </ul>
 	        </div><!-- /navbar -->
 	          
@@ -296,19 +297,24 @@
 	<div data-role="page" id="meus-cartoes">
 	
 		<div data-role="header" style="text-align:center">
+			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
 			<img src="img/logo.png" width="20%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
 	
 		<div role="main" class="ui-content">
-			<div data-role="navbar">
-		            <ul>
-		                <li><a href="#" data-icon="grid" class="ui-btn-active">Meus Cartões</a></li>
-		                <li><a href="#pontuar" data-icon="tag" >Pontuar</a></li>
-		                <li><a href="#perto" data-icon="location">Perto de Mim</a></li>
-		                <li><a href="#meus-cartoes" data-icon="bullets">Visualizar Cartões</a></li>
-		            </ul>
-		        </div><!-- /navbar -->
-	
+			<div role="main" class="ui-content">
+			 <div data-role="navbar">
+	            <ul>
+	                <li><a href="#meus-cartoes" data-icon="grid">Meus<br/>Cartões</a></li>
+	                <li><a href="#pontuar" data-icon="tag">Pontuar<br/>&nbsp;</a></li>
+	                <li><a href="#meus-cartoes" data-icon="location">Perto<br/>de Mim</a></li>
+	                <li><a href="#menu-lista" data-icon="bullets">Visualizar<br/>Cartões</a></li>
+	            </ul>
+	        </div><!-- /navbar -->
+	          
+	        
+		</div><!-- /content -->
+
 			<ul data-role="listview" data-inset="true">
 			    <li data-role="list-divider">Seus Lugares <span class="ui-li-count">2</span></li>
 			    	<li><a href="#loja">
@@ -316,33 +322,51 @@
 				    <p>Av. Brasil, 125 - Jd.Europa.</p>
 				    <p><strong>Distância: 525m</strong></p>
 				    <p>
-					<img src="https://cdn1.iconfinder.com/data/icons/officeicons/PNG/24/People.png" width="16"/><strong>15</strong>
-					<img src="https://cdn1.iconfinder.com/data/icons/customicondesignvalentine/16/heart.png" width="16"/><strong>8</strong>
-					<img src="https://cdn3.iconfinder.com/data/icons/eightyshades/512/59_Chat-16.png" width="16"/><strong>3</strong>
+					<img src="img/icone_Usuarios.png" width="20"/><strong>1</strong>
+					<img src="img/icone_Favoritar.png" width="20"/><strong>4</strong>
+					<img src="img/icone_Comentarios.png" width="20"/><strong>3</strong>
 				    </p>
 				        <p class="ui-li-aside">
-						<span><strong>[1] <span style="color:green;font-size:14px">3</span>/<span style="color:blue;font-size:14px">10</span></strong></span><br/>
-						<span><strong>[2] <span style="color:green;font-size:14px">1</span>/<span style="color:blue;font-size:14px">8</span></strong></span><br/>
-						<span><strong>[3] <span style="color:green;font-size:14px">2</span>/<span style="color:blue;font-size:14px">5</span></strong></span><br/>
+						<span><strong><img src="img/icone_Cartao_01.png" width="25"/> 
+							<span style="color:green;font-size:14px">3</span>/<span style="color:blue;font-size:14px">10</span></strong>
+						</span><br/>
+						<span><strong><img src="img/icone_Cartao_02.png" width="25"/> 
+							<span style="color:green;font-size:14px">3</span>/<span style="color:blue;font-size:14px">10</span></strong>
+						</span><br/>
+						<span><strong><img src="img/icone_Cartao_03.png" width="25"/> 
+							<span style="color:green;font-size:14px">3</span>/<span style="color:blue;font-size:14px">10</span></strong>
+						</span><br/>
+						
+
 					</p>
-			    	</a></li> <!-- /Item -->
-	
+			    	</a>
+			    </li> <!-- /Item -->
+
+			    <li data-role="list-divider">Seus Lugares <span class="ui-li-count">2</span></li>
 			    	<li><a href="#loja">
-				    <h2>Holly's Pizzas - Burger</h2>
-				    <p>Av. Ipanema, 392 - Veleiros</p>
+				    <h2>Pizzaria Tia Ziza </h2>
+				    <p>Av. Brasil, 125 - Jd.Europa.</p>
 				    <p><strong>Distância: 525m</strong></p>
 				    <p>
-					<img src="https://cdn1.iconfinder.com/data/icons/pc_de_hamburg_icon_pack/16x16/ticket.png" width="16"/>
-					<img src="https://cdn1.iconfinder.com/data/icons/officeicons/PNG/24/People.png" width="16"/><strong>10</strong>
-					<img src="https://cdn1.iconfinder.com/data/icons/customicondesignvalentine/16/heart.png" width="16"/><strong>1</strong>
-					<img src="https://cdn3.iconfinder.com/data/icons/eightyshades/512/59_Chat-16.png" width="16"/><strong>5</strong>
+					<img src="img/icone_Usuarios.png" width="20"/><strong>1</strong>
+					<img src="img/icone_Favoritar.png" width="20"/><strong>4</strong>
+					<img src="img/icone_Comentarios.png" width="20"/><strong>3</strong>
 				    </p>
 				        <p class="ui-li-aside">
-						<span><strong>[1] <span style="color:green;font-size:14px">5</span>/<span style="color:blue;font-size:14px">10</span></strong></span><br/>
-						<span><strong>[2] <span style="color:green;font-size:14px">4</span>/<span style="color:blue;font-size:14px">10</span></strong></span><br/>
-						<span><strong>[3] <span style="color:green;font-size:14px">6</span>/<span style="color:blue;font-size:14px">10</span></strong></span><br/>
+						<span><strong><img src="img/icone_Cartao_01.png" width="25"/> 
+							<span style="color:green;font-size:14px">3</span>/<span style="color:blue;font-size:14px">10</span></strong>
+						</span><br/>
+						<span><strong><img src="img/icone_Cartao_02.png" width="25"/> 
+							<span style="color:green;font-size:14px">3</span>/<span style="color:blue;font-size:14px">10</span></strong>
+						</span><br/>
+						<span><strong><img src="img/icone_Cartao_03.png" width="25"/> 
+							<span style="color:green;font-size:14px">3</span>/<span style="color:blue;font-size:14px">10</span></strong>
+						</span><br/>
+						
+
 					</p>
-			    	</a></li> <!-- /Item -->
+			    	</a>
+			    </li> <!-- /Item -->
 	
 			    </li>
 			    
@@ -353,7 +377,6 @@
 		<div data-role="footer" data-position="fixed">  
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#principal" data-icon="back"></a></li>
 			            <li><a href="#" data-icon="grid"></a></li>
 			            <li><a href="#" data-icon="star"></a></li>
 			            <li><a href="#" data-icon="load"></a></li>
@@ -368,53 +391,64 @@
 	<div data-role="page" id="loja">
 	
 		<div data-role="header" style="text-align:center">
+			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
 			<img src="img/logo.png" width="20%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
 	
 		<div role="main" class="ui-content">
 	
 
+		<div style="text-align:center">
+			<h1>Holly ́s Pizzas - Burger</h1>
+		</div>
+			<div class="ui-grid-a">
+			    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:124px">
+			    	<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" width="124" style="float: left;margin-right:5px" />
+			    </div></div>
+			    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:124px">
+						<p style="font-size:9px">Av. Ipanema, 392 - Veleiros</p>
+						<p style="font-size:9px"><a href="tel:1155240369">(11) 5524-0369</a></p>
+			    </div></div>
+			</div><!-- /grid-a -->
 
-					<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" width="124" style="float: left;margin-right:5px" />
-					<h5>Holly ́s Pizzas - Burger</h5>
-					<h7>Av. Ipanema, 392 - Veleiros</h7>
-					<h6>(11) 5524-0369</h6>
-			
-			<div class="ui-grid-b">
-				<div class="ui-block-a">&nbsp;</div>
-				<div class="ui-block-b">&nbsp;</div>
-				<div class="ui-block-c">
-					<a href="#loja-localizacao"><img src="https://cdn1.iconfinder.com/data/icons/IconsLandVistaMapMarkersIconsDemo/24/MapMarker_Marker_Outside_Chartreuse.png" /></a>
-					<a href="#loja-menu"><img src="https://cdn3.iconfinder.com/data/icons/eightyshades/512/45_Menu-24.png" /></a>
-					<a href="#loja-comentarios"><img src="https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/06-24.png" /></a>
-					<a href="http://google.com.br"><img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/65-24.png" /></a>
-				</div>
-			</div>			
-			
+			<div class="ui-grid-c">
+			    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px">
+			    	<a href="#loja-localizacao"><img src="img/icone_LocalizacaoLojista.png" /></a>
+			    </div></div>
+			    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px">
+			    	<a href="#loja-menu"><img src="img/icone_ProdutosLojista.png" /></a>
+			    </div></div>
+			    <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height:60px">
+					<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" /></a>
+			    </div></div>
+			    <div class="ui-block-d"><div class="ui-bar ui-bar-a" style="height:60px">
+			    	<a href="http://google.com.br"><img src="img/icone_HomePageLojista.png" /></a>
+			    </div></div>
+			</div><!-- /grid-c -->
 
-	
-		        <div data-role="navbar">
-		            <ul class="menu-cartoes">
-		                <li><a href="#" data-icon="grid">Cartão Loja</a></li>
-		                <li><a href="#" data-icon="star" >Cartão Delivery</a></li>
-		                <li><a href="#" data-icon="gear">Cartão Promoção</a></li>
-		            </ul>
-	        	</div><!-- /navbar -->
+
+	        <div data-role="navbar">
+	            <ul class="menu-cartoes">
+	                <li><a href="#" data-icon="false">Cartão<br/>Loja</a></li>
+	                <li><a href="#" data-icon="false" >Cartão<br/>Delivery</a></li>
+	                <li><a href="#" data-icon="false">Cartão<br/>Promoção</a></li>
+	            </ul>
+        	</div><!-- /navbar -->
 	
 			<fieldset data-role="controlgroup" data-type="horizontal" style="background:none repeat scroll 0% 0% rgb(233, 233, 233);font-size:10px">
 				<p style="color:green;text-align:center"><strong>Junte 10 pontos e ganhe Holly ́s Burger Completo.</strong></p>
 	            <div style="text-align:center">
-				<img src="img/img_P1_on.jpg" />
-				<img src="img/img_P2_on.jpg" />
-				<img src="img/img_P3_on.jpg" />
-				<img src="img/img_P4_off.jpg" />
-				<img src="img/img_P5_off.jpg" />
+				<img src="img/img_P1_on.png" />
+				<img src="img/img_P2_on.png" />
+				<img src="img/img_P3_on.png" />
+				<img src="img/img_P4_off.png" />
+				<img src="img/img_P5_off.png" />
 				<br/>
-				<img src="img/img_P6_off.jpg" />
-				<img src="img/img_P7_off.jpg" />
-				<img src="img/img_P8_off.jpg" />
-				<img src="img/img_P9_off.jpg" />
-				<img src="img/img_Premio_off.jpg" />			
+				<img src="img/img_P6_off.png" />
+				<img src="img/img_P7_off.png" />
+				<img src="img/img_P8_off.png" />
+				<img src="img/img_P9_off.png" />
+				<img src="img/img_Premio_off.png" />			
                 </div>
 				<p style="text-align:center"><b>Validade: 10/05/2014</b></p>
 				<p style="text-align:center">Ao juntar 5 pontos em compras no salão, ganhe 1 refrigerante, e ao juntar 10 pontos ganhe um Holly ́s Burger Completo.</p>		</fieldset>
@@ -422,44 +456,48 @@
 	
 		</div><!-- /content -->
 	          
-		<div data-role="footer" data-position="fixed">  
-		        <div data-role="navbar">
-			        <ul>
-			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
-		        	</ul>
-	        	</div><!-- /navbar -->        
-		</div><!-- /footer -->
-	
 	</div><!-- /page -->
 
 
 	<div data-role="page" id="loja-localizacao">
 	
 		<div data-role="header" style="text-align:center">
+			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
 			<img src="img/logo.png" width="20%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
 	
 		<div role="main" class="ui-content">
 	
+			<div style="text-align:center">
+				<h1>Holly ́s Pizzas - Burger</h1>
+			</div>
+			<div class="ui-grid-a">
+			    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:124px">
+			    	<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" width="124" style="float: left;margin-right:5px" />
+			    </div></div>
+			    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:124px">
+						<p style="font-size:9px">Av. Ipanema, 392 - Veleiros</p>
+						<p style="font-size:9px"><a href="tel:1155240369">(11) 5524-0369</a></p>
+			    </div></div>
+			</div><!-- /grid-a -->
+
+			<div class="ui-grid-c">
+			    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px">
+			    	<a href="#loja-localizacao"><img src="img/icone_LocalizacaoLojista.png" /></a>
+			    </div></div>
+			    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px">
+			    	<a href="#loja-menu" ><img src="img/icone_ProdutosLojista.png" /></a>
+			    </div></div>
+			    <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height:60px">
+					<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" /></a>
+			    </div></div>
+			    <div class="ui-block-d"><div class="ui-bar ui-bar-a" style="height:60px">
+			    	<a href="http://google.com.br"><img src="img/icone_HomePageLojista.png" /></a>
+			    </div></div>
+			</div><!-- /grid-c -->			
 
 
-
-					<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" width="124" style="float: left;margin-right:5px" />
-					<h5>Holly ́s Pizzas - Burger</h5>
-					<h7>Av. Ipanema, 392 - Veleiros</h7>
-					<h6>(11) 5524-0369</h6>
-
-			<div class="ui-grid-b">
-				<div class="ui-block-a">&nbsp;</div>
-				<div class="ui-block-b">&nbsp;</div>
-				<div class="ui-block-c">
-					<a href="#loja-localizacao"><img src="https://cdn1.iconfinder.com/data/icons/IconsLandVistaMapMarkersIconsDemo/24/MapMarker_Marker_Outside_Chartreuse.png" /></a>
-					<a href="#loja-menu"><img src="https://cdn3.iconfinder.com/data/icons/eightyshades/512/45_Menu-24.png" /></a>
-					<a href="#loja-comentarios"><img src="https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/06-24.png" /></a>
-					<a href="http://google.com.br"><img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/65-24.png" /></a>
-				</div>
-			</div>			
-	
+			<br/>
 			<div role="main" class="ui-content" id="map-canvas" width="100%" heigth="400px">
 			        <!-- map loads here... -->
 			</div>
@@ -471,15 +509,6 @@
 			</p>
 			<p><strong>Distância: 500m</strong></p>
 		</div><!-- /content -->
-	          
-		<div data-role="footer" data-position="fixed">  
-		        <div data-role="navbar">
-			        <ul>
-			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
-		        	</ul>
-	        	</div><!-- /navbar -->        
-		</div><!-- /footer -->
-	
 	</div><!-- /page -->
 	
 	
@@ -488,39 +517,51 @@
 	<div data-role="page" id="loja-menu">
 	
 		<div data-role="header" style="text-align:center">
+			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
 			<img src="img/logo.png" width="20%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
 	
 		<div role="main" class="ui-content">
 	
+			<div style="text-align:center">
+				<h1>Holly ́s Pizzas - Burger</h1>
+			</div>
+			<div class="ui-grid-a">
+			    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:124px">
+			    	<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" width="124" style="float: left;margin-right:5px" />
+			    </div></div>
+			    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:124px">
+						<p style="font-size:9px">Av. Ipanema, 392 - Veleiros</p>
+						<p style="font-size:9px"><a href="tel:1155240369">(11) 5524-0369</a></p>
+			    </div></div>
+			</div><!-- /grid-a -->
 
-					<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" width="124" style="float: left;margin-right:5px" />
-					<h5>Holly ́s Pizzas - Burger</h5>
-					<h7>Av. Ipanema, 392 - Veleiros</h7>
-					<h6>(11) 5524-0369</h6>
-
-			<div class="ui-grid-b">
-				<div class="ui-block-a">&nbsp;</div>
-				<div class="ui-block-b">&nbsp;</div>
-				<div class="ui-block-c">
-					<a href="#loja-localizacao"><img src="https://cdn1.iconfinder.com/data/icons/IconsLandVistaMapMarkersIconsDemo/24/MapMarker_Marker_Outside_Chartreuse.png" /></a>
-					<a href="#loja-menu"><img src="https://cdn3.iconfinder.com/data/icons/eightyshades/512/45_Menu-24.png" /></a>
-					<a href="#loja-comentarios"><img src="https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/06-24.png" /></a>
-					<a href="http://google.com.br"><img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/65-24.png" /></a>
-				</div>
-			</div>			
+			<div class="ui-grid-c">
+			    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px">
+			    	<a href="#loja-localizacao"><img src="img/icone_LocalizacaoLojista.png" /></a>
+			    </div></div>
+			    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px">
+			    	<a href="#loja-menu"><img src="img/icone_ProdutosLojista.png" /></a>
+			    </div></div>
+			    <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height:60px">
+					<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" /></a>
+			    </div></div>
+			    <div class="ui-block-d"><div class="ui-bar ui-bar-a" style="height:60px">
+			    	<a href="http://google.com.br"><img src="img/icone_HomePageLojista.png" /></a>
+			    </div></div>
+			</div><!-- /grid-c -->			
 			
 			<ul data-role="listview" data-inset="true">
 
 			    <li><a href="#">
-			        <img src="http://demos.jquerymobile.com/1.4.0/_assets/img/album-bb.jpg">
+			        <img src="http://demos.jquerymobile.com/1.4.0/_assets/img/album-bb.png">
 			    <h2>Descrição do prato</h2>
 			    <p> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 			     <span class="ui-li-count"><strong>R$ 30,00</strong></span></p></a>
 			    </li> <!-- /item -->
 
 			    <li><a href="#">
-			        <img src="http://demos.jquerymobile.com/1.4.0/_assets/img/album-bb.jpg">
+			        <img src="http://demos.jquerymobile.com/1.4.0/_assets/img/album-bb.png">
 			    <h2>Descrição do prato <img src="https://cdn1.iconfinder.com/data/icons/icojoy/noshadow/standart/png/24x24/001_14.png" width="16"></h2>
 			    <p> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 			     <span class="ui-li-count"><strong>R$ 30,00</strong></span></p></a>
@@ -535,7 +576,6 @@
 		<div data-role="footer" data-position="fixed">  
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
 			            <li><a href="#" data-icon="heart"></a></li>
 		        	</ul>
 	        	</div><!-- /navbar -->        
@@ -549,61 +589,55 @@
 	<div data-role="page" id="loja-comentarios">
 	
 		<div data-role="header" style="text-align:center">
+			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
 			<img src="img/logo.png" width="20%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
 	
 		<div role="main" class="ui-content">
 	
+			<div style="text-align:center">
+				<h1>Holly ́s Pizzas - Burger</h1>
+			</div>
+			<div class="ui-grid-a">
+			    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:124px">
+			    	<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" width="124" style="float: left;margin-right:5px" />
+			    </div></div>
+			    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:124px">
+						<p style="font-size:9px">Av. Ipanema, 392 - Veleiros</p>
+						<p style="font-size:9px"><a href="tel:1155240369">(11) 5524-0369</a></p>
+			    </div></div>
+			</div><!-- /grid-a -->
 
-
-					<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" width="124" style="float: left;margin-right:5px" />
-					<h5>Holly ́s Pizzas - Burger</h5>
-					<h7>Av. Ipanema, 392 - Veleiros</h7>
-					<h6>(11) 5524-0369</h6>
-					
-			<div class="ui-grid-b">
-				<div class="ui-block-a">&nbsp;</div>
-				<div class="ui-block-b">&nbsp;</div>
-				<div class="ui-block-c">
-					<a href="#loja-localizacao"><img src="https://cdn1.iconfinder.com/data/icons/IconsLandVistaMapMarkersIconsDemo/24/MapMarker_Marker_Outside_Chartreuse.png" /></a>
-					<a href="#loja-menu"><img src="https://cdn3.iconfinder.com/data/icons/eightyshades/512/45_Menu-24.png" /></a>
-					<a href="#loja-comentarios"><img src="https://cdn3.iconfinder.com/data/icons/wpzoom-developer-icon-set/500/06-24.png" /></a>
-					<a href="http://google.com.br"><img src="https://cdn2.iconfinder.com/data/icons/pittogrammi/142/65-24.png" /></a>
-				</div>
-			</div>			
+			<div class="ui-grid-c">
+			    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px">
+			    	<a href="#loja-localizacao"><img src="img/icone_LocalizacaoLojista.png" /></a>
+			    </div></div>
+			    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px">
+			    	<a href="#loja-menu"><img src="img/icone_ProdutosLojista.png" /></a>
+			    </div></div>
+			    <div class="ui-block-c"><div class="ui-bar ui-bar-a" style="height:60px">
+					<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" /></a>
+			    </div></div>
+			    <div class="ui-block-d"><div class="ui-bar ui-bar-a" style="height:60px">
+			    	<a href="http://google.com.br"><img src="img/icone_HomePageLojista.png" /></a>
+			    </div></div>
+			</div><!-- /grid-c -->
 			
 			<ul data-role="listview" data-inset="true">
 
 			    <li><a href="#">
-			        <img src="http://demos.jquerymobile.com/1.4.0/_assets/img/album-bb.jpg">
-			    <h2>Adriana R. da Silva</h2>
-			    <p> pslum asm sass ka aslks lkasl lkas lkas Kjskjd kjsdk kjs dk lkjsd kl sjk kljsadlks
-			     <span class="ui-li-count"><strong>12/01/2014</strong></span></p></a>
+			        <img src="http://demos.jquerymobile.com/1.4.0/_assets/img/album-bb.png">
+			    <h6>Adriana R. da Silva</h6>
+			    <p> (12/01/2014) pslum asm sass ka aslks lkasl lkas lkas Kjskjd kjsdk kjs dk lkjsd kl sjk kljsadlks</p></a>
 			    </li> <!-- /item -->
 
-			    <li data-icon="false"><a href="#">
-			        <img src="http://demos.jquerymobile.com/1.4.0/_assets/img/album-bb.jpg">
-			    <h2>José Roberto - 12/01/2014</h2>
-			    <p> pslum asm sass ka aslks lkasl lkas lkas Kjskjd kjsdk kjs dk lkjsd kl sjk kljsadlks
-			     <span class="ui-li-count"> <select id="test-slider3" data-role="slider"data-mini="true" name="testslider3">
-								<option value="off">off</option>
-								<option value="on">on</option>
-							</select>
-			     </span>
-			    </p></a>
-			    </li> <!-- /item -->
-
-			    
 			</ul>			
-
-
 	
 		</div><!-- /content -->
 	          
 		<div data-role="footer" data-position="fixed">  
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
 			            <li><a href="#" data-icon="comment"></a></li>
 		        	</ul>
 	        	</div><!-- /navbar -->        
@@ -618,6 +652,7 @@
 	<div data-role="page" id="pontuar">
 	
 		<div data-role="header" style="text-align:center">
+			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
 			<img src="img/logo.png" width="20%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
 	
@@ -670,6 +705,7 @@
 	<div data-role="page" id="sobre">
 	
 		<div data-role="header" style="text-align:center">
+			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
 			<img src="img/logo.png" width="20%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
 	
@@ -677,20 +713,12 @@
 			 <h1>Sobre</h1>
 			<p>Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum </p>
 		</div><!-- /content -->
-	          
-		<div data-role="footer" data-position="fixed">  
-		        <div data-role="navbar">
-			        <ul>
-			            <li><a href="#" data-rel="back"data-icon="back"></a></li>
-		        	</ul>
-	        	</div><!-- /navbar -->        
-		</div><!-- /footer -->
-	
 	</div><!-- /page -->
 	
 	<div data-role="page" id="termo">
 	
 		<div data-role="header" style="text-align:center">
+			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
 			<img src="img/logo.png" width="20%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
 	
@@ -698,21 +726,13 @@
 			 <h1>Termo de uso</h1>
 			<p>Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum </p>
 		</div><!-- /content -->
-	          
-		<div data-role="footer" data-position="fixed">  
-		        <div data-role="navbar">
-			        <ul>
-			            <li><a href="#" data-rel="back">Voltar</a></li>
-		        	</ul>
-	        	</div><!-- /navbar -->        
-		</div><!-- /footer -->
-	
 	</div><!-- /page -->
 	
 	
 	<div data-role="page" id="fale">
 	
 		<div data-role="header" style="text-align:center">
+			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
 			<img src="img/logo.png" width="20%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
 	
@@ -730,20 +750,12 @@
 			<textarea cols="40" rows="20" name="textarea" id="textarea"></textarea>
 	
 		</div><!-- /content -->
-	          
-		<div data-role="footer" data-position="fixed">  
-		        <div data-role="navbar">
-			        <ul>
-			            <li><a href="#" data-rel="back">Voltar</a></li>
-		        	</ul>
-	        	</div><!-- /navbar -->        
-		</div><!-- /footer -->
-	
 	</div><!-- /page -->
 
 	<div data-role="page" id="alterar-senha">
 	
 		<div data-role="header" style="text-align:center">
+			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
 			<img src="img/logo.png" width="20%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
 	
@@ -759,17 +771,9 @@
 			<label for="nova-confirmacao-senha">Confirmar Senha:</label>
 			<input type="password" id="nova-confirmacao-senha"/>
 	
-			<button>Alterar Senha</button>
+			 <a href="#" onclick="alterarSenha()"><img src="img/btAlterarSenha.png"/></a>
+			
 		</div><!-- /content -->
-	          
-		<div data-role="footer" data-position="fixed">  
-		        <div data-role="navbar">
-			        <ul>
-			            <li><a href="#" data-rel="back" data-icon="back"></a></li>
-		        	</ul>
-	        	</div><!-- /navbar -->        
-		</div><!-- /footer -->
-	
 	</div><!-- /page -->
 
 <script>
@@ -778,7 +782,8 @@ $( document ).on( "pageinit", "#loja-localizacao", function() {
     if ( navigator.geolocation ) {
         function success(pos) {
             // Location found, show map with these coordinates
-            drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+            //drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+            drawMap(new google.maps.LatLng(34.0983425, -118.3267434));
 
         }
         function fail(error) {
