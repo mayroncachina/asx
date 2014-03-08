@@ -4,4 +4,27 @@
 }
 */
 
+.small {
 
+	font-size: 12px !important;
+}
+
+.small-13 {
+	font-size: 13px !important;	
+}
+.small-10 {
+
+	font-size: 10px !important;
+}
+
+h1 {
+	font-size: 29px;
+}
+
+.btn-loja-utils {
+	padding: 6px !important
+}
+
+.btn-loja-utils a img {
+	width: 37px;
+}
