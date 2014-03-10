@@ -1000,9 +1000,14 @@ var senha = $("#cadastro-senha").val();
 var sexo = $("#radio-choice-h-2a").val() == 'off' ? "F" : "M";
 
 
-var url = "http://services.asxcard.com.br/CadastroService.svc/cadastro?nome="+nome+"&email="+email+"&telefone 
-="+fone+"&nascimento="+data+"&senha="+senha+"&sexo="+sexo;
-alert(url);
+var url = "http://services.asxcard.com.br/CadastroService.svc/cadastro?"+
+		   "nome="+nome+
+		   "&email="+email+
+		   "&telefone ="+fone+
+		   "&nascimento="+data+
+		   "&senha="+senha+
+		   "&sexo="+sexo;
+
 $.ajax({
     url: url,
     type: 'GET',
