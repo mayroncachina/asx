@@ -56,20 +56,20 @@
 		<div role="main" class="ui-content">
 			<h1>Crie sua conta ASX Card</h1>
 	        
-	        <label for="nome">Nome:</label>
-	        <input name="nome" id="nome" value="" type="text">
+	        <label for="cadastro-nome">Nome:</label>
+	        <input name="cadastro-nome" id="cadastro-nome" value="" type="text">
 	    
-	        <label for="email">Email:</label>
-	        <input name="email" id="email" value="" type="email">
+	        <label for="cadastro-email">Email:</label>
+	        <input name="email" id="cadastro-email" value="" type="email">
 	    
-	        <label for="fone">Telefone:</label>
-	        <input name="fone" id="fone" value="" type="tel">
+	        <label for="cadastro-fone">Telefone:</label>
+	        <input name="cadastro-fone" id="cadastro-fone" value="" type="tel">
 	    
-	        <label for="data">Data de Nascimento:</label>
-	        <input name="data" id="data" value="" type="date">
+	        <label for="cadastro-data">Data de Nascimento:</label>
+	        <input name="cadastro-data" id="cadastro-data" value="" type="date">
 	        
-	        <label for="senha">Senha:</label>
-	        <input name="data" id="senha" value="" type="password">
+	        <label for="cadastro-senha">Senha:</label>
+	        <input name="cadastro-senha" id="cadastro-senha" value="" type="password">
 	        
 	            
 	
@@ -711,7 +711,7 @@
 	
 		<div role="main" class="ui-content">
 			 <h1>Sobre</h1>
-			<p>Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum </p>
+			<p class="sobre"></p>
 		</div><!-- /content -->
 	</div><!-- /page -->
 	
@@ -724,7 +724,7 @@
 	
 		<div role="main" class="ui-content">
 			 <h1>Termo de uso</h1>
-			<p>Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum Loren ipsum </p>
+			<p class="termo-de-uso"></p>
 		</div><!-- /content -->
 	</div><!-- /page -->
 	
@@ -738,19 +738,48 @@
 	
 		<div role="main" class="ui-content">
 			 <h1>Fale Conosco</h1>
-	
-			<label for="select-choice-1" class="select">Assunto</label>
-			<select name="select-choice-1" id="select-choice-1">
-			    <option value="standard">Standard: 7 day</option>
-			    <option value="rush">Rush: 3 days</option>
-			    <option value="express">Express: next day</option>
-			    <option value="overnight">Overnight</option>
-			</select>
-			<label for="textarea">Textarea:</label>
-			<textarea cols="40" rows="20" name="textarea" id="textarea"></textarea>
-	
+			<form>
+				<label for="fale-assunto">Assunto:</label>
+				<input type="text" id="fale-assunto" required/>
+				
+				<label for="fale-titulo">Titulo:</label>
+				<input type="text" id="fale-titulo" required/>
+				
+				<label for="fale-mensagem">Mensagem:</label>
+				<textarea cols="40" rows="20" id="fale-mensagem" required></textarea>
+				
+				<img src="img/btEnviarMSG.png" onclick="sendMensage()" />
+			</form>
 		</div><!-- /content -->
 	</div><!-- /page -->
+
+	
+	<div data-role="page" id="indique">
+	
+		<div data-role="header" style="text-align:center">
+			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
+			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+		</div><!-- /header -->
+	
+		<div role="main" class="ui-content">
+			 <h1>Indique um Estabelecimento</h1>
+			<form>
+				<label for="indique-nome">Nome:</label>
+				<input type="text" id="indique-nome" required/>
+				
+				<label for="indique-endereco">Endereço:</label>
+				<input type="text" id="indique-endereco" required/>
+				
+				<label for="indique-cidade">Cidade:</label>
+				<input type="text" id="indique-cidade" required/>
+				
+				<label for="indique-mensagem">Mensagem:</label>
+				<textarea cols="40" rows="20" id="indique-mensagem" required></textarea>
+				
+				<img src="img/btIndicar.png" onclick="indicar()" />
+			</form>
+		</div><!-- /content -->
+	</div><!-- /page -->	
 
 	<div data-role="page" id="alterar-senha">
 	
@@ -811,14 +840,168 @@ $( document ).on( "pageinit", "#loja-localizacao", function() {
 });
 
 
+$( document ).on( "pageinit", "#termo", function() {
+    var url = "http://services.asxcard.com.br/TermosDeUsoService.svc/selecionar";
+	
+	$.ajax({
+	    url: url,
+	    type: 'GET',
+	    error : function (data){ 
+	            alert('Sem acesso a internet');
+	            console.log(data); 
+	    }, 
+	    success: function (data) {
+	    	$(".termo-de-uso").html(data['SelecionarResult']['Mensagem']);        
+	    }
+	});
+});
+
+
+
+$( document ).on( "pageinit", "#sobre", function() {
+    var url = "http://services.asxcard.com.br/SobreService.svc/selecionar";
+	
+	$.ajax({
+	    url: url,
+	    type: 'GET',
+	    error : function (data){ 
+	            alert('Sem acesso a internet');
+	            console.log(data); 
+	    }, 
+	    success: function (data) {
+	    	$(".sobre").html(data['SelecionarResult']['Mensagem']);        
+	    }
+	});
+});
+
+
+function sendMensage(){
+
+	var assunto = $("#fale-assunto").val();
+	var titulo = $("#fale-titulo").val();
+	var mensagem = $("#fale-mensagem").val();
+
+
+    var url = "http://service.asxcard.com.br/NoticiaService.svc/faleconosco?"+
+    			"id="+1+
+    			"&assunto="+assunto+
+    			"&titulo="+titulo+
+    			"&mensagem="+mensagem;
+	
+	$.ajax({
+	    url: url,
+	    type: 'GET',
+	    error : function (data){ 
+	            alert('Falha ao enviar a mensagem');
+	            console.log(data); 
+	    }, 
+	    success: function (data) {
+	    	alert('Mensagem enviada com sucesso!');
+	    }
+	});
+
+}
+
+
+function alterarSenha(){
+
+	var atual = $("#minha-senha").val();
+	var nova = $("#nova-nova-senha").val();
+	var confirma = $("#nova-confirmacao-senha").val();
+
+	if(confirma != "" && nova != "" && confirma === nova){
+
+	    var url = "http://services.asxcard.com.br/CadastroService.svc/mudasenha?"+
+	    			"id="+1+
+	    			"&senhaAtual="+atual+
+	    			"&nhaNova="+nova;
+		
+		$.ajax({
+		    url: url,
+		    type: 'GET',
+		    error : function (data,hx){ 
+		            alert(data['statusText']);
+		            console.log(data); 
+		    }, 
+		    success: function (data) {
+		    	alert(data['MudarSenhaResult']['Mensagem']);
+		    }
+		});	
+
+	}else{
+
+		alert("As senhas não conferem");
+		$("#nova-confirmacao-senha").focus();
+	}
+}
+
+
+function indicar(){
+
+	var nome = $("#indique-nome").val();
+	var endePublicadoreco = $("#indique-endereco").val();
+	var cidade = $("#indique-cidade").val();
+	var mensagem = $("#indique-mensagem").val();
+
+
+    var url = "http://services.asxcard.com.br/IndicacaoService.svc/indique?"+
+    		  "id="+1+
+    		  "&nome="+nome+
+    		  "&endereco="+endePublicadoreco
+    		  "&cidade="+cidade+
+    		  "&mensagem="+mensagem;
+
+	$.ajax({
+	    url: url,
+	    type: 'GET',
+	    error : function (data,hx){ 
+	            alert(data['statusText']);
+	            console.log(data); 
+	    }, 
+	    success: function (data) {
+	    	alert(data['IndicarEstabelecimentoResult']['Mensagem']);
+	    }
+	});	
+
+}
+
 
 function fazerLogin(){
-$.mobile.changePage( "#acoes-menu");
-/*
-var email = $("#login-email").val();
-var senha = $("#login-senha").val();
 
-var url = "http://services.asxcard.com.br/CadastroService.svc/cadastros?email="+email+"&senha="+senha;
+	var email = $("#login-email").val();
+	var senha = $("#login-senha").val();
+
+	var url = "http://services.asxcard.com.br/CadastroService.svc/cadastros?email="+email+"&senha="+senha;
+	
+	$.ajax({
+	    url: url,
+	    type: 'GET',
+	    error : function (data){ 
+	            alert('Acesso Negado! Login ou senha não conferem.');
+	            console.log(data); 
+	    }, 
+	    success: function (data) {
+	        //alert(data);
+	        $.mobile.changePage( "#acoes-menu");
+	    }
+	});
+
+
+}
+
+
+function cadastrar(){
+
+var nome = $("#cadastro-nome").val();
+var email = $("#cadastro-email").val();
+var fone = $("#cadastro-fone").val();
+var data = $("#cadastro-data").val();
+var senha = $("#cadastro-senha").val();
+var sexo = $("#radio-choice-h-2a").val() == 'off' ? "F" : "M";
+
+
+var url = "http://services.asxcard.com.br/CadastroService.svc/cadastro?nome="+nome+"&email="+email+"&telefone 
+="+fone+"&nascimento="+data+"&senha="+senha+"&sexo="+sexo;
 alert(url);
 $.ajax({
     url: url,
@@ -832,10 +1015,9 @@ $.ajax({
         $.mobile.changePage( "#acoes-menu");
     }
 });
-*/
+
 
 }
-
 
 
 
