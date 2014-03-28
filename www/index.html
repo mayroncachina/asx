@@ -1,10 +1,10 @@
-<!DOCTYPE html> 
-<html> 
-<head> 
-	<title>Page Title</title> 
-	
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css" />
 	<link rel="stylesheet" href="css/style.css" />
@@ -25,222 +25,218 @@
 	}
 	</style>
 
-</head> 
+</head>
 
-<body> 
-	
-	
-	
+<body>
+
+
+
 	<div data-role="page" id="index">
-	
+
 		<div role="main" class="ui-content">
-	        <div style="text-align:center" style="text-align:center">
-	        <img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
-	            <div style="margin-top: 90px;">
-	        <a href="#cadastro"><img src="img/btCadastrese.png"/></a><br/>
-	        <a href="#acessar-conta"><img src="img/btLogin.png"/></a>        
-	            </div>
+	        <div style="text-align:center;margin-top:30%" style="text-align:center">
+		        <img src="img/logo.png" width="90%" style="margin-botton:10px;"/>
+		        <div style="margin-top: 90px;">
+			        <a href="#cadastro"><img src="img/btCadastrese.png"/></a><br/>
+			        <a href="#acessar-conta"><img src="img/btLogin.png"/></a>
+			      </div>
 	        </div>
 		</div><!-- /content -->
-	
+
 	</div><!-- /page -->
-	
-	
-	
+
+
+
 	<div data-role="page" id="cadastro">
-	
+
 		<div data-role="header" style="text-align:center">
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content">
 			<h1>Crie sua conta ASX Card</h1>
-	        
-	        <label for="cadastro-nome">Nome:</label>
-	        <input name="cadastro-nome" id="cadastro-nome" value="" type="text">
-	    
-	        <label for="cadastro-email">Email:</label>
-	        <input name="email" id="cadastro-email" value="" type="email">
-	    
-	        <label for="cadastro-fone">Telefone:</label>
-	        <input name="cadastro-fone" id="cadastro-fone" value="" type="tel">
-	    
-	        <label for="cadastro-data">Data de Nascimento:</label>
-	        <input name="cadastro-data" id="cadastro-data" value="" type="date">
-	        
-	        <label for="cadastro-senha">Senha:</label>
-	        <input name="cadastro-senha" id="cadastro-senha" value="" type="password">
-	        
-	            
-	
-	    <fieldset data-role="controlgroup" data-type="horizontal">
-	        <legend>Sexo:</legend>
-	        <input name="radio-choice-h-2" id="radio-choice-h-2a" value="on" checked="checked" type="radio">
-	        <label for="radio-choice-h-2a">Masculino</label>
-	        <input name="radio-choice-h-2" id="radio-choice-h-2b" value="off" type="radio">
-	        <label for="radio-choice-h-2b">Feminino</label>
-	        
-	    </fieldset>
-	    <a href="#" onclick="cadastrar()"><img src="img/btCriarConta.png"/></a> 
-	    
-	
-	          
-	        
+
+			<label for="cadastro-nome">Nome:</label>
+			<input name="cadastro-nome" id="cadastro-nome" value="" type="text">
+
+			<label for="cadastro-email">Email:</label>
+			<input name="email" id="cadastro-email" value="" type="email">
+
+			<label for="cadastro-fone">Telefone:</label>
+			<input name="cadastro-fone" id="cadastro-fone" value="" type="tel">
+
+			<label for="cadastro-data">Data de Nascimento:</label>
+			<input name="cadastro-data" id="cadastro-data" value="" type="date">
+
+			<label for="cadastro-senha">Senha:</label>
+			<input name="cadastro-senha" id="cadastro-senha" value="" type="password">
+
+			<fieldset data-role="controlgroup" data-type="horizontal">
+				<legend>Sexo:</legend>
+				<input name="sexo" id="sexo-masc" value="on" checked="checked" type="radio" >
+				<label for="sexo-masc">Masculino</label>
+				<input name="sexo" id="sexo-fem" value="off" type="radio" >
+				<label for="sexo-fem">Feminino</label>
+			</fieldset>
+			<div style="text-align:center">
+				<a href="#" onclick="cadastrarUsuario()"><img src="img/btCriarConta.png"/></a>
+			</div>
+
 		</div><!-- /content -->
-	
+
 	</div><!-- /page -->
-	
-	
-	
+
+
+
 	<div data-role="page" id="acessar-conta">
-	
+
 		<div data-role="header" style="text-align:center">
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content" style="text-align:center">
+			<h1>Entrar</h1>
+			<br/><br/>
 			<h1>Acessar sua Conta</h1>
-	        
+
 	        <label for="nome" style="text-align:left">Email:</label>
 	        <input name="nome" id="login-email" value="" type="text">
-	    
+
 	        <label for="senha" style="text-align:left">Senha:</label>
 	        <input name="senha" id="login-senha" value="" type="password">
-	        <a href="#recuperar-senha" data-role="none">Esqueci minha senha</a>
-	        <br/>
-	        <a href="#" onclick="fazerLogin()"><img src="img/btLogin.png"/></a>
-	          
+	        <div style="text-align:center;margin-top:40px">
+		        <a href="#recuperar-senha" data-role="none">Esqueci minha senha</a>
+		        <br/><br/><br/>
+	        	<a href="#" onclick="fazerLogin()"><img src="img/btLogin.png"/></a>
+	        </div>
+
 		</div><!-- /content -->
-	
+
 	</div><!-- /page -->
-	
-	
-	
+
+
+
 	<div data-role="page" id="recuperar-senha">
-	
+
 		<div data-role="header" style="text-align:center">
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content" style="text-align:center">
 			<h1>Recuperar senha</h1>
 	        <h2>Informe o e-mail para
 	            enviar a sua senha</h2>
-	        
+
 	        <label for="nome" style="text-align:left">Email:</label>
 	        <input name="nome" id="nome" value="" type="text">
-	    
+
 	        <a href="#senha-recuperada" data-role="button">Confirmar</a>
-	          
+
 		</div><!-- /content -->
-	
-	    <div data-role="footer" data-position="fixed">  
+
+	    <div data-role="footer" data-position="fixed">
 	        <div data-role="navbar">
 	        <ul>
 	            <li><a href="#" class="ui-btn-active">Voltar</a></li>
 	            <li><a href="#">Acoes</a></li>
 	        </ul>
 	        </div><!-- /navbar -->
-	    </div>    
+	    </div>
 	</div><!-- /page -->
-	
-	
-	
+
+
+
 	<div data-role="page" id="senha-recuperada">
-	
+
 		<div data-role="header" style="text-align:center">
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content" style="text-align:center">
 			<h1>Recuperar senha</h1>
 	        <h3>Obrigado!<h3>
 	        <h3>Verifique na caixa de entrada do seu e-mail .</h3>
-	        
-	        
+
+
 	        <a href="#acessar-conta" data-role="button">Confirmar</a>
-	          
+
 		</div><!-- /content -->
-	
-	    <div data-role="footer" data-position="fixed">  
+
+	    <div data-role="footer" data-position="fixed">
 	        <div data-role="navbar">
 	        <ul>
 	            <li><a href="#" class="ui-btn-active">Voltar</a></li>
 	            <li><a href="#">Acoes</a></li>
 	        </ul>
 	        </div><!-- /navbar -->
-	    </div>    
+	    </div>
 	</div><!-- /page -->
-	
-	
+
+
 	<div data-role="page" id="atualizar-cadastro">
-	
+
 		<div data-role="header" style="text-align:center">
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content">
 			<h1>Minha Conta</h1>
-	        
-	        <label for="nome">Nome:</label>
-	        <input name="nome" id="nome" value="" type="text">
-	    
-	        <label for="email">Email:</label>
-	        <input name="email" id="email" value="" type="email">
-	    
-	        <label for="fone">Telefone:</label>
-	        <input name="fone" id="fone" value="" type="tel">
-	    
-	        <label for="data">Data de Nascimento:</label>
-	        <input name="data" id="data" value="" type="date">
-	        
-	    <button class="ui-btn">Atualizar</button>
-	          
-	        
+
+	        <label for="atualizar-cadastro-nome">Nome:</label>
+	        <input name="atualizar-cadastro-nome" id="atualizar-cadastro-nome" value="" type="text">
+
+	        <label for="atualizar-cadastro-email">Email:</label>
+	        <input name="atualizar-cadastro-email" id="atualizar-cadastro-email" value="" type="email">
+
+	        <label for="atualizar-cadastro-fone">Telefone:</label>
+	        <input name="atualizar-cadastro-fone" id="atualizar-cadastro-fone" value="" type="tel">
+
+	        <label for="atualizar-cadastro-data">Data de Nascimento:</label>
+	        <input name="atualizar-cadastro-data" id="atualizar-cadastro-data" value="" type="date">
+
+	    	<div style="text-align:center">
+				<a href="#" onclick="atualizarUsuario()"><img src="img/btAtualizar.png"/></a>
+			</div>
+
+
 		</div><!-- /content -->
-	
-	    <div data-role="footer" data-position="fixed">  
-	        <div data-role="navbar">
-	        <ul>
-	            <li><a href="#" class="ui-btn-active">Voltar</a></li>
-	            <li><a href="#">Acoes</a></li>
-	        </ul>
-	        </div><!-- /navbar -->
-	    </div>    
+
 	</div><!-- /page -->
-	
-	
+
+
 	<div data-role="page" id="principal">
-	
+
 		<div data-role="header" style="text-align:center">
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content">
 			<h1>Menu Principal</h1>
-	        
+
 	        <ul data-role="listview" data-inset="true">
 	    <li><a href="#sobre"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/done-01-16.png" alt="" class="ui-li-icon ui-corner-none">Sobre a ASX Card</a></li>
 	    <li><a href="#alterar-senha"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-16.png" alt="" class="ui-li-icon">Mudar Senha</a></li>
+	   	<li><a href="#atualizar-cadastro"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-16.png" alt="" class="ui-li-icon">Minha Conta</a></li>
 	    <li><a href="#fale"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/user-01-16.png" alt=" " class="ui-li-icon">Fale Conosco</a></li>
 	    <li><a href="#termo"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/grid-01-16.png" alt="" class="ui-li-icon">Termo de Uso</a></li>
 	    <li><a href="#indique"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/like-01-16.png" alt="" class="ui-li-icon ui-corner-none">Indique um estabelecimento</a></li>
         <li><a href="#acoes-menu"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/like-01-16.png" alt="" class="ui-li-icon ui-corner-none">Meus Cartões</a></li>
 	</ul>
-	          
-	        
+
+
 		</div><!-- /content -->
-	
+
 	</div><!-- /page -->
-	
-	
+
+
 	<div data-role="page" id="acoes-menu">
-	
+
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content">
 			 <div data-role="navbar">
 	            <ul>
@@ -250,19 +246,19 @@
 	                <li><a href="#menu-lista" data-icon="bullets" class="small">Visualizar<br/>Cartões</a></li>
 	            </ul>
 	        </div><!-- /navbar -->
-	          
-	        
+
+
 		</div><!-- /content -->
-	
+
 	</div><!-- /page -->
-	
+
 	<div data-role="page" id="menu-lista">
-	
+
 		<div data-role="header" style="text-align:center">
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
-		
+
+
 	        <ul data-role="listview" data-inset="true">
 		    <li><a href="#meus-cartoes">
 		        <img src="https://cdn3.iconfinder.com/data/icons/faticons/32/grid-01-64.png" >
@@ -289,20 +285,20 @@
 		    <h2>Ofertas Especiais</h2></a>
 		    </li>
 		</ul>
-		          
-	        
+
+
 		</div><!-- /content -->
-	
+
 	</div><!-- /page -->
-	
-	
+
+
 	<div data-role="page" id="meus-cartoes">
-	
+
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content">
 			<div role="main" class="ui-content">
 			 <div data-role="navbar">
@@ -313,8 +309,8 @@
 	                <li><a href="#menu-lista" data-icon="bullets" class="small-10">Visualizar<br/>Cartões</a></li>
 	            </ul>
 	        </div><!-- /navbar -->
-	          
-	        
+
+
 		</div><!-- /content -->
 
 			<ul data-role="listview" data-inset="true">
@@ -329,16 +325,16 @@
 					<img src="img/icone_Comentarios.png" width="20"/><strong>3</strong>
 				    </p>
 				        <p class="ui-li-aside">
-						<span><strong><img src="img/icone_Cartao_01.png" width="25"/> 
+						<span><strong><img src="img/icone_Cartao_01.png" width="25"/>
 							<span style="color:green;font-size:14px">3</span>/<span style="color:blue;font-size:14px">10</span></strong>
 						</span><br/>
-						<span><strong><img src="img/icone_Cartao_02.png" width="25"/> 
+						<span><strong><img src="img/icone_Cartao_02.png" width="25"/>
 							<span style="color:green;font-size:14px">3</span>/<span style="color:blue;font-size:14px">10</span></strong>
 						</span><br/>
-						<span><strong><img src="img/icone_Cartao_03.png" width="25"/> 
+						<span><strong><img src="img/icone_Cartao_03.png" width="25"/>
 							<span style="color:green;font-size:14px">3</span>/<span style="color:blue;font-size:14px">10</span></strong>
 						</span><br/>
-						
+
 
 					</p>
 			    	</a>
@@ -355,28 +351,28 @@
 					<img src="img/icone_Comentarios.png" width="20"/><strong>3</strong>
 				    </p>
 				        <p class="ui-li-aside">
-						<span><strong><img src="img/icone_Cartao_01.png" width="25"/> 
+						<span><strong><img src="img/icone_Cartao_01.png" width="25"/>
 							<span style="color:green;font-size:14px">3</span>/<span style="color:blue;font-size:14px">10</span></strong>
 						</span><br/>
-						<span><strong><img src="img/icone_Cartao_02.png" width="25"/> 
+						<span><strong><img src="img/icone_Cartao_02.png" width="25"/>
 							<span style="color:green;font-size:14px">3</span>/<span style="color:blue;font-size:14px">10</span></strong>
 						</span><br/>
-						<span><strong><img src="img/icone_Cartao_03.png" width="25"/> 
+						<span><strong><img src="img/icone_Cartao_03.png" width="25"/>
 							<span style="color:green;font-size:14px">3</span>/<span style="color:blue;font-size:14px">10</span></strong>
 						</span><br/>
-						
+
 
 					</p>
 			    	</a>
 			    </li> <!-- /Item -->
-	
+
 			    </li>
-			    
+
 			</ul>
-	
+
 	        </div><!-- /main -->
-	
-		<div data-role="footer" data-position="fixed">  
+
+		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
 			            <li><a href="#" data-icon="grid"></a></li>
@@ -384,21 +380,21 @@
 			            <li><a href="#" data-icon="load"></a></li>
 			            <li><a href="#" data-icon="gear"></a></li>
 		        	</ul>
-	        	</div><!-- /navbar -->        
+	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
-	
+
 	</div><!-- /page -->
-	
-	
+
+
 	<div data-role="page" id="loja">
-	
+
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content">
-	
+
 
 		<div style="text-align:center">
 			<h1>Holly ́s Pizzas - Burger</h1>
@@ -436,7 +432,7 @@
 	                <li><a href="#" data-icon="false">Cartão<br/>Promoção</a></li>
 	            </ul>
         	</div><!-- /navbar -->
-	
+
 			<fieldset data-role="controlgroup" data-type="horizontal" style="background:none repeat scroll 0% 0% rgb(233, 233, 233);font-size:10px">
 				<p style="color:green;text-align:center"><strong>Junte 10 pontos e ganhe Holly ́s Burger Completo.</strong></p>
 	            <div style="text-align:center">
@@ -450,26 +446,26 @@
 				<img src="img/img_P7_off.png" width="15%" />
 				<img src="img/img_P8_off.png" width="15%" />
 				<img src="img/img_P9_off.png" width="15%" />
-				<img src="img/img_Premio_off.png" width="15%" />			
+				<img src="img/img_Premio_off.png" width="15%" />
                 </div>
 				<p style="text-align:center"><b>Validade: 10/05/2014</b></p>
 				<p style="text-align:center">Ao juntar 5 pontos em compras no salão, ganhe 1 refrigerante, e ao juntar 10 pontos ganhe um Holly ́s Burger Completo.</p>		</fieldset>
-	
-	
+
+
 		</div><!-- /content -->
-	          
+
 	</div><!-- /page -->
 
 
 	<div data-role="page" id="loja-localizacao">
-	
+
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content">
-	
+
 			<div style="text-align:center">
 				<h1>Holly ́s Pizzas - Burger</h1>
 			</div>
@@ -511,19 +507,19 @@
 			<p><strong>Distância: 500m</strong></p>
 		</div><!-- /content -->
 	</div><!-- /page -->
-	
-	
+
+
 
 
 	<div data-role="page" id="loja-menu">
-	
+
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content">
-	
+
 			<div style="text-align:center">
 				<h1>Holly ́s Pizzas - Burger</h1>
 			</div>
@@ -551,7 +547,7 @@
 			    	<a href="http://google.com.br"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
 			    </div></div>
 			</div><!-- /grid-c -->
-			
+
 			<ul data-role="listview" data-inset="true">
 
 			    <li><a href="#">
@@ -567,35 +563,35 @@
 			    <p> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 			     <span class="ui-li-count"><strong>R$ 30,00</strong></span></p></a>
 			    </li> <!-- /item -->
-			    
-			</ul>			
+
+			</ul>
 
 
-	
+
 		</div><!-- /content -->
-	          
-		<div data-role="footer" data-position="fixed">  
+
+		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
 			            <li><a href="#" data-icon="heart"></a></li>
 		        	</ul>
-	        	</div><!-- /navbar -->        
+	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
-	
-	</div><!-- /page -->	
-	
-	
+
+	</div><!-- /page -->
+
+
 
 
 	<div data-role="page" id="loja-comentarios">
-	
+
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content">
-	
+
 			<div style="text-align:center">
 				<h1>Holly ́s Pizzas - Burger</h1>
 			</div>
@@ -622,7 +618,7 @@
 			    <div class="ui-block-d"><div class="ui-bar ui-bar-a  btn-loja-utils" style="height:60px">
 			    	<a href="http://google.com.br"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
 			    </div></div>
-			</div><!-- /grid-c -->			
+			</div><!-- /grid-c -->
 			<ul data-role="listview" data-inset="true">
 
 			    <li><a href="#">
@@ -631,31 +627,31 @@
 			    <p> (12/01/2014) pslum asm sass ka aslks lkasl lkas lkas Kjskjd kjsdk kjs dk lkjsd kl sjk kljsadlks</p></a>
 			    </li> <!-- /item -->
 
-			</ul>			
-	
+			</ul>
+
 		</div><!-- /content -->
-	          
-		<div data-role="footer" data-position="fixed">  
+
+		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
 			            <li><a href="#" data-icon="comment"></a></li>
 		        	</ul>
-	        	</div><!-- /navbar -->        
+	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
-	
-	</div><!-- /page -->	
-	
-	
+
+	</div><!-- /page -->
+
+
 
 
 
 	<div data-role="page" id="pontuar">
-	
+
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content">
 			<div data-role="navbar">
 		            <ul>
@@ -680,22 +676,22 @@
 			        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Cancelar</a>
 			        <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back" data-transition="flow">Cadastrar</a>
 			    </div>
-			</div>	
+			</div>
 
 
 
 
 
 	        </div><!-- /main -->
-	
-		<div data-role="footer" data-position="fixed">  
+
+		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
 			            <li><a href="#loja" data-icon="camera"></a></li>
 		        	</ul>
-	        	</div><!-- /navbar -->        
+	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
-	
+
 	</div><!-- /page -->
 
 
@@ -703,94 +699,100 @@
 
 
 	<div data-role="page" id="sobre">
-	
+
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content">
 			 <h1>Sobre</h1>
 			<p class="sobre"></p>
 		</div><!-- /content -->
 	</div><!-- /page -->
-	
+
 	<div data-role="page" id="termo">
-	
+
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content">
 			 <h1>Termo de uso</h1>
 			<p class="termo-de-uso"></p>
 		</div><!-- /content -->
 	</div><!-- /page -->
-	
-	
+
+
 	<div data-role="page" id="fale">
-	
+
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content">
 			 <h1>Fale Conosco</h1>
-			<form>
-				<label for="fale-assunto">Assunto:</label>
-				<input type="text" id="fale-assunto" required/>
-				
+
+			 <label for="select-choice-0" class="select">Assunto:</label>
+				<select name="fale-assunto" id="fale-assunto">
+				  <option value="Sugestoes">Sugestões</option>
+				  <option value="Reclamacoes">Reclamações</option>
+				  <option value="Suporte">Suporte</option>
+				</select>
+
 				<label for="fale-titulo">Titulo:</label>
 				<input type="text" id="fale-titulo" required/>
-				
+
 				<label for="fale-mensagem">Mensagem:</label>
-				<textarea cols="40" rows="20" id="fale-mensagem" required></textarea>
-				
+				<textarea cols="40" rows="40" id="fale-mensagem" style="180px !important" required></textarea>
+
+				<div style="text-align:center">
 				<img src="img/btEnviarMSG.png" onclick="sendMensage()" />
+			</div>
 			</form>
 		</div><!-- /content -->
 	</div><!-- /page -->
 
-	
+
 	<div data-role="page" id="indique">
-	
+
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content">
 			 <h1>Indique um Estabelecimento</h1>
 			<form>
 				<label for="indique-nome">Nome:</label>
 				<input type="text" id="indique-nome" required/>
-				
+
 				<label for="indique-endereco">Endereço:</label>
 				<input type="text" id="indique-endereco" required/>
-				
+
 				<label for="indique-cidade">Cidade:</label>
 				<input type="text" id="indique-cidade" required/>
-				
+
 				<label for="indique-mensagem">Mensagem:</label>
 				<textarea cols="40" rows="20" id="indique-mensagem" required></textarea>
-				
+
 				<img src="img/btIndicar.png" onclick="indicar()" />
 			</form>
 		</div><!-- /content -->
-	</div><!-- /page -->	
+	</div><!-- /page -->
 
 	<div data-role="page" id="alterar-senha">
-	
+
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
-			<img src="img/logo.png" width="18%" style="margin-botton:10px;"/>
+			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
-	
+
 		<div role="main" class="ui-content">
 			 <h1>Mudar sua Senha</h1>
-	
+
 			<label for="nova-minha-senha">Senha Atual:</label>
 			<input type="password" id="minha-senha"/>
 
@@ -799,9 +801,9 @@
 
 			<label for="nova-confirmacao-senha">Confirmar Senha:</label>
 			<input type="password" id="nova-confirmacao-senha"/>
-	
+
 			 <a href="#" onclick="alterarSenha()"><img src="img/btAlterarSenha.png"/></a>
-			
+
 		</div><!-- /content -->
 	</div><!-- /page -->
 
@@ -842,34 +844,49 @@ $( document ).on( "pageinit", "#loja-localizacao", function() {
 
 $( document ).on( "pageinit", "#termo", function() {
     var url = "http://services.asxcard.com.br/TermosDeUsoService.svc/selecionar";
-	
+
 	$.ajax({
 	    url: url,
 	    type: 'GET',
-	    error : function (data){ 
-	            alert('Sem acesso a internet');
-	            console.log(data); 
-	    }, 
+	    error : function (data){
+	            
+	            console.log(data);
+	    },
 	    success: function (data) {
-	    	$(".termo-de-uso").html(data['SelecionarResult']['Mensagem']);        
+	    	$(".termo-de-uso").html(data);
 	    }
 	});
 });
 
 
+$( document ).on( "pageinit", "#index", function() {
+    var url = " http://services.asxcard.com.br/TokenService.svc/gerar";
 
-$( document ).on( "pageinit", "#sobre", function() {
-    var url = "http://services.asxcard.com.br/SobreService.svc/selecionar";
-	
 	$.ajax({
 	    url: url,
 	    type: 'GET',
-	    error : function (data){ 
-	            alert('Sem acesso a internet');
-	            console.log(data); 
-	    }, 
+	    error : function (data){
+	            
+	            console.log(data);
+	    },
 	    success: function (data) {
-	    	$(".sobre").html(data['SelecionarResult']['Mensagem']);        
+	    	localStorage.setItem('TokenService', data['GerarResult']);
+	    }
+	});
+});
+
+$( document ).on( "pageinit", "#sobre", function() {
+    var url = "http://services.asxcard.com.br/SobreService.svc/selecionar";
+
+	$.ajax({
+	    url: url,
+	    type: 'GET',
+	    error : function (data){
+	            
+	            console.log(data);
+	    },
+	    success: function (data) {
+	    	$(".sobre").html(data);
 	    }
 	});
 });
@@ -882,21 +899,41 @@ function sendMensage(){
 	var mensagem = $("#fale-mensagem").val();
 
 
-    var url = "http://service.asxcard.com.br/NoticiaService.svc/faleconosco?"+
-    			"id="+1+
+
+if(titulo == ""){
+	alert("Informe um titulo para mensagem");
+	$("#fale-titulo").focus();
+	return false;
+} 
+
+
+if(mensagem == ""){
+	alert("Informe uma mensagem");
+	$("#fale-mensagem").focus();
+	return false;
+} 
+
+    var url = " http://services.asxcard.com.br/NoticiaService.svc/faleconosco?"+
+    			"id="+localStorage.getItem('Codigo')+
     			"&assunto="+assunto+
     			"&titulo="+titulo+
-    			"&mensagem="+mensagem;
-	
+    			"&mensagem="+mensagem+
+    			"token="+localStorage.getItem('TokenService');;
+
+console.log(url)
+return false;
+
 	$.ajax({
 	    url: url,
 	    type: 'GET',
-	    error : function (data){ 
+	    error : function (data){
 	            alert('Falha ao enviar a mensagem');
-	            console.log(data); 
-	    }, 
+	            console.log(data);
+	    },
 	    success: function (data) {
-	    	alert('Mensagem enviada com sucesso!');
+
+	    	alert(data['FaleConoscoResult']['Mensagem']);
+	    	return false;
 	    }
 	});
 
@@ -912,21 +949,21 @@ function alterarSenha(){
 	if(confirma != "" && nova != "" && confirma === nova){
 
 	    var url = "http://services.asxcard.com.br/CadastroService.svc/mudasenha?"+
-	    			"id="+1+
+	    			"id="+localStorage.getItem('Codigo')+
 	    			"&senhaAtual="+atual+
 	    			"&nhaNova="+nova;
-		
+
 		$.ajax({
 		    url: url,
 		    type: 'GET',
-		    error : function (data,hx){ 
+		    error : function (data,hx){
 		            alert(data['statusText']);
-		            console.log(data); 
-		    }, 
+		            console.log(data);
+		    },
 		    success: function (data) {
 		    	alert(data['MudarSenhaResult']['Mensagem']);
 		    }
-		});	
+		});
 
 	}else{
 
@@ -945,7 +982,7 @@ function indicar(){
 
 
     var url = "http://services.asxcard.com.br/IndicacaoService.svc/indique?"+
-    		  "id="+1+
+    		  "id="+localStorage.getItem('Codigo')+
     		  "&nome="+nome+
     		  "&endereco="+endePublicadoreco
     		  "&cidade="+cidade+
@@ -954,14 +991,14 @@ function indicar(){
 	$.ajax({
 	    url: url,
 	    type: 'GET',
-	    error : function (data,hx){ 
+	    error : function (data,hx){
 	            alert(data['statusText']);
-	            console.log(data); 
-	    }, 
+	            console.log(data);
+	    },
 	    success: function (data) {
 	    	alert(data['IndicarEstabelecimentoResult']['Mensagem']);
 	    }
-	});	
+	});
 
 }
 
@@ -971,17 +1008,38 @@ function fazerLogin(){
 	var email = $("#login-email").val();
 	var senha = $("#login-senha").val();
 
-	var url = "http://services.asxcard.com.br/CadastroService.svc/cadastros?email="+email+"&senha="+senha;
+
+
+	if(email == ""){
+		alert("Informe um email");
+		$("#login-email").focus();
+		return false;
+	} 
+
+	if(senha == ""){
+		alert("Informe uma senha");
+		$("#login-senha").focus();
+		return false;
+	} 
+	var url = "http://services.asxcard.com.br/CadastroService.svc/cadastros?email="+email+"&senha="+senha+"token="+localStorage.getItem('TokenService');
 	
+	console.log(url)
+
+
 	$.ajax({
 	    url: url,
 	    type: 'GET',
-	    error : function (data){ 
+	    error : function (data){
 	            alert('Acesso Negado! Login ou senha não conferem.');
-	            console.log(data); 
-	    }, 
+	            console.log(data);
+	    },
 	    success: function (data) {
-	        //alert(data);
+
+	    	if(data['ValidaAcessoResult']['Codigo'] == -1){
+	    		alert(data['ValidaAcessoResult']['Mensagem']);
+	    		return false;
+	    	}
+	        console.log(data);
 	        $.mobile.changePage( "#acoes-menu");
 	    }
 	});
@@ -990,7 +1048,9 @@ function fazerLogin(){
 }
 
 
-function cadastrar(){
+function cadastrarUsuario(){
+
+var erros = "";
 
 var nome = $("#cadastro-nome").val();
 var email = $("#cadastro-email").val();
@@ -1000,23 +1060,68 @@ var senha = $("#cadastro-senha").val();
 var sexo = $("#radio-choice-h-2a").val() == 'off' ? "F" : "M";
 
 
+if(nome == ""){
+	alert("Informe um nome");
+	$("#cadastro-nome").focus();
+	return false;
+} 
+
+if(email == ""){
+	alert("Informe um E-mail");
+	$("#cadastro-email").focus();
+	return false;
+} 
+
+
+if(fone == ""){
+	alert("Informe um telefone");
+	$("#cadastro-fone").focus();
+	return false;
+} 
+
+
+if(data == ""){
+	alert("Informe sua data de nascimento");
+	$("#cadastro-data").focus();
+	return false;
+} 
+
+
+if(senha == ""){
+	alert("Informe uma senha");
+	$("#cadastro-senha").focus();
+	return false;
+} 
+
 var url = "http://services.asxcard.com.br/CadastroService.svc/cadastro?"+
 		   "nome="+nome+
 		   "&email="+email+
 		   "&telefone ="+fone+
 		   "&nascimento="+data+
 		   "&senha="+senha+
+		   "&token="+localStorage.getItem('TokenService') 
 		   "&sexo="+sexo;
 
 $.ajax({
     url: url,
     type: 'GET',
-    error : function (data){ 
+    error : function (data){
             alert('Acesso Negado! Login ou senha não conferem.');
-            console.log(data); 
-    }, 
+            console.log(data);
+    },
     success: function (data) {
-        //alert(data);
+
+    	if(data['CriarContaResult']['Codigo'] == -1){
+    		alert(data['CriarContaResult']['Mensagem']);
+    		return false;
+    	}
+
+        console.log(data);
+        localStorage.setItem('Codigo',data['CriarContaResult']['Codigo']);
+        localStorage.setItem('nome',nome);
+        localStorage.setItem('email',email);
+        localStorage.setItem('fone',fone);
+        localStorage.setItem('data',data);
         $.mobile.changePage( "#acoes-menu");
     }
 });
@@ -1024,6 +1129,83 @@ $.ajax({
 
 }
 
+
+$( document ).on( "pageinit", "#atualizar-cadastro", function() {
+/*
+    $("#atualizar-cadastro-nome").val(localStorage.getItem('nome',nome));
+	$("#atualizar-cadastro-email").val(localStorage.getItem('email',email));
+	$("#atualizar-cadastro-fone").val(localStorage.getItem('fone',fone));
+	$("#atualizar-cadastro-data").val(localStorage.getItem('data',data));
+*/
+});
+
+function atualizarUsuario(){
+
+	var erros = "";
+
+	var nome = $("#atualizar-cadastro-nome").val();
+	var email = $("#atualizar-cadastro-email").val();
+	var fone = $("#atualizar-cadastro-fone").val();
+	var data = $("#atualizar-cadastro-data").val();
+
+
+	if(nome == ""){
+		alert("Informe um nome");
+		$("#atualizar-cadastro-nome").focus();
+		return false;
+	} 
+
+	if(email == ""){
+		alert("Informe um E-mail");
+		$("#atualizar-cadastro-email").focus();
+		return false;
+	} 
+
+
+	if(fone == ""){
+		alert("Informe um telefone");
+		$("#atualizar-cadastro-fone").focus();
+		return false;
+	} 
+
+
+	if(data == ""){
+		alert("Informe sua data de nascimento");
+		$("#atualizar-cadastro-data").focus();
+		return false;
+	} 
+
+
+	var url = "http://services.asxcard.com.br/CadastroService.svc/atualizacadastro?"+
+			   "id="+localStorage.getItem('Codigo')+
+			   "nome="+nome+
+			   "&email="+email+
+			   "&telefone ="+fone+
+			   "&nascimento="+data+
+			   "&token="+localStorage.getItem('TokenService') ;
+	console.log(url)
+	return false;
+	$.ajax({
+	    url: url,
+	    type: 'GET',
+	    error : function (data){
+	            alert('Acesso Negado! Login ou senha não conferem.');
+	            console.log(data);
+	    },
+	    success: function (data) {
+
+	    	if(data['AtualizarDadosResult']['Codigo'] == -1){
+	    		alert(data['AtualizarDadosResult']['Mensagem']);
+	    		return false;
+	    	}
+
+	        console.log(data);
+	        $.mobile.changePage( "#acoes-menu");
+	    }
+	});
+
+
+}
 
 
 
