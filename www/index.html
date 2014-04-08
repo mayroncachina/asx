@@ -918,7 +918,7 @@ $( document ).on( "pageinit", "#loja-localizacao", function() {
 
 
 
-$( document ).on( "pageinit", "#index", function() {
+$( document ).on( "pageinit", "#index, #acessar-conta", function() {
     var url = " http://services.asxcard.com.br/TokenService.svc/gerar";
 
 	$.ajax({
@@ -1199,7 +1199,7 @@ $.ajax({
         localStorage.setItem('email',email);
         localStorage.setItem('fone',fone);
         localStorage.setItem('data',data);
-        $.mobile.changePage( "#info-transitorio");
+        $.mobile.changePage( "#acessar-conta");
     }
 });
 
