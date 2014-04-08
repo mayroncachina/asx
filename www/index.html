@@ -929,8 +929,9 @@ $( document ).on( "pageinit", "#index, #acessar-conta", function() {
 	            console.log(data);
 	    },
 	    success: function (data) {
-	    	console.log(data['GerarResult'])
+	    	//console.log(data['GerarResult'])
 	    	localStorage.setItem('TokenService', data['GerarResult']);
+	    	console.log(localStorage.getItem('TokenService'))
 	    }
 	});
 });
@@ -1286,6 +1287,8 @@ function atualizarUsuario(){
 
 $(document).ajaxSend(function() {
     $.mobile.loading( 'show');
+	console.log("meu token = " +localStorage.setItem('TokenService'));
+
 });
 $(document).ajaxComplete(function() {
     $.mobile.loading( 'hide');
