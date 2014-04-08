@@ -919,9 +919,9 @@ $( document ).on( "pageinit", "#loja-localizacao", function() {
 
 
 $( document ).on( "pageinit", "#index, #acessar-conta", function() {
-	//gerarToken();    
+	gerarToken();    
 });
-
+/*
 function updateToken(){
 	
 	var = 'http://services.asxcard.com.br/TokenService.svc/atualizar?id='+localStorage.getItem('Codigo')
@@ -939,7 +939,7 @@ function updateToken(){
 	    }
 	});
 }
-
+*/
 function gerarToken(){
 	var url = " http://services.asxcard.com.br/TokenService.svc/gerar";
 
