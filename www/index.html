@@ -47,7 +47,7 @@
 	<div data-role="page" id="info-transitorio">
 
 		<div role="main" class="ui-content">
-	        <div style="text-align:center;margin-top:30%" style="text-align:center">
+	        <div style="text-align:center" style="text-align:center">
 
 	        <table>
 	        <tr>
@@ -157,11 +157,16 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 
 		<div data-role="header" style="text-align:center">
 			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
+			<a href="#" data-icon="back" data-rel="back" title="Go back" class="ui-btn-right">&nbsp;</a>
 		</div><!-- /header -->
 
 		<div role="main" class="ui-content" style="text-align:center">
 			<h1>Recuperar senha</h1>
 	        <h2>Informe o e-mail para enviar a sua senha</h2>
+
+			<input type="checkbox" name="recuperar-mesmo" id="recuperar-mesmo" value="1" checked />
+			<label for="recuperar-mesmo">Encaminhar para mesmo e-mail que utilizo em minha conta ASX Card</label>
+
 
 	        <label for="recuperar-email" style="text-align:left">Email:</label>
 	        <input name="recuperar-recuperar" id="nome" value="" type="text">
@@ -722,6 +727,8 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
 			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
+			<a href="#" data-icon="back" data-rel="back" title="Go back" class="ui-btn-right">&nbsp;</a>
+
 		</div><!-- /header -->
 
 		<div role="main" class="ui-content">
@@ -755,6 +762,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
 			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
+			<a href="#" data-icon="back" data-rel="back" title="Go back" class="ui-btn-right">&nbsp;</a>
 		</div><!-- /header -->
 
 		<div role="main" class="ui-content">
@@ -861,6 +869,20 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 	</div><!-- /page -->
 
 <script>
+
+$("#recuperar-mesmo").click(function(){
+
+
+	if ($('#recuperar-mesmo').attr('data-cacheval') == 'true') {
+    	$("#nome").show();
+        return;
+    }else{
+        $("#nome").hide();
+		$("#nome").val('');
+    }
+	
+});
+
 $( document ).on( "pageinit", "#loja-localizacao", function() {
     var defaultLatLng = new google.maps.LatLng(34.0983425, -118.3267434);  // Default to Hollywood, CA when no geolocation support
     if ( navigator.geolocation ) {
@@ -907,6 +929,7 @@ $( document ).on( "pageinit", "#index", function() {
 	            console.log(data);
 	    },
 	    success: function (data) {
+	    	console.log(data['GerarResult'])
 	    	localStorage.setItem('TokenService', data['GerarResult']);
 	    }
 	});
@@ -933,16 +956,14 @@ if(mensagem == ""){
 	$("#fale-mensagem").focus();
 	return false;
 } 
-
     var url = " http://services.asxcard.com.br/NoticiaService.svc/faleconosco?"+
     			"id="+localStorage.getItem('Codigo')+
     			"&assunto="+assunto+
     			"&titulo="+titulo+
     			"&mensagem="+mensagem+
-    			"token="+localStorage.getItem('TokenService');
+    			"&token="+localStorage.getItem('TokenService');
 
 console.log(url)
-return false;
 
 	$.ajax({
 	    url: url,
@@ -952,7 +973,7 @@ return false;
 	            console.log(data);
 	    },
 	    success: function (data) {
-
+	    	console.log(data)
 	    	alert(data['FaleConoscoResult']['Mensagem']);
 	    	return false;
 	    }
@@ -964,14 +985,14 @@ function recuperarSenha(){
 
 	var atual = $("#recuperar-email").val();
 
+	if($('#recuperar-mesmo').attr('data-cacheval')=='true'){
+		atual = localStorage.getItem('email');
+	}
+
 	if(atual != ""){
 
-	    var url = "http://services.asxcard.com.br/CadastroService.svc/mudasenha?"+
-	    			"id="+localStorage.getItem('Codigo')+
-	    			"&senhaAtual="+atual+
-	    			"&nhaNova="+nova+
-	    			"token="+localStorage.getItem('TokenService');
-
+	    var url = "http://services.asxcard.com.br/CadastroService.svc/recuperarsenha?email="+atual;
+	    console.log(url)
 		$.ajax({
 		    url: url,
 		    type: 'GET',
@@ -980,7 +1001,8 @@ function recuperarSenha(){
 		            console.log(data);
 		    },
 		    success: function (data) {
-		    	alert(data['MudarSenhaResult']['Mensagem']);
+		    	console.log(data)
+		    	alert(data['RecuperarSenhaResult']['Mensagem']);
 		    }
 		});
 
@@ -1002,7 +1024,7 @@ function alterarSenha(){
 	    var url = "http://services.asxcard.com.br/CadastroService.svc/mudasenha?"+
 	    			"id="+localStorage.getItem('Codigo')+
 	    			"&senhaAtual="+atual+
-	    			"&nhaNova="+nova+
+	    			"&senhaNova="+nova+
 	    			"&token="+localStorage.getItem('TokenService');;
 
 		$.ajax({
@@ -1039,7 +1061,7 @@ function indicar(){
     		  "&endereco="+endePublicadoreco
     		  "&cidade="+cidade+
     		  "&mensagem="+mensagem+
-    		  "token="+localStorage.getItem('TokenService');;
+    		  "&token="+localStorage.getItem('TokenService');
 
 	$.ajax({
 	    url: url,
@@ -1074,7 +1096,7 @@ function fazerLogin(){
 		$("#login-senha").focus();
 		return false;
 	} 
-	var url = "http://services.asxcard.com.br/CadastroService.svc/cadastros?email="+email+"&senha="+senha+"token="+localStorage.getItem('TokenService');
+	var url = "http://services.asxcard.com.br/CadastroService.svc/cadastros?email="+email+"&senha="+senha;
 	
 	console.log(url)
 
@@ -1089,9 +1111,11 @@ function fazerLogin(){
 	    success: function (data) {
 
 	    	if(data['ValidaAcessoResult']['Codigo'] == -1){
+	    		console.log(data)
 	    		alert(data['ValidaAcessoResult']['Mensagem']);
 	    		return false;
 	    	}
+	    	localStorage.setItem('TokenService',data['ValidaAcessoResult']['Token']);
 	        console.log(data);
 	        $.mobile.changePage( "#info-transitorio");
 	    }
