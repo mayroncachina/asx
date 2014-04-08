@@ -1284,7 +1284,12 @@ function atualizarUsuario(){
 
 }
 
-
+$(document).ajaxSend(function() {
+    $.mobile.loading( 'show');
+});
+$(document).ajaxComplete(function() {
+    $.mobile.loading( 'hide');
+});
 
 </script>
 
