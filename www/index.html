@@ -919,7 +919,11 @@ $( document ).on( "pageinit", "#loja-localizacao", function() {
 
 
 $( document ).on( "pageinit", "#index, #acessar-conta", function() {
-    var url = " http://services.asxcard.com.br/TokenService.svc/gerar";
+	//gerarToken();    
+});
+
+function gerarToken(){
+	var url = " http://services.asxcard.com.br/TokenService.svc/gerar";
 
 	$.ajax({
 	    url: url,
@@ -934,8 +938,7 @@ $( document ).on( "pageinit", "#index, #acessar-conta", function() {
 	    	console.log(localStorage.getItem('TokenService'))
 	    }
 	});
-});
-
+}
 
 function sendMensage(){
 
