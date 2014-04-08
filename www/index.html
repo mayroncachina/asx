@@ -922,6 +922,24 @@ $( document ).on( "pageinit", "#index, #acessar-conta", function() {
 	//gerarToken();    
 });
 
+function updateToken(){
+	
+	var = 'http://services.asxcard.com.br/TokenService.svc/atualizar?id='+localStorage.getItem('Codigo')
+	$.ajax({
+	    url: url,
+	    type: 'GET',
+	    error : function (data){
+	            
+	            console.log(data);
+	    },
+	    success: function (data) {
+	    	//console.log(data['GerarResult'])
+	    	localStorage.setItem('TokenService', data['AtualizarResult']);
+	    	console.log(localStorage.getItem('TokenService'))
+	    }
+	});
+}
+
 function gerarToken(){
 	var url = " http://services.asxcard.com.br/TokenService.svc/gerar";
 
