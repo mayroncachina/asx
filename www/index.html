@@ -919,10 +919,10 @@ $( document ).on( "pageinit", "#loja-localizacao", function() {
 
 
 $( document ).on( "pageinit", "#index, #acessar-conta", function() {
-	gerarToken();    
+	//gerarToken();    
 });
 /*
-function updateToken(){
+function updateToken(codigo){
 	
 	var = 'http://services.asxcard.com.br/TokenService.svc/atualizar?id='+localStorage.getItem('Codigo')
 	$.ajax({
@@ -1138,6 +1138,7 @@ function fazerLogin(){
 	    		return false;
 	    	}
 	    	localStorage.setItem('TokenService',data['ValidaAcessoResult']['Token']);
+	    	localStorage.setItem('Codigo',data['ValidaAcessoResult']['Codigo']);
 	        console.log(data);
 	        $.mobile.changePage( "#info-transitorio");
 	    }
