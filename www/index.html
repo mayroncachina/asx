@@ -836,6 +836,12 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 				<label for="indique-cidade">Cidade:</label>
 				<input type="text" id="indique-cidade" required/>
 
+				<label for="indique-ddd">DDD:</label>
+				<input type="text" id="indique-ddd" required/>
+
+				<label for="indique-telefone">Telefone:</label>
+				<input type="text" id="indique-telefone" required/>
+
 				<label for="indique-mensagem">Mensagem:</label>
 				<textarea cols="40" rows="20" id="indique-mensagem" required></textarea>
 
@@ -916,7 +922,15 @@ $( document ).on( "pageinit", "#loja-localizacao", function() {
     }
 });
 
+$( document ).on( "pageinit", "#atualizar-cadastro", function() {
+	//gerarToken();    
 
+	$("#atualizar-cadastro-nome").val(localStorage.getItem('nome'))
+	$("#atualizar-cadastro-email").val(localStorage.getItem('email'))
+	$("#atualizar-cadastro-ddd").val(localStorage.getItem('ddd'))
+	$("#atualizar-cadastro-fone").val(localStorage.getItem('fone'))
+	$("#atualizar-cadastro-data").val(localStorage.getItem('data'))
+});
 
 $( document ).on( "pageinit", "#index, #acessar-conta", function() {
 	//gerarToken();    
@@ -1075,16 +1089,21 @@ function indicar(){
 	var endePublicadoreco = $("#indique-endereco").val();
 	var cidade = $("#indique-cidade").val();
 	var mensagem = $("#indique-mensagem").val();
+	var ddd =$("#indique-ddd").val();
+	var telefone = $("#indique-telefone").val();
+
 
 
     var url = "http://services.asxcard.com.br/IndicacaoService.svc/indique?"+
     		  "id="+localStorage.getItem('Codigo')+
     		  "&nome="+nome+
-    		  "&endereco="+endePublicadoreco
+    		  "&endereco="+endePublicadoreco+
     		  "&cidade="+cidade+
+    		  "&ddd="+ddd+
+    		  "&telefone="+telefone+
     		  "&mensagem="+mensagem+
     		  "&token="+localStorage.getItem('TokenService');
-
+    console.log(url)
 	$.ajax({
 	    url: url,
 	    type: 'GET',
@@ -1138,7 +1157,11 @@ function fazerLogin(){
 	    		return false;
 	    	}
 	    	localStorage.setItem('TokenService',data['ValidaAcessoResult']['Token']);
-	    	localStorage.setItem('Codigo',data['ValidaAcessoResult']['Codigo']);
+	    	localStorage.setItem('Codigo',data['ValidaAcessoResult']['ID']);
+	        localStorage.setItem('nome',data['ValidaAcessoResult']['Nome']);
+	        localStorage.setItem('email',data['ValidaAcessoResult']['Email']);
+	        localStorage.setItem('ddd',data['ValidaAcessoResult']['DDD']);
+	        localStorage.setItem('fone',data['ValidaAcessoResult']['Telefone']);
 	        console.log(data);
 	        $.mobile.changePage( "#info-transitorio");
 	    }
