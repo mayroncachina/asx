@@ -98,9 +98,12 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 
 			<label for="cadastro-email">Email:</label>
 			<input name="email" id="cadastro-email" value="" type="email">
-
+<!--
+			<label for="cadastro-ddd">DDD:</label>
+			<input name="cadastro-ddd" id="cadastro-ddd" value="" type="number">
+-->
 			<label for="cadastro-fone">Telefone:</label>
-			<input name="cadastro-fone" id="cadastro-fone" value="" type="tel">
+			<input name="cadastro-fone" id="cadastro-fone" value="" type="tel" placeholder="ex.: (99)9999-9999" >
 
 			<label for="cadastro-data">Data de Nascimento:</label>
 			<input name="cadastro-data" id="cadastro-data" value="" type="date">
@@ -110,9 +113,9 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 
 			<fieldset data-role="controlgroup" data-type="horizontal">
 				<legend>Sexo:</legend>
-				<input name="sexo" id="sexo-masc" value="on" checked="checked" type="radio" >
+				<input name="sexo" id="sexo-masc" value="M" checked="checked" type="radio" >
 				<label for="sexo-masc">Masculino</label>
-				<input name="sexo" id="sexo-fem" value="off" type="radio" >
+				<input name="sexo" id="sexo-fem" value="F" type="radio" >
 				<label for="sexo-fem">Feminino</label>
 			</fieldset>
 			<div style="text-align:center">
@@ -133,7 +136,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 
 		<div role="main" class="ui-content" style="text-align:center">
 			<h1>Entrar</h1>
-			<br/><br/>
+			
 			<h1>Acessar sua Conta</h1>
 
 	        <label for="nome" style="text-align:left">Email:</label>
@@ -143,7 +146,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 	        <input name="senha" id="login-senha" value="" type="password">
 	        <div style="text-align:center;margin-top:40px">
 		        <a href="#recuperar-senha" data-role="none">Esqueci minha senha</a>
-		        <br/><br/><br/>
+		        <br/><br/>
 	        	<a href="#" onclick="fazerLogin()"><img src="img/btLogin.png"/></a>
 	        </div>
 
@@ -212,12 +215,12 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 
 	        <label for="atualizar-cadastro-email">Email:</label>
 	        <input name="atualizar-cadastro-email" id="atualizar-cadastro-email" value="" type="email">
-
+<!--
 	        <label for="atualizar-cadastro-ddd">DDD:</label>
 	        <input name="atualizar-cadastro-ddd" id="atualizar-cadastro-ddd" value="" type="number" maxlength="2">
-
+-->
 	        <label for="atualizar-cadastro-fone">Telefone:</label>
-	        <input name="atualizar-cadastro-fone" id="atualizar-cadastro-fone" value="" type="tel">
+	        <input name="atualizar-cadastro-fone" id="atualizar-cadastro-fone" value="" placeholder="ex.: (99)9999-9999" type="tel">
 
 	        <label for="atualizar-cadastro-data">Data de Nascimento:</label>
 	        <input name="atualizar-cadastro-data" id="atualizar-cadastro-data" value="" type="date">
@@ -249,6 +252,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 	    <li><a href="#fale"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/user-01-16.png" alt=" " class="ui-li-icon">Fale Conosco</a></li>
 	    <li><a href="#indique"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/like-01-16.png" alt="" class="ui-li-icon ui-corner-none">Indique um estabelecimento</a></li>
         <li><a href="#acoes-menu"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/like-01-16.png" alt="" class="ui-li-icon ui-corner-none">Meus Cartões</a></li>
+        <li><a href="#" onclick="logout()"><img src="https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/on-off.png" alt="" class="ui-li-icon ui-corner-none">Logout</a></li>
 	</ul>
 
 
@@ -1165,7 +1169,7 @@ function fazerLogin(){
 
 	    	if(data['ValidaAcessoResult']['ID'] == -1){
 	    		console.log(data)
-	    		alert(data['ValidaAcessoResult']['Mensagem']);
+	    		alert("Login ou Senha não confere!");
 	    		return false;
 	    	}
 	    	localStorage.setItem('TokenService',data['ValidaAcessoResult']['Token']);
@@ -1192,7 +1196,8 @@ var email = $("#cadastro-email").val();
 var fone = $("#cadastro-fone").val();
 var data = $("#cadastro-data").val();
 var senha = $("#cadastro-senha").val();
-var sexo = $("#sexo").val() == 'off' ? "F" : "M";
+var ddd = $("#cadastro-ddd").val();
+var sexo = $("#sexo-masc").val() == 'M' ? "M" : "F";
 
 
 if(nome == ""){
@@ -1228,12 +1233,19 @@ if(senha == ""){
 	return false;
 } 
 
+if(ddd == ""){
+	alert("Informe o seu DDD");
+	$("#cadastro-senha").focus();
+	return false;
+} 
+
 var url = "http://services.asxcard.com.br/CadastroService.svc/cadastro?"+
 		   "nome="+nome+
 		   "&email="+email+
 		   "&telefone ="+fone+
 		   "&nascimento="+data+
 		   "&senha="+senha+
+		   "&ddd="+ddd+
 		   "&token="+localStorage.getItem('TokenService') 
 		   "&sexo="+sexo;
 
@@ -1264,6 +1276,15 @@ $.ajax({
 
 }
 
+
+function logout(){
+	localStorage.setItem('Codigo','');
+    localStorage.setItem('nome','');
+    ocalStorage.setItem('email','');
+    localStorage.setItem('fone','');
+    localStorage.setItem('data','');
+    $.mobile.changePage( "#index");
+}
 
 $( document ).on( "pageinit", "#atualizar-cadastro", function() {
 /*
@@ -1326,7 +1347,7 @@ function atualizarUsuario(){
 
 	var url = "http://services.asxcard.com.br/CadastroService.svc/atualizacadastro?"+
 			   "id="+localStorage.getItem('Codigo')+
-			   "nome="+nome+
+			   "&nome="+nome+
 			   "&email="+email+
 			   "&ddd="+ddd+
 			   "&telefone="+fone+
