@@ -1253,7 +1253,7 @@ $.ajax({
     url: url,
     type: 'GET',
     error : function (data){
-            alert('Acesso Negado! Login ou senha não conferem.');
+            alert('Acesso Negado!');
             console.log(data);
     },
     success: function (data) {
@@ -1280,7 +1280,7 @@ $.ajax({
 function logout(){
 	localStorage.setItem('Codigo','');
     localStorage.setItem('nome','');
-    ocalStorage.setItem('email','');
+    localStorage.setItem('email','');
     localStorage.setItem('fone','');
     localStorage.setItem('data','');
     $.mobile.changePage( "#index");
