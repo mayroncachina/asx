@@ -213,6 +213,9 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 	        <label for="atualizar-cadastro-email">Email:</label>
 	        <input name="atualizar-cadastro-email" id="atualizar-cadastro-email" value="" type="email">
 
+	        <label for="atualizar-cadastro-ddd">DDD:</label>
+	        <input name="atualizar-cadastro-ddd" id="atualizar-cadastro-ddd" value="" type="number" maxlength="2">
+
 	        <label for="atualizar-cadastro-fone">Telefone:</label>
 	        <input name="atualizar-cadastro-fone" id="atualizar-cadastro-fone" value="" type="tel">
 
@@ -240,10 +243,10 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 
 	        <ul data-role="listview" data-inset="true">
 	    <li><a href="#sobre"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/done-01-16.png" alt="" class="ui-li-icon ui-corner-none">Sobre a ASX Card</a></li>
+	    <li><a href="#termo"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/grid-01-16.png" alt="" class="ui-li-icon">Termo de Uso</a></li>
 	    <li><a href="#alterar-senha"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-16.png" alt="" class="ui-li-icon">Mudar Senha</a></li>
 	   	<li><a href="#atualizar-cadastro"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-16.png" alt="" class="ui-li-icon">Minha Conta</a></li>
 	    <li><a href="#fale"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/user-01-16.png" alt=" " class="ui-li-icon">Fale Conosco</a></li>
-	    <li><a href="#termo"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/grid-01-16.png" alt="" class="ui-li-icon">Termo de Uso</a></li>
 	    <li><a href="#indique"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/like-01-16.png" alt="" class="ui-li-icon ui-corner-none">Indique um estabelecimento</a></li>
         <li><a href="#acoes-menu"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/like-01-16.png" alt="" class="ui-li-icon ui-corner-none">Meus Cartões</a></li>
 	</ul>
@@ -727,7 +730,6 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
 			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
-			<a href="#" data-icon="back" data-rel="back" title="Go back" class="ui-btn-right">&nbsp;</a>
 
 		</div><!-- /header -->
 
@@ -753,7 +755,8 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 
 			<p>Conte com a ASX Card, nós estamos trabalhando para que voce cada vez mais
 			tenha opções de lazer com ecônomia e ganhando prêmios.</p>
-
+			<br/><br/><br/>
+			<img src="img/btOK.jpg" onclick="$.mobile.changePage( '#principal');"/>
 		</div><!-- /content -->
 	</div><!-- /page -->
 
@@ -762,7 +765,6 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div data-role="header" style="text-align:center">
 			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
 			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
-			<a href="#" data-icon="back" data-rel="back" title="Go back" class="ui-btn-right">&nbsp;</a>
 		</div><!-- /header -->
 
 		<div role="main" class="ui-content">
@@ -781,7 +783,8 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 			(o &quot;Benefício&quot;) vinculado ao (&quot;Programa de Fidelidade&quot;), são descritos abaixo,
 			estando o uso do sistema ASX Card pelo Usuário condicionado à sua concordância 
 			e adesão integral.</p>
-
+			<br/><br/><br/>
+			<img src="img/btOK.jpg" onclick="$.mobile.changePage( '#principal');"/>
 		</div><!-- /content -->
 	</div><!-- /page -->
 
@@ -837,10 +840,10 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 				<input type="text" id="indique-cidade" required/>
 
 				<label for="indique-ddd">DDD:</label>
-				<input type="text" id="indique-ddd" required/>
+				<input type="number" id="indique-ddd" maxlength="2" required/>
 
 				<label for="indique-telefone">Telefone:</label>
-				<input type="text" id="indique-telefone" required/>
+				<input type="tel" id="indique-telefone" maxlength="9" required/>
 
 				<label for="indique-mensagem">Mensagem:</label>
 				<textarea cols="40" rows="20" id="indique-mensagem" required></textarea>
@@ -1011,6 +1014,10 @@ console.log(url)
 	    success: function (data) {
 	    	console.log(data)
 	    	alert(data['FaleConoscoResult']['Mensagem']);
+	    	$("#fale-assunto").val('');
+			$("#fale-titulo").val('');
+			$("#fale-mensagem").val('');
+	    	$.mobile.changePage( "#principal");
 	    	return false;
 	    }
 	});
@@ -1072,6 +1079,10 @@ function alterarSenha(){
 		    },
 		    success: function (data) {
 		    	alert(data['MudarSenhaResult']['Mensagem']);
+		    	$.mobile.changePage( "#principal");
+		    	$("#minha-senha").val('');
+				$("#nova-nova-senha").val('');
+				$("#nova-confirmacao-senha").val('');
 		    }
 		});
 
@@ -1113,6 +1124,7 @@ function indicar(){
 	    },
 	    success: function (data) {
 	    	alert(data['IndicarEstabelecimentoResult']['Mensagem']);
+	    	window.history.go(-1);
 	    }
 	});
 
@@ -1151,7 +1163,7 @@ function fazerLogin(){
 	    },
 	    success: function (data) {
 
-	    	if(data['ValidaAcessoResult']['Codigo'] == -1){
+	    	if(data['ValidaAcessoResult']['ID'] == -1){
 	    		console.log(data)
 	    		alert(data['ValidaAcessoResult']['Mensagem']);
 	    		return false;
@@ -1271,6 +1283,12 @@ function atualizarUsuario(){
 	var fone = $("#atualizar-cadastro-fone").val();
 	var data = $("#atualizar-cadastro-data").val();
 
+	var d = data; 
+	var tokens = d.split("-"); 
+	var dt = tokens[2] + "-" + tokens[1] + "-" + tokens[0]; 
+	
+	var ddd = $("#atualizar-cadastro-ddd").val();
+
 
 	if(nome == ""){
 		alert("Informe um nome");
@@ -1299,15 +1317,24 @@ function atualizarUsuario(){
 	} 
 
 
+	if(ddd == ""){
+		alert("Informe o DDD");
+		$("#atualizar-cadastro-ddd").focus();
+		return false;
+	} 
+
+
 	var url = "http://services.asxcard.com.br/CadastroService.svc/atualizacadastro?"+
 			   "id="+localStorage.getItem('Codigo')+
 			   "nome="+nome+
 			   "&email="+email+
-			   "&telefone ="+fone+
-			   "&nascimento="+data+
+			   "&ddd="+ddd+
+			   "&telefone="+fone+
+			   "&nascimento="+dt+
 			   "&token="+localStorage.getItem('TokenService') ;
 	console.log(url)
-	return false;
+
+
 	$.ajax({
 	    url: url,
 	    type: 'GET',
@@ -1317,13 +1344,31 @@ function atualizarUsuario(){
 	    },
 	    success: function (data) {
 
-	    	if(data['AtualizarDadosResult']['Codigo'] == -1){
+			if(data['AtualizarDadosResult']['Codigo'] == 1){
+				alert('Conta atualizada com sucesso.');
+				$.mobile.changePage( "#acoes-menu");
+			}
+
+			if(data['AtualizarDadosResult']['Codigo'] == -99){
+
+				alert('Token não confere')
+				$.mobile.changePage( "#index"); 
+			}
+			
+			if(data['AtualizarDadosResult']['Codigo'] == -98){
+
+				alert('Token expirado')
+				gerarToken();
+				window.history.go(-1);
+			}
+
+		    if(data['AtualizarDadosResult']['Codigo'] == -1){
 	    		alert(data['AtualizarDadosResult']['Mensagem']);
 	    		return false;
 	    	}
 
-	        console.log(data);
-	        $.mobile.changePage( "#acoes-menu");
+		    console.log(data);
+		        
 	    }
 	});
 
