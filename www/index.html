@@ -94,22 +94,23 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 			<h1>Crie sua conta ASX Card</h1>
 
 			<label for="cadastro-nome">Nome:</label>
-			<input name="cadastro-nome" id="cadastro-nome" value="" type="text">
+			<input name="cadastro-nome" id="cadastro-nome" value="" type="text" maxlength="50">
 
 			<label for="cadastro-email">Email:</label>
-			<input name="email" id="cadastro-email" value="" type="email">
-<!--
-			<label for="cadastro-ddd">DDD:</label>
-			<input name="cadastro-ddd" id="cadastro-ddd" value="" type="number">
--->
-			<label for="cadastro-fone">Telefone:</label>
-			<input name="cadastro-fone" id="cadastro-fone" value="" type="tel" placeholder="ex.: (99)9999-9999" >
+			<input name="email" id="cadastro-email" value="" type="email" maxlength="150">
+
+
+			<label for="cadastro-ddd">Telefone:</label>
+			<fieldset class="ui-grid-a">
+				<div class="ui-block-a" style="width:60px"><input name="cadastro-ddd" id="cadastro-ddd" value="" type="number" ></div>
+				<div class="ui-block-b" style="width:50%"><input name="cadastro-fone" id="cadastro-fone" value="" type="tel" placeholder="ex.: 9999-9999" maxlength="12"></div>	   
+			</fieldset>
 
 			<label for="cadastro-data">Data de Nascimento:</label>
 			<input name="cadastro-data" id="cadastro-data" value="" type="date">
 
 			<label for="cadastro-senha">Senha:</label>
-			<input name="cadastro-senha" id="cadastro-senha" value="" type="password">
+			<input name="cadastro-senha" id="cadastro-senha" value="" type="password" maxlength="25">
 
 			<fieldset data-role="controlgroup" data-type="horizontal">
 				<legend>Sexo:</legend>
@@ -172,7 +173,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 
 
 	        <label for="recuperar-email" style="text-align:left">Email:</label>
-	        <input name="recuperar-recuperar" id="nome" value="" type="text">
+	        <input name="recuperar-recuperar" id="nome" value="" type="text" maxlength="150">
 
 	        <a href="#" onclick="recuperarSenha()" data-role="button">Confirmar</a>
 
@@ -211,16 +212,16 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 			<h1>Minha Conta</h1>
 
 	        <label for="atualizar-cadastro-nome">Nome:</label>
-	        <input name="atualizar-cadastro-nome" id="atualizar-cadastro-nome" value="" type="text">
+	        <input name="atualizar-cadastro-nome" id="atualizar-cadastro-nome" value="" type="text" maxlength="50">
 
 	        <label for="atualizar-cadastro-email">Email:</label>
-	        <input name="atualizar-cadastro-email" id="atualizar-cadastro-email" value="" type="email">
-<!--
-	        <label for="atualizar-cadastro-ddd">DDD:</label>
-	        <input name="atualizar-cadastro-ddd" id="atualizar-cadastro-ddd" value="" type="number" maxlength="2">
--->
-	        <label for="atualizar-cadastro-fone">Telefone:</label>
-	        <input name="atualizar-cadastro-fone" id="atualizar-cadastro-fone" value="" placeholder="ex.: (99)9999-9999" type="tel">
+	        <input name="atualizar-cadastro-email" id="atualizar-cadastro-email" value="" type="email" maxlength="150">
+
+			<label for="cadastro-ddd">Telefone:</label>
+			<fieldset class="ui-grid-a">
+				<div class="ui-block-a" style="width:60px"><input name="atualizar-cadastro-ddd" id="atualizar-cadastro-ddd" value="" type="number" ></div>
+				<div class="ui-block-b" style="width:50%"><input name="atualizar-cadastro-fone" id="atualizar-cadastro-fone" value="" type="tel" placeholder="ex.: 9999-9999" maxlength="12"></div>	   
+			</fieldset>
 
 	        <label for="atualizar-cadastro-data">Data de Nascimento:</label>
 	        <input name="atualizar-cadastro-data" id="atualizar-cadastro-data" value="" type="date">
@@ -843,12 +844,12 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 				<label for="indique-cidade">Cidade:</label>
 				<input type="text" id="indique-cidade" required/>
 
-				<label for="indique-ddd">DDD:</label>
-				<input type="number" id="indique-ddd" maxlength="2" required/>
-
-				<label for="indique-telefone">Telefone:</label>
-				<input type="tel" id="indique-telefone" maxlength="9" required/>
-
+				<label for="cadastro-ddd">Telefone:</label>
+				<fieldset class="ui-grid-a">
+					<div class="ui-block-a" style="width:60px"><input name="indique-ddd" id="indique-ddd" value="" type="number" ></div>
+					<div class="ui-block-b" style="width:50%"><input name="indique-telefone" id="indique-telefone" value="" type="tel" placeholder="ex.: 9999-9999" maxlength="12"></div>	   
+				</fieldset>
+				
 				<label for="indique-mensagem">Mensagem:</label>
 				<textarea cols="40" rows="20" id="indique-mensagem" required></textarea>
 
