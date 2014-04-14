@@ -4,17 +4,34 @@
 	<title>Page Title</title>
 
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 	<link rel="stylesheet" href="css/jquery.mobile-1.4.0.min.css" />
+	<link rel="stylesheet" href="css/themes/Blue.css" />
+	<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
 	<link rel="stylesheet" href="css/style.css" />
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/jquery.mobile-1.4.0.min.js"></script>
 	<!--
 	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-	
+	http://www.gajotres.net/top-10-best-looking-free-jquery-mobile-themes/
 	-->
+	<script type="text/javascript">
+$(document).ready(function() {
 
+var initialScreenSize = window.innerHeight;
+ window.addEventListener("resize", function() {
+  if(window.innerHeight < initialScreenSize){
+     $("#footer").hide();
+     document.body.style.position = "fixed";
+  }
+  else{
+     document.body.style.position = "";
+     $("#footer").show();                                      
+  }
+ });
+});
+	</script>
 	<style>
 	#map-canvas {
 		width: 90%;
@@ -28,6 +45,64 @@
 
 
 
+<div data-role="page">
+  <div data-role="header" data-position="fixed" data-tap-toggle="false">
+    <h1>Issue template</h1>
+  </div><!-- /header -->
+  
+
+  <div data-role="content">
+    <ul data-role="listview">
+      <li data-role="fieldcontain">
+        <label for="1">Field</label>
+        <textarea id="1"></textarea>
+      </li>
+      <li data-role="fieldcontain">
+        <label for="2">Field</label>
+        <textarea id="2"></textarea>
+      </li>
+      <li data-role="fieldcontain">
+        <label for="3">Field</label>
+        <textarea id="3"></textarea>
+      </li>
+      <li data-role="fieldcontain">
+        <label for="4">Field</label>
+        <textarea id="4"></textarea>
+      </li>
+      <li data-role="fieldcontain">
+        <label for="5">Field</label>
+        <textarea id="5"></textarea>
+      </li>
+      <li data-role="fieldcontain">
+        <label for="6">Field</label>
+        <textarea id="6"></textarea>
+      </li>
+      <li data-role="fieldcontain">
+        <label for="7">Field</label>
+        <textarea id="7" placeholder="teste" style="position:relative;botton:0"></textarea>
+      </li>
+      <li data-role="fieldcontain">
+        <label for="8">Field</label>
+        <textarea id="8" placeholder="teste" style="position:relative;botton:0"></textarea>
+      </li>
+      <li data-role="fieldcontain">
+        <label for="9">Field</label>
+        <textarea id="9" placeholder="teste" style="position:relative;botton:0"></textarea>
+      </li>
+      <li data-role="fieldcontain">
+        <label for="10">Field</label>
+        <textarea id="10" placeholder="teste" style="position:relative;botton:0"></textarea>
+      </li>
+      <li>
+        <span><a href="#" onclick="return false">Link</a></span>
+      </li>
+      <li>
+        <button>Button</button>
+      </li>
+    </ul>
+  </div><!-- /content -->
+</div><!-- /page -->
+
 
 	<div data-role="page" id="index">
 
@@ -35,8 +110,8 @@
 	        <div style="text-align:center;margin-top:30%" style="text-align:center">
 		        <img src="img/logo.png" width="90%" style="margin-botton:10px;"/>
 		        <div style="margin-top: 90px;">
-			        <a href="#cadastro"><img src="img/btCadastrese.png"/></a><br/>
-			        <a href="#acessar-conta"><img src="img/btLogin.png"/></a>
+		        	<a href="#cadastro" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Cadastre-se</a><br/>
+			        <a href="#acessar-conta" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Login</a>
 			      </div>
 	        </div>
 		</div><!-- /content -->
@@ -78,7 +153,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 	        </table>
 	        </div>
 		    <br/><br/><br/>
-			<img src="img/btOK.jpg" onclick="$.mobile.changePage( '#acoes-menu');"/>
+			<a href="#" onclick="$.mobile.changePage( '#acoes-menu');" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Ok</a>
 
 		</div><!-- /content -->
 
@@ -86,41 +161,52 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 
 	<div data-role="page" id="cadastro">
 
-		<div data-role="header" style="text-align:center">
+		<div data-role="header" style="text-align:center" data-tap-toggle="false" data-position="fixed">
 			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
 
-		<div role="main" class="ui-content">
+		<div role="main" class="ui-content" data-role="content">
 			<h1>Crie sua conta ASX Card</h1>
 
-			<label for="cadastro-nome">Nome:</label>
-			<input name="cadastro-nome" id="cadastro-nome" value="" type="text" maxlength="50">
+			<ul data-role="listview">
+				<li data-role="fieldcontain">
+			        <label for="cadastro-nome">Nome:</label>
+					<input name="cadastro-nome" id="cadastro-nome" value="" type="text" maxlength="50">
+			    </li>
+			    <li data-role="fieldcontain">
+					<label for="cadastro-email">Email:</label>
+					<input name="email" id="cadastro-email" value="" type="email" maxlength="150">
+				</li>
 
-			<label for="cadastro-email">Email:</label>
-			<input name="email" id="cadastro-email" value="" type="email" maxlength="150">
+			    <li data-role="fieldcontain">
+					<label for="cadastro-ddd">Telefone:</label>
+					<fieldset class="ui-grid-a">
+						<div class="ui-block-a" style="width:60px"><input name="cadastro-ddd" id="cadastro-ddd" value="" type="number" ></div>
+						<div class="ui-block-b" style="width:50%"><input name="cadastro-fone" id="cadastro-fone" value="" type="tel" placeholder="ex.: 9999-9999" maxlength="12"></div>	   
+					</fieldset>
+				</li>
 
+			    <li data-role="fieldcontain">
+					<label for="cadastro-data">Data de Nascimento:</label>
+					<input name="cadastro-data" id="cadastro-data" value="" type="date">
+				</li>
 
-			<label for="cadastro-ddd">Telefone:</label>
-			<fieldset class="ui-grid-a">
-				<div class="ui-block-a" style="width:60px"><input name="cadastro-ddd" id="cadastro-ddd" value="" type="number" ></div>
-				<div class="ui-block-b" style="width:50%"><input name="cadastro-fone" id="cadastro-fone" value="" type="tel" placeholder="ex.: 9999-9999" maxlength="12"></div>	   
-			</fieldset>
-
-			<label for="cadastro-data">Data de Nascimento:</label>
-			<input name="cadastro-data" id="cadastro-data" value="" type="date">
-
-			<label for="cadastro-senha">Senha:</label>
-			<input name="cadastro-senha" id="cadastro-senha" value="" type="password" maxlength="25">
-
-			<fieldset data-role="controlgroup" data-type="horizontal">
-				<legend>Sexo:</legend>
-				<input name="sexo" id="sexo-masc" value="M" checked="checked" type="radio" >
-				<label for="sexo-masc">Masculino</label>
-				<input name="sexo" id="sexo-fem" value="F" type="radio" >
-				<label for="sexo-fem">Feminino</label>
-			</fieldset>
-			<div style="text-align:center">
-				<a href="#" onclick="cadastrarUsuario()"><img src="img/btCriarConta.png"/></a>
+			    <li data-role="fieldcontain">
+					<label for="cadastro-senha">Senha:</label>
+					<input name="cadastro-senha" id="cadastro-senha" value="" type="password" maxlength="25" >
+				</li>
+			    <li data-role="fieldcontain">
+					<fieldset data-role="controlgroup" data-type="horizontal">
+						<legend>Sexo:</legend>
+						<input name="sexo" id="sexo-masc" value="M" checked="checked" type="radio" >
+						<label for="sexo-masc">Masculino</label>
+						<input name="sexo" id="sexo-fem" value="F" type="radio" >
+						<label for="sexo-fem">Feminino</label>
+					</fieldset>
+			    </li>
+			    <li>
+					<a href="#" onclick="cadastrarUsuario()" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Criar Conta</a>
+				</li>
 			</div>
 
 		</div><!-- /content -->
@@ -148,7 +234,8 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 	        <div style="text-align:center;margin-top:40px">
 		        <a href="#recuperar-senha" data-role="none">Esqueci minha senha</a>
 		        <br/><br/>
-	        	<a href="#" onclick="fazerLogin()"><img src="img/btLogin.png"/></a>
+	        	<a href="#" onclick="fazerLogin()" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Login</a>
+
 	        </div>
 
 		</div><!-- /content -->
@@ -175,7 +262,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 	        <label for="recuperar-email" style="text-align:left">Email:</label>
 	        <input name="recuperar-recuperar" id="nome" value="" type="text" maxlength="150">
 
-	        <a href="#" onclick="recuperarSenha()" data-role="button">Confirmar</a>
+	        <a href="#" onclick="recuperarSenha()" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Confirmar</a>
 
 		</div><!-- /content -->
 
@@ -194,8 +281,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 	        <h3>Obrigado!<h3>
 	        <h3>Verifique na caixa de entrada do seu e-mail .</h3>
 
-
-	        <a href="#acessar-conta" data-role="button">Confirmar</a>
+	        <a href="#acessar-conta" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Confirmar</a>
 
 		</div><!-- /content -->
 	</div><!-- /page -->
@@ -227,7 +313,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 	        <input name="atualizar-cadastro-data" id="atualizar-cadastro-data" value="" type="date">
 
 	    	<div style="text-align:center">
-				<a href="#" onclick="atualizarUsuario()"><img src="img/btAtualizar.png"/></a>
+	    	<a href="#" onclick="atualizarUsuario()" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Atualizar</a>
 			</div>
 
 
@@ -245,7 +331,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div role="main" class="ui-content">
 			<h1>Menu Principal</h1>
 
-	        <ul data-role="listview" data-inset="true">
+	    <ul data-role="listview" data-inset="true" data-inset="true" data-split-theme="a">
 	    <li><a href="#sobre"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/done-01-16.png" alt="" class="ui-li-icon ui-corner-none">Sobre a ASX Card</a></li>
 	    <li><a href="#termo"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/grid-01-16.png" alt="" class="ui-li-icon">Termo de Uso</a></li>
 	    <li><a href="#alterar-senha"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-16.png" alt="" class="ui-li-icon">Mudar Senha</a></li>
@@ -741,27 +827,27 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div role="main" class="ui-content">
 			<h1>ASX Card</h1>
 
-			<p>A ASX Card é um cartão de fidelidade Digital, com ele voce irá ganhar
+			<p style="text-align: justify;">A ASX Card é um cartão de fidelidade Digital, com ele voce irá ganhar
 			prêmios se divertindo nos lugares onde voce mais gosta de frequentar.</p>
 
-			<p>Voce poderá receber cupons de descontos de vários estabelecimentos
+			<p style="text-align: justify;">Voce poderá receber cupons de descontos de vários estabelecimentos
 			credenciados nas regiões proximos a voce, além disto voce poderá divulgar
 			as suas opniões dos locais onde utilizou o seu cartão de fidelidade.</p>
 
-			<p>O Cartão Fidelidade Digital é uma forma inteligente de voce ter em seu 
+			<p style="text-align: justify;">O Cartão Fidelidade Digital é uma forma inteligente de voce ter em seu 
 			celular todos os cartões fidelidades dos locais que voce mais gosta de 
 			frequentar, sem o inconveniente de esquecer, rasgar, perder, estará sempre
 			na palma de sua mão, no momento que voce quiser.</p>
 
-			<p>Caso os estabelecimentos que voce gosta de ir, não estiver credenciado
+			<p style="text-align: justify;">Caso os estabelecimentos que voce gosta de ir, não estiver credenciado
 			voce poderá indicá-lo para ASX Card, para que possamos oferecer a voce
 			cada vez mais comodidade e vatagens nos seus momentos de lazer, relações 
 			comerciais e prestações de serviços.</p>
 
-			<p>Conte com a ASX Card, nós estamos trabalhando para que voce cada vez mais
+			<p style="text-align: justify;">Conte com a ASX Card, nós estamos trabalhando para que voce cada vez mais
 			tenha opções de lazer com ecônomia e ganhando prêmios.</p>
 			<br/><br/><br/>
-			<img src="img/btOK.jpg" onclick="$.mobile.changePage( '#principal');"/>
+			<a href="#principal" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">OK</a>
 		</div><!-- /content -->
 	</div><!-- /page -->
 
@@ -775,7 +861,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div role="main" class="ui-content">
 			 <h1>ASX Card</h1>
 
-			<p>Os termos de uso e condições gerais do aplicativo para aparelhos moveis
+			<p style="text-align: justify;">Os termos de uso e condições gerais do aplicativo para aparelhos moveis
 			( SmartPhones e tablets ), para as plataformas Android, iOS e Windows Phone
 			e do site de internet do ASX Card marca da ASX Consultoria de Informatica Ltda
 			( <a href="http://www.AsxCard.com.br" target="_blank">www.AsxCard.com.br</a> ) (o &quot;Sistema ASX Card Fidelidade Digital&quot;) por meio do
@@ -789,7 +875,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 			estando o uso do sistema ASX Card pelo Usuário condicionado à sua concordância 
 			e adesão integral.</p>
 			<br/><br/><br/>
-			<img src="img/btOK.jpg" onclick="$.mobile.changePage( '#principal');"/>
+			<a href="#principal" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">OK</a>
 		</div><!-- /content -->
 	</div><!-- /page -->
 
@@ -818,7 +904,8 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 				<textarea cols="40" rows="40" id="fale-mensagem" style="180px !important" required></textarea>
 
 				<div style="text-align:center">
-				<img src="img/btEnviarMSG.png" onclick="sendMensage()" />
+				<img src="img/btEnviarMSG.png"  />
+				<a href="#" onclick="sendMensage()" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Enviar Mensagem</a>
 			</div>
 			</form>
 		</div><!-- /content -->
@@ -853,7 +940,8 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 				<label for="indique-mensagem">Mensagem:</label>
 				<textarea cols="40" rows="20" id="indique-mensagem" required></textarea>
 
-				<img src="img/btIndicar.png" onclick="indicar()" />
+				<a href="#" onclick="indicar()" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Indicar</a>
+
 			</form>
 		</div><!-- /content -->
 	</div><!-- /page -->
@@ -877,7 +965,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 			<label for="nova-confirmacao-senha">Confirmar Senha:</label>
 			<input type="password" id="nova-confirmacao-senha"/>
 
-			 <a href="#" onclick="alterarSenha()"><img src="img/btAlterarSenha.png"/></a>
+			<a href="#" onclick="alterarSenha()" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Alterar Senha</a>
 
 		</div><!-- /content -->
 	</div><!-- /page -->
