@@ -1479,6 +1479,14 @@ $(document).ajaxComplete(function() {
     $.mobile.loading( 'hide');
 });
 
+
+$('input').on('focus click tap vclick', function (event) {
+	event.stopImmediatePropagation();
+	event.preventDefault();
+
+	$('.keyboard').blur();
+});
+
 </script>
 
 </body>
