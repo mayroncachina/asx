@@ -1487,6 +1487,17 @@ $('input').on('focus click tap vclick', function (event) {
 	$('.keyboard').blur();
 });
 
+
+
+/** Replace default blur with version, which also hides the keyboard 
+*/ 
+HTMLElement.prototype.defaultblur = HTMLElement.prototype.blur; 
+HTMLElement.prototype.blur = function(){ 
+    this.defaultblur(); 
+    window.Keyboard.hide(); 
+}; 
+
+
 </script>
 
 </body>
