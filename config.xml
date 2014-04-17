@@ -5,7 +5,7 @@
         ASX Card - Cartão de fidelidade
     </description>
     <author email="mayron@cachina.com.br" href="http://www.cachina.com.br">
-        Papa Rango
+        Mayron Cachina
     </author>
 
     <preference name="permissions" value="none" />
@@ -19,8 +19,8 @@
     <preference name="exit-on-suspend" value="false" />
     <preference name="auto-hide-splash-screen" value="true" />
     <preference name="disable-cursor" value="false" />
-    <preference name="android-minSdkVersion" value="11" />
-    <preference name="android-installLocation" value="auto" />
+
+
     <gap:plugin name="org.apache.cordova.dialogs" />
     <gap:plugin name="org.apache.cordova.geolocation" />
     <gap:plugin name="org.apache.cordova.device" />
@@ -29,11 +29,6 @@
     <gap:plugin name="org.apache.cordova.network-information"/>
     <gap:plugin name="com.pushwoosh.plugins.pushwoosh" />
 
-    <feature name="http://api.phonegap.com/1.0/contacts" />
-    <feature name="http://api.phonegap.com/1.0/geolocation" />
-    <feature name="http://api.phonegap.com/1.0/network" />
-    <feature name="http://api.phonegap.com/1.0/device" />
-    
     
     <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
     <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
