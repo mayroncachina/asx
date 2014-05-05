@@ -28,3 +28,23 @@ h1 {
 .btn-loja-utils-img {
 	width: 37px;
 }
+
+
+#cards li, #cards li a {
+    background: #ddd !important;
+    text-shadow: none;
+}
+#cards li a:hover {
+    background: #f6f6f6 !important;
+    text-shadow: none;
+}
+
+
+#cards.ui-li-desc {
+	color:#333;
+	overflow:show;
+	text-overflow:clip;
+	white-space:normal;
+	height:28px;
+	margin-bottom:0px;
+}

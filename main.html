@@ -360,7 +360,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 
 		</div><!-- /content -->
 
-			<ul data-role="listview" data-inset="true" id="cards" data-theme="a" data-divider-theme="e" data-count-theme="b"></ul>
+			<ul data-role="listview" data-inset="true" id="cards" data-theme="c" data-dividertheme="a"></ul>
 
 	        </div><!-- /main -->
 
@@ -830,17 +830,13 @@ function getParameterByName(name) {
 $( document ).on( "pageinit", "#meus-cartoes", function() {
 
 	$.ajax({
-	    url: 'http://services.asxcard.com.br/CartaoService.svc/selecionar?id=79&latitude=-23,68319780696537&longitude=-46,700258399999996&raio=40',
+	    url: 'http://services.asxcard.com.br/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude=-23,68319780696537&longitude=-46,700258399999996&raio=40',
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
 	            console.log(data);
 	    },
 	    success: function (data) {
-
-
-
-	    	console.log(data['ObterCartoesResult']['Clientes'])
 
 	    	var linha = '<li data-role="list-divider">Seus Lugares <span class="ui-li-count">'+data['ObterCartoesResult']['Clientes'].length+'</span></li>';
 			for (var i = data['ObterCartoesResult']['Clientes'].length - 1; i >= 0; i--) {
@@ -849,6 +845,7 @@ $( document ).on( "pageinit", "#meus-cartoes", function() {
 
 				linha += '<li>';
 				linha += '	<a href="#" onclick="setLinkLoja('+data['ObterCartoesResult']['Clientes'][i]['ID']+')">';
+				linha += '      <img src="http://view.jquerymobile.com/1.3.0/docs/_assets/img/album-bb.jpg" title="sample"/>';
 				linha += '		<h2>'+data['ObterCartoesResult']['Clientes'][i]['Nome']+'</h2>';
 				linha += '		<p>'+data['ObterCartoesResult']['Clientes'][i]['Endereco']+'</p>';
 				linha += '		<p><strong>Distância: '+data['ObterCartoesResult']['Clientes'][i]['distancia_em_metros']+'m</strong></p>';
@@ -909,7 +906,7 @@ function setLinkLoja(id){
 $( document ).on( "pagebeforeshow", "#loja", function() {
 	//
 	$.ajax({
-	    url: 'http://services.asxcard.com.br/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),//"http://services.asxcard.com.br/CartaoService.svc/selecionarDetalhe?idParticipante=79&idCliente=8",
+	    url: 'http://services.asxcard.com.br/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
@@ -940,7 +937,7 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 				linha += '  </div>';
 				
 				for (var i = data.Cartoes.length - 1; i >= 0; i--) {
-					console.log(data.Cartoes[i].ID)
+					console.log(data.Cartoes[i])
 					
 					linha += '  <div id="'+data.Cartoes[i].ID+'" class="ui-body-d ui-content">';
 					linha += '    <fieldset data-role="controlgroup" data-type="horizontal" style="background:none repeat scroll 0% 0% rgb(233, 233, 233);font-size:10px">';
