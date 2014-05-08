@@ -29,10 +29,28 @@ h1 {
 	width: 37px;
 }
 
+.loja-imagem {
+	float: left;
+	margin-right: 5px;
+	border-radius: 9px;
+	margin-left: 29px;
+	margin-top: 13px;
+}
 
 #cards li, #cards li a {
-    background: #ddd !important;
-    text-shadow: none;
+	background: #FFF !important;
+	text-shadow: none;
+	border-color: rgb(0, 214, 255) !important;
+	border: 1px solid;
+}
+#cards li h2 {
+	font-size: 15px;
+}
+
+#cards li .icon-loja {
+	margin-top: 28px;
+	margin-left: 6px;
+	border-radius: 8px;
 }
 #cards li a:hover {
     background: #f6f6f6 !important;
