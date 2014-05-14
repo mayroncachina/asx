@@ -14,6 +14,7 @@
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/jquery.mobile-1.4.0.min.js"></script>
 	<script src="https://raw.githubusercontent.com/allmarkedup/purl/master/purl.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
 	
 	<!--
 	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -24,8 +25,9 @@
 	</script>
 	<style>
 	#map-canvas {
-		width: 90%;
-		height: 400px;
+		/*width: 90%;
+		height: 250px;*/
+		text-align: center;
 	}
 	</style>
 
@@ -393,26 +395,26 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 			<h1 class="loja-nome"></h1>
 		</div>
 			<div class="ui-grid-a">
-			    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:124px">
+			    <div class="ui-block-a"><div class="ui-bar " style="height:124px">
 			    	<img class="loja-imagem" src="" width="124" style="float: left;margin-right:5px" />
 			    </div></div>
-			    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:124px">
+			    <div class="ui-block-b"><div class="ui-bar " style="height:124px">
 						<p class="small-13 loja-endereco"></p>
 						<p class="small-13 loja-fone" ><a href="tel:0000000"></a></p>
 			    </div></div>
 			</div><!-- /grid-a -->
 
 			<div class="ui-grid-c">
-			    <div class="ui-block-a"><div class="ui-bar ui-bar-a btn-loja-utils" style="height:60px; ">
+			    <div class="ui-block-a"><div class="btn-loja-utils" style="height:60px; ">
 			    	<a href="#loja-localizacao"><img src="img/icone_LocalizacaoLojista.png" class="btn-loja-utils-img"/></a>
 			    </div></div>
-			    <div class="ui-block-b"><div class="ui-bar ui-bar-a  btn-loja-utils" style="height:60px">
+			    <div class="ui-block-b"><div class="btn-loja-utils" style="height:60px">
 			    	<a href="#loja-menu"><img src="img/icone_ProdutosLojista.png" class="btn-loja-utils-img"/></a>
 			    </div></div>
-			    <div class="ui-block-c"><div class="ui-bar ui-bar-a  btn-loja-utils" style="height:60px">
+			    <div class="ui-block-c"><div class="btn-loja-utils" style="height:60px">
 					<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" class="btn-loja-utils-img"/></a>
 			    </div></div>
-			    <div class="ui-block-d"><div class="ui-bar ui-bar-a  btn-loja-utils" style="height:60px">
+			    <div class="ui-block-d"><div class="btn-loja-utils" style="height:60px">
 			    	<a href="#" class="loja-homepage"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
 			    </div></div>
 			</div><!-- /grid-c -->
@@ -434,31 +436,31 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 
 		<div role="main" class="ui-content">
 
-			<div style="text-align:center">
-				<h1>Holly ́s Pizzas - Burger</h1>
-			</div>
+		<div style="text-align:center">
+			<h1 class="loja-localizacao-nome"></h1>
+		</div>
 			<div class="ui-grid-a">
-			    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:124px">
-			    	<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" width="124" style="float: left;margin-right:5px" />
+			    <div class="ui-block-a"><div class="ui-bar " style="height:124px">
+			    	<img class="loja-localizacao-imagem" src="" width="124" style="float: left;margin-right:5px" />
 			    </div></div>
-			    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:124px">
-						<p class="small-13">Av. Ipanema, 392 - Veleiros</p>
-						<p class="small-13"><a href="tel:1155240369">(11) 5524-0369</a></p>
+			    <div class="ui-block-b"><div class="ui-bar " style="height:124px">
+						<p class="small-13 loja-localizacao-endereco"></p>
+						<p class="small-13 loja-localizacao-fone" ><a href="tel:0000000"></a></p>
 			    </div></div>
 			</div><!-- /grid-a -->
 
 			<div class="ui-grid-c">
-			    <div class="ui-block-a"><div class="ui-bar ui-bar-a btn-loja-utils" style="height:60px; ">
+			    <div class="ui-block-a"><div class="btn-loja-utils" style="height:60px; ">
 			    	<a href="#loja-localizacao"><img src="img/icone_LocalizacaoLojista.png" class="btn-loja-utils-img"/></a>
 			    </div></div>
-			    <div class="ui-block-b"><div class="ui-bar ui-bar-a  btn-loja-utils" style="height:60px">
+			    <div class="ui-block-b"><div class="btn-loja-utils" style="height:60px">
 			    	<a href="#loja-menu"><img src="img/icone_ProdutosLojista.png" class="btn-loja-utils-img"/></a>
 			    </div></div>
-			    <div class="ui-block-c"><div class="ui-bar ui-bar-a  btn-loja-utils" style="height:60px">
+			    <div class="ui-block-c"><div class=" btn-loja-utils" style="height:60px">
 					<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" class="btn-loja-utils-img"/></a>
 			    </div></div>
-			    <div class="ui-block-d"><div class="ui-bar ui-bar-a  btn-loja-utils" style="height:60px">
-			    	<a href="http://google.com.br"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
+			    <div class="ui-block-d"><div class="btn-loja-utils" style="height:60px">
+			    	<a href="http://google.com.br" class="loja-localizacao-homepage"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
 			    </div></div>
 			</div><!-- /grid-c -->
 
@@ -466,13 +468,6 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 			<div role="main" class="ui-content" id="map-canvas" width="100%" heigth="400px">
 			        <!-- map loads here... -->
 			</div>
-			<p>
-				<img src="https://cdn1.iconfinder.com/data/icons/IconsLandVistaMapMarkersIconsDemo/24/MapMarker_Marker_Outside_Chartreuse.png" />
-				Sua Localização
-				<img src="https://cdn1.iconfinder.com/data/icons/IconsLandVistaMapMarkersIconsDemo/24/MapMarker_Marker_Outside_Chartreuse.png" />
-				Seu Destino
-			</p>
-			<p><strong>Distância: 500m</strong></p>
 		</div><!-- /content -->
 	</div><!-- /page -->
 
@@ -489,52 +484,34 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div role="main" class="ui-content">
 
 			<div style="text-align:center">
-				<h1>Holly ́s Pizzas - Burger</h1>
-			</div>
+			<h1 class="loja-menu-nome"></h1>
+		</div>
 			<div class="ui-grid-a">
-			    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:124px">
-			    	<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" width="124" style="float: left;margin-right:5px" />
+			    <div class="ui-block-a"><div class="ui-bar " style="height:124px">
+			    	<img class="loja-menu-imagem" src="" width="124" style="float: left;margin-right:5px" />
 			    </div></div>
-			    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:124px">
-						<p class="small-13">Av. Ipanema, 392 - Veleiros</p>
-						<p class="small-13"><a href="tel:1155240369">(11) 5524-0369</a></p>
+			    <div class="ui-block-b"><div class="ui-bar " style="height:124px">
+						<p class="small-13 loja-menu-endereco"></p>
+						<p class="small-13 loja-menu-fone" ><a href="tel:0000000"></a></p>
 			    </div></div>
 			</div><!-- /grid-a -->
 
 			<div class="ui-grid-c">
-			    <div class="ui-block-a"><div class="ui-bar ui-bar-a btn-loja-utils" style="height:60px; ">
+			    <div class="ui-block-a"><div class="btn-loja-utils" style="height:60px; ">
 			    	<a href="#loja-localizacao"><img src="img/icone_LocalizacaoLojista.png" class="btn-loja-utils-img"/></a>
 			    </div></div>
-			    <div class="ui-block-b"><div class="ui-bar ui-bar-a  btn-loja-utils" style="height:60px">
-			    	<a href="#loja-menu"><img src="img/icone_ProdutosLojista.png" class="btn-loja-utils-img"/></a>
+			    <div class="ui-block-b"><div class=" btn-loja-utils" style="height:60px">
+			    	<a href="#"><img src="img/icone_ProdutosLojista.png" class="btn-loja-utils-img"/></a>
 			    </div></div>
-			    <div class="ui-block-c"><div class="ui-bar ui-bar-a  btn-loja-utils" style="height:60px">
+			    <div class="ui-block-c"><div class="btn-loja-utils" style="height:60px">
 					<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" class="btn-loja-utils-img"/></a>
 			    </div></div>
-			    <div class="ui-block-d"><div class="ui-bar ui-bar-a  btn-loja-utils" style="height:60px">
-			    	<a href="http://google.com.br"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
+			    <div class="ui-block-d"><div class=" btn-loja-utils" style="height:60px">
+			    	<a href="http://google.com.br" class="loja-menu-homepage"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
 			    </div></div>
 			</div><!-- /grid-c -->
 
-			<ul data-role="listview" data-inset="true">
-
-			    <li><a href="#">
-			        <img src="http://demos.jquerymobile.com/1.4.0/_assets/img/album-bb.png">
-			    <h2>Descrição do prato</h2>
-			    <p> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-			     <span class="ui-li-count"><strong>R$ 30,00</strong></span></p></a>
-			    </li> <!-- /item -->
-
-			    <li><a href="#">
-			        <img src="http://demos.jquerymobile.com/1.4.0/_assets/img/album-bb.png">
-			    <h2>Descrição do prato <img src="https://cdn1.iconfinder.com/data/icons/icojoy/noshadow/standart/png/24x24/001_14.png" width="16"></h2>
-			    <p> xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-			     <span class="ui-li-count"><strong>R$ 30,00</strong></span></p></a>
-			    </li> <!-- /item -->
-
-			</ul>
-
-
+			<ul data-role="listview" data-inset="true"></ul>
 
 		</div><!-- /content -->
 
@@ -561,30 +538,30 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div role="main" class="ui-content">
 
 			<div style="text-align:center">
-				<h1>Holly ́s Pizzas - Burger</h1>
-			</div>
+			<h1 class="loja-comentarios-nome"></h1>
+		</div>
 			<div class="ui-grid-a">
-			    <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:124px">
-			    	<img src="https://cdn1.iconfinder.com/data/icons/smallicons-food/32/hamburger-64.png" width="124" style="float: left;margin-right:5px" />
+			    <div class="ui-block-a"><div class="ui-bar " style="height:124px">
+			    	<img class="loja-comentarios-imagem" src="" width="124" style="float: left;margin-right:5px" />
 			    </div></div>
-			    <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:124px">
-						<p class="small-13">Av. Ipanema, 392 - Veleiros</p>
-						<p class="small-13"><a href="tel:1155240369">(11) 5524-0369</a></p>
+			    <div class="ui-block-b"><div class="ui-bar " style="height:124px">
+						<p class="small-13 loja-comentarios-endereco"></p>
+						<p class="small-13 loja-comentarios-fone" ><a href="tel:0000000"></a></p>
 			    </div></div>
 			</div><!-- /grid-a -->
 
 			<div class="ui-grid-c">
-			    <div class="ui-block-a"><div class="ui-bar ui-bar-a btn-loja-utils" style="height:60px; ">
+			    <div class="ui-block-a"><div class="btn-loja-utils" style="height:60px; ">
 			    	<a href="#loja-localizacao"><img src="img/icone_LocalizacaoLojista.png" class="btn-loja-utils-img"/></a>
 			    </div></div>
-			    <div class="ui-block-b"><div class="ui-bar ui-bar-a  btn-loja-utils" style="height:60px">
+			    <div class="ui-block-b"><div class="btn-loja-utils" style="height:60px">
 			    	<a href="#loja-menu"><img src="img/icone_ProdutosLojista.png" class="btn-loja-utils-img"/></a>
 			    </div></div>
-			    <div class="ui-block-c"><div class="ui-bar ui-bar-a  btn-loja-utils" style="height:60px">
+			    <div class="ui-block-c"><div class="btn-loja-utils" style="height:60px">
 					<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" class="btn-loja-utils-img"/></a>
 			    </div></div>
-			    <div class="ui-block-d"><div class="ui-bar ui-bar-a  btn-loja-utils" style="height:60px">
-			    	<a href="http://google.com.br"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
+			    <div class="ui-block-d"><div class="btn-loja-utils" style="height:60px">
+			    	<a href="http://google.com.br" class="loja-comentarios-homepage"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
 			    </div></div>
 			</div><!-- /grid-c -->
 			<ul data-role="listview" data-inset="true"></ul>
@@ -819,14 +796,14 @@ function getParameterByName(name) {
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
-$( document ).on( "pageinit", "div", function() {
+$( document ).on( "pagebeforeshow", "div", function() {
     validarSessao();
 });
 
-$( document ).on( "pageinit", "#loja-comentarios", function() {
+$( document ).on( "pagebeforeshow", "#loja-comentarios", function() {
 
 	var url = " http://services.asxcard.com.br/ClienteService.svc/selecionarComentarios?idCliente="+localStorage.getItem('linkLoja');
-
+console.log(url)
 	$.ajax({
 	    url: url,
 	    type: 'GET',
@@ -840,6 +817,12 @@ $( document ).on( "pageinit", "#loja-comentarios", function() {
 
 	    	console.log(data['SelecionarComentariosResult']['Comentarios'])
 	    	
+			$(".loja-comentarios-nome").html(data['SelecionarComentariosResult']['Cliente'].Nome);
+	    	$(".loja-comentarios-endereco").html(data['SelecionarComentariosResult']['Cliente'].Endereco);
+	    	$(".loja-comentarios-fone").html(data['SelecionarComentariosResult']['Cliente'].Telefone);
+	    	$(".loja-comentarios-imagem").attr('src', data['SelecionarComentariosResult']['Cliente'].Imagem)
+	    	$(".loja-comentarios-homepage").attr('href', data['SelecionarComentariosResult']['Cliente'].Homepage)
+
 	    	var linha = '<li data-role="list-divider">Comentários</li>';
 	    	
 	    	for (var i = 0; i < dados.length; i++) {
@@ -860,10 +843,10 @@ $( document ).on( "pageinit", "#loja-comentarios", function() {
 });
 
 
-$( document ).on( "pageinit", "#loja-menu", function() {
+$( document ).on( "pagebeforeshow", "#loja-menu", function() {
 
 	var url = " http://services.asxcard.com.br/ClienteService.svc/selecionarProdutosServicos?boolPromocao=N&idCliente="+localStorage.getItem('linkLoja');
-
+	console.log(url)
 	$.ajax({
 	    url: url,
 	    type: 'GET',
@@ -873,7 +856,19 @@ $( document ).on( "pageinit", "#loja-menu", function() {
 	    },
 	    success: function (data) {
 
-	    	var dados = data['SelecionarProdutosServicosResult']['ProdutosServicos'];
+    		var dados = data['SelecionarProdutosServicosResult']['ProdutosServicos'];
+    		var cliente = data['SelecionarProdutosServicosResult']['Cliente'];
+
+    		$(".loja-menu-nome").html(data['SelecionarProdutosServicosResult']['Cliente'].Nome);
+	    	$(".loja-menu-endereco").html(data['SelecionarProdutosServicosResult']['Cliente'].Endereco);
+	    	$(".loja-menu-fone").html(data['SelecionarProdutosServicosResult']['Cliente'].Telefone);
+	    	$(".loja-menu-imagem").attr('src', data['SelecionarProdutosServicosResult']['Cliente'].Imagem)
+	    	$(".loja-menu-homepage").attr('href', data['SelecionarProdutosServicosResult']['Cliente'].Homepage)
+
+	    	console.log('href', data['SelecionarProdutosServicosResult']['Cliente'].Homepage)
+
+	    	//https://maps.google.com/maps?saddr=Current+Location&daddr=<?=$data->latitude?>,<?=$data->longitude?>#bmb=1
+	    	console.log(data['SelecionarProdutosServicosResult']['Cliente'].Homepage)
 
 	    	
 	    	var linha = '<li data-role="list-divider">Menu</li>';
@@ -898,8 +893,9 @@ $( document ).on( "pageinit", "#loja-menu", function() {
 });
 
 
-$( document ).on( "pageinit", "#meus-cartoes", function() {
+$( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 
+	console.log('http://services.asxcard.com.br/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude=-23,68319780696537&longitude=-46,700258399999996&raio=40')
 	$.ajax({
 	    url: 'http://services.asxcard.com.br/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude=-23,68319780696537&longitude=-46,700258399999996&raio=40',
 	    type: 'GET',
@@ -911,53 +907,53 @@ $( document ).on( "pageinit", "#meus-cartoes", function() {
 
 	    	var linha = '<li data-role="list-divider">Seus Lugares <span class="ui-li-count">'+data['ObterCartoesResult']['Clientes'].length+'</span></li>';
 			for (var i = data['ObterCartoesResult']['Clientes'].length - 1; i >= 0; i--) {
-				console.log(data['ObterCartoesResult']['Clientes'][i])
 
 
 				linha += '<li>';
-				linha += '	<a href="#" onclick="setLinkLoja('+data['ObterCartoesResult']['Clientes'][i]['ID']+')">';
-				linha += '      <img class="icon-loja" src="'+data['ObterCartoesResult']['Clientes'][i]['Imagem']+'" title="sample"/>';
-				linha += '		<h2>'+data['ObterCartoesResult']['Clientes'][i]['Nome']+'</h2>';
-				//linha += '		<p>'+data['ObterCartoesResult']['Clientes'][i]['Categoria']+'</p>';
-				linha += '		<p>Japonesa</p>';
-				linha += '		<p><strong>Distância: '+data['ObterCartoesResult']['Clientes'][i]['distancia_em_metros']+'m</strong></p>';
-				linha += '		<p>';
-				linha += '			<img src="img/icone_Usuarios.png" width="20"/><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeVisitas']+'</strong>';
-				linha += '			<img src="img/icone_Favoritar.png" width="20"/><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeCurtidas']+'</strong>';
-				linha += '			<img src="img/icone_Comentarios.png" width="20"/><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeMsgs']+'</strong>';
-				linha += '		</p>';
-				linha += '		<p class="ui-li-aside">';
-
-				if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]){
-					linha += '			<span>';
-					linha += '				<strong>';
-					linha += '					<img src="img/icone_Cartao_01.png" width="25"/>';
-					linha += '					<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['QtdeMaximaPontos']+'</span>';
-					linha += '				</strong>';
-					linha += '				</span><br/>';
-				}
-
-				if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]){
-
-					linha += '			<span>';
-					linha += '				<strong>';
-					linha += '					<img src="img/icone_Cartao_02.png" width="25"/>';
-					linha += '					<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]['QtdeMaximaPontos']+'</span>';
-					linha += '				</strong>';
-					linha += '			</span><br/>';
-				}
-				
-				if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]){
-					linha += '			<span>';
-					linha += '				<strong>';
-					linha += '					<img src="img/icone_Cartao_03.png" width="25"/>';
-					linha += '					<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]['QtdeMaximaPontos']+'</span>';
-					linha += '				</strong>';
-					linha += '			</span><br/>';
-				}
-
-				linha += '		</p>';
-				linha += '	</a>';
+				linha += '<a href="#" onclick="setLinkLoja('+data['ObterCartoesResult']['Clientes'][i]['ID_Cliente']+')" class="ui-icon-carat-r-custom ui-btn-custom">'
+				linha += '	<div class="wrapper">'
+				linha += '  		<div class="title">'+data['ObterCartoesResult']['Clientes'][i]['Nome']+'</div>'
+				linha += '		<div class="left-block">'
+				linha += '			<img src="'+data['ObterCartoesResult']['Clientes'][i]['Imagem']+'" class="icon-loja">'
+				linha += '		</div>'
+				linha += '		<div class="right-block">'
+				linha += '			<p>'+data['ObterCartoesResult']['Clientes'][i]['Segmento']['Categoria']['Desc_Categoria']+'</p>'
+				linha += '			<p><strong>Distância: '+data['ObterCartoesResult']['Clientes'][i]['distancia_em_metros']+'</strong></p>'
+				linha += '			<p>'
+				linha += '				<img src="img/icone_Usuarios.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeVisitas']+'</strong>'
+				linha += '				<img src="img/icone_Favoritar.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeCurtidas']+'</strong>'
+				linha += '				<img src="img/icone_Comentarios.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeMsgs']+'</strong>'
+				linha += '			</p>'
+				linha += '			<p class="ui-li-aside" style="margin-top:3em">'
+										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]){
+				linha += '				<span>'
+				linha += '					<strong>'
+				linha += '						<img src="img/icone_Cartao_01.png" width="25">'
+				linha += '						<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['QtdeMaximaPontos']+'</span>'
+				linha += '					</strong>'
+				linha += '				</span>'
+										}
+										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]){
+				linha += '				<span>'
+				linha += '					<strong>'
+				linha += '						<img src="img/icone_Cartao_02.png" width="25">'
+				linha += '						<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]['QtdeMaximaPontos']+'</span>'
+				linha += '					</strong>'
+				linha += '				</span>'
+										}
+										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]){
+				linha += '				<span>'
+				linha += '					<strong>'
+				linha += '						<img src="img/icone_Cartao_03.png" width="25">'
+				linha += '						<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]['QtdeMaximaPontos']+'</span>'
+				linha += '					</strong>'
+				linha += '				</span>'
+										}												
+				linha += '				<br>'
+				linha += '			</p>'
+				linha += '		</div>'
+				linha += '	</div>'
+				linha += '</a>'
 				linha += '</li> <!-- /Item -->';
 
 			};
@@ -973,10 +969,13 @@ $( document ).on( "pageinit", "#meus-cartoes", function() {
 
 function setLinkLoja(id){
 	localStorage.setItem('linkLoja', id);
+	console.log(localStorage.getItem('linkLoja'))
 	$.mobile.changePage( "#loja", { transition: "slide", changeHash: false });
 }
+
 $( document ).on( "pagebeforeshow", "#loja", function() {
 
+	console.log('http://services.asxcard.com.br/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
 	$.ajax({
 	    url: 'http://services.asxcard.com.br/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
 	    type: 'GET',
@@ -1008,14 +1007,14 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 		        linha += '    </ul>';
 				linha += '  </div>';
 				
-				for (var i = data.Cartoes.length - 1; i >= 0; i--) {
-					//console.log(data.Cartoes[i].Pontos)
+				for (var i = 0; i < data.Cartoes.length; i++) {
+					console.log(data.Cartoes.length)
 					
 					linha += '  <div id="'+data.Cartoes[i].ID+'" class="ui-body-d ui-content">';
 					linha += '    <fieldset data-role="controlgroup" data-type="horizontal" style="background:none repeat scroll 0% 0% rgb(233, 233, 233);font-size:10px">';
 				    linha += '        <div style="text-align:center">';
 
-				    	for (var j = 1; j <= data.Cartoes[i].Maximo - 1; j++) {
+				    	for (var j = 1; j <= data.Cartoes[i].Maximo; j++) {
 
 				    		if(data.Cartoes[i].Pontos < j){
 				    			linha += '		<img src="img/img_P'+j+'_off.png" width="15%" />';
@@ -1026,6 +1025,11 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 						linha += '		<img src="img/img_Premio_off.png" width="15%" />';
 			    	
 				    linha += '        </div>';
+
+					if(data.Cartoes[i].Maximo == data.Cartoes[i].BrindeMaximo){
+						linha += '		<p style="text-align:center;color:#0071bc;font-size:12px"><strong>PARABENS, CARTÃO COMPLETADO!!!</strong>'
+					}
+
 					linha += '		<p style="text-align:center"><b>Validade: '+data.Cartoes[i].Validade.replace(/-/g,'/')+'</b></p>';
 
 					if(data.Cartoes[i].Maximo != null){
@@ -1058,36 +1062,39 @@ $("#recuperar-mesmo").click(function(){
 });
 
 $( document ).on( "pageinit", "#loja-localizacao", function() {
-    var defaultLatLng = new google.maps.LatLng(34.0983425, -118.3267434);  // Default to Hollywood, CA when no geolocation support
-    if ( navigator.geolocation ) {
-        function success(pos) {
-            // Location found, show map with these coordinates
-            //drawMap(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-            drawMap(new google.maps.LatLng(34.0983425, -118.3267434));
 
-        }
-        function fail(error) {
-            drawMap(defaultLatLng);  // Failed to find location, show default map
-        }
-        // Find the users current position.  Cache the location for 5 minutes, timeout after 6 seconds
-        navigator.geolocation.getCurrentPosition(success, fail, {maximumAge: 500000, enableHighAccuracy:true, timeout: 6000});
-    } else {
-        drawMap(defaultLatLng);  // No geolocation support, show default map
-    }
-    function drawMap(latlng) {
-        var myOptions = {
-            zoom: 10,
-            center: latlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-        // Add an overlay to the map of current lat/lng
-        var marker = new google.maps.Marker({
-            position: latlng,
-            map: map,
-            title: "Greetings!"
-        });
-    }
+
+	var url = 'http://services.asxcard.com.br/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja');
+	console.log(url)
+	$.ajax({
+	    url: url,
+	    type: 'GET',
+	    error : function (data){
+	            
+	            console.log(data);
+	    },
+	    success: function (data) {
+
+	    	console.log("OK!!!")
+    		$(".loja-localizacao-nome").html(data.Nome);
+	    	$(".loja-localizacao-endereco").html(data.Endereco);
+	    	$(".loja-localizacao-fone").html(data.Telefone);
+	    	$(".loja-localizacao-imagem").attr('src', data.ImagemUrl)
+	    	$(".loja-localizacao-homepage").attr('href', data.Homepage)
+	    	
+	    	console.log(data)
+		    
+		    $("#map-canvas").html("<a rel='external' href='http://maps.google.com/maps?q="+data.Latitude+","+data.Longitude+"&ll="+data.Latitude+","+data.Longitude+"&z=17'><img src='http://maps.googleapis.com/maps/api/staticmap?center="+data.Latitude+","+data.Longitude+"&zoom=17&size=300x250&markers=color:blue|7Clabel:S|"+data.Latitude+","+data.Longitude+"&sensor=true' /><p >Clique no Mapa para se Localizar</p></a>")
+	    	
+
+	    }
+	});
+
+
+
+
+
+
 });
 
 $( document ).on( "pageinit", "#atualizar-cadastro", function() {
