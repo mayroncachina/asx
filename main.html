@@ -910,7 +910,7 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 
 
 				linha += '<li>';
-				linha += '<a href="#" onclick="setLinkLoja('+data['ObterCartoesResult']['Clientes'][i]['ID_Cliente']+')" class="ui-icon-carat-r-custom ui-btn-custom">'
+				linha += '<a href="#" onclick="setLinkLoja('+data['ObterCartoesResult']['Clientes'][i]['ID']+')" class="ui-icon-carat-r-custom ui-btn-custom">'
 				linha += '	<div class="wrapper">'
 				linha += '  		<div class="title">'+data['ObterCartoesResult']['Clientes'][i]['Nome']+'</div>'
 				linha += '		<div class="left-block">'
@@ -1000,33 +1000,48 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 				linha =  '<div data-role="tabs" id="tabs">';
 				linha += '  <div data-role="navbar">';
 				linha += '    <ul class="menu-cartoes">';
-				for (var i = data.Cartoes.length - 1; i >= 0; i--) {
-		            linha += '    <li><a href="#'+data.Cartoes[i].ID+'" data-icon="false">'+data.Cartoes[i].Nome+'</a></li>';
+				for (var i = 0; i < data.Cartoes.length; i++) {
+		            linha += '    <li><a style="text-align: center" href="#'+data.Cartoes[i].ID+'" data-icon="false"><img src="img/icone_Cartao_0'+(i+1)+'.png"/></a></li>';
 		    	}
 
 		        linha += '    </ul>';
 				linha += '  </div>';
 				
-				for (var i = 0; i < data.Cartoes.length; i++) {
-					console.log(data.Cartoes.length)
+				console.log(data.Cartoes)
+
+				for (var i = data.Cartoes.length-1; i >= 0 ; i--) {
+					console.log(data.Cartoes[i])
 					
 					linha += '  <div id="'+data.Cartoes[i].ID+'" class="ui-body-d ui-content">';
 					linha += '    <fieldset data-role="controlgroup" data-type="horizontal" style="background:none repeat scroll 0% 0% rgb(233, 233, 233);font-size:10px">';
+					linha += '  <h1 style="text-align:center">'+data.Cartoes[i].Nome+'</h1>';
 				    linha += '        <div style="text-align:center">';
 
 				    	for (var j = 1; j <= data.Cartoes[i].Maximo; j++) {
 
 				    		if(data.Cartoes[i].Pontos < j){
-				    			linha += '		<img src="img/img_P'+j+'_off.png" width="15%" />';
+				    			
+				    			if(data.Cartoes[i].Maximo == j){
+				    				linha += '		<img src="img/img_Premio_off.png" width="15%" />';
+				    			}else{
+				    				linha += '		<img src="img/img_P'+j+'_off.png" width="15%" />';
+				    			}
 				    		}else{
-								linha += '		<img src="img/img_P'+j+'_on.png" width="15%" />';
+						
+								if(data.Cartoes[i].Maximo == j){
+									linha += '		<img src="img/img_Premio_on.png" width="15%" />';
+								}else{
+									linha += '		<img src="img/img_P'+j+'_on.png" width="15%" />';
+								}
+				    	
 				    		}
 				    	};
-						linha += '		<img src="img/img_Premio_off.png" width="15%" />';
+
+						
 			    	
 				    linha += '        </div>';
-
-					if(data.Cartoes[i].Maximo == data.Cartoes[i].BrindeMaximo){
+				    
+					if(data.Cartoes[i].Maximo == data.Cartoes[i].Pontos){
 						linha += '		<p style="text-align:center;color:#0071bc;font-size:12px"><strong>PARABENS, CARTÃO COMPLETADO!!!</strong>'
 					}
 
@@ -1447,8 +1462,17 @@ $.ajax({
 }
 
 function validarSessao(){
-	if(localStorage.getItem('Codigo') != null && localStorage.getItem('Codigo').length < 1){
-		$.mobile.changePage( "#index");
+
+	if(window.location.toString().indexOf("#acessar-conta")  || 
+		window.location.toString().indexOf("#recuperar-senha") || 
+		window.location.toString().indexOf("#cadastro")) { 
+
+		console.log("Liberado")
+
+	}else{
+		if(localStorage.getItem('Codigo') != null && localStorage.getItem('Codigo').length < 1){
+			$.mobile.changePage( "#index");
+		}
 	}
 }
 

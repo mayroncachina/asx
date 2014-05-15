@@ -114,3 +114,12 @@ ui-icon-carat-r-custom:after {
 	display: inline-block;
     padding-left: 1em;
 }
+
+.menu-cartoes li {
+	display: inline-block;
+	/*margin-right: 30px;*/
+}
+
+.menu-cartoes li a > img {
+	width: 90px;
+}
