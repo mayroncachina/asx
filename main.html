@@ -84,7 +84,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 	        </table>
 	        </div>
 		    <br/><br/><br/>
-			<a href="#" onclick="$.mobile.changePage( '#acoes-menu');" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Ok</a>
+			<a href="#" onclick="$.mobile.changePage( '#meus-cartoes');" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Ok</a>
 
 		</div><!-- /content -->
 
@@ -269,7 +269,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 	   	<li><a href="#atualizar-cadastro"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/sync-01-16.png" alt="" class="ui-li-icon">Minha Conta</a></li>
 	    <li><a href="#fale"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/user-01-16.png" alt=" " class="ui-li-icon">Fale Conosco</a></li>
 	    <li><a href="#indique"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/like-01-16.png" alt="" class="ui-li-icon ui-corner-none">Indique um estabelecimento</a></li>
-        <li><a href="#acoes-menu"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/like-01-16.png" alt="" class="ui-li-icon ui-corner-none">Meus Cartões</a></li>
+        <li><a href="#meus-cartoes"><img src="https://cdn3.iconfinder.com/data/icons/faticons/32/like-01-16.png" alt="" class="ui-li-icon ui-corner-none">Meus Cartões</a></li>
         <li><a href="#" onclick="logout()"><img src="https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/on-off.png" alt="" class="ui-li-icon ui-corner-none">Logout</a></li>
 	</ul>
 
@@ -349,37 +349,25 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		</div><!-- /header -->
 
 		<div role="main" class="ui-content">
-			<div role="main" class="ui-content">
-			 <div data-role="navbar">
+			<div data-role="navbar">
 	            <ul>
-	                <li><a href="#meus-cartoes" data-icon="grid" class="small-10">Meus<br/>Cartões</a></li>
-	                <li><a href="#pontuar" data-icon="tag" class="small-10">Pontuar<br/>&nbsp;</a></li>
-	                <li><a href="#meus-cartoes" data-icon="location" class="small-10">Perto<br/>de Mim</a></li>
-	                <li><a href="#menu-lista" data-icon="bullets" class="small-10">Visualizar<br/>Cartões</a></li>
+	                <li><a href="#meus-cartoes" data-icon="grid" class="ui-btn-active">Meus<br/>Cartões</a></li>
+	                <li><a href="#pontuar" data-icon="tag" >Pontuar<br/>&nbsp;</a></li>
+	                <li><a href="#meus-cartoes" data-icon="location">Perto <br/>de Mim</a></li>
+	                <li><a href="#meus-cartoes" data-icon="bullets">Mais...<br/>&nbsp;</a></li>
 	            </ul>
 	        </div><!-- /navbar -->
 
-
-		</div><!-- /content -->
-
 			<ul data-role="listview" data-inset="true" id="cards" data-theme="c" data-dividertheme="a"></ul>
-
-	        </div><!-- /main -->
-
+	    </div><!-- /main -->
 		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#" data-icon="grid"></a></li>
-			            <li><a href="#" data-icon="star"></a></li>
-			            <li><a href="#" data-icon="load"></a></li>
-			            <li><a href="#" data-icon="gear"></a></li>
+			            <li><a href="#" data-icon="back"></a></li>
 		        	</ul>
 	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
-
 	</div><!-- /page -->
-
-
 
 	<div data-role="page" id="loja">
 
@@ -424,7 +412,13 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 			</div>
 
 		</div><!-- /content -->
-
+		<div data-role="footer" data-position="fixed">
+		        <div data-role="navbar">
+			        <ul>
+			            <li><a href="#" data-icon="back"></a></li>
+		        	</ul>
+	        	</div><!-- /navbar -->
+		</div><!-- /footer -->
 	</div><!-- /page -->
 
 	<div data-role="page" id="loja-localizacao">
@@ -518,7 +512,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#" data-icon="heart"></a></li>
+			            <li><a href="#" data-icon="back"></a></li>
 		        	</ul>
 	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
@@ -571,7 +565,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#" data-icon="comment"></a></li>
+			            <li><a href="#" data-icon="back"></a></li>
 		        	</ul>
 	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
@@ -592,10 +586,10 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div role="main" class="ui-content">
 			<div data-role="navbar">
 		            <ul>
-		                <li><a href="#meus-cartoes" data-icon="grid" >Meus Cartões</a></li>
-		                <li><a href="#" data-icon="tag" class="ui-btn-active">Pontuar</a></li>
-		                <li><a href="#meus-cartoes" data-icon="location">Perto de Mim</a></li>
-		                <li><a href="#meus-cartoes" data-icon="bullets">Visualizar Cartões</a></li>
+		                <li><a href="#meus-cartoes" data-icon="grid" class="ui-btn-active">Meus<br/>Cartões</a></li>
+		                <li><a href="#pontuar" data-icon="tag" >Pontuar<br/>&nbsp;</a></li>
+		                <li><a href="#meus-cartoes" data-icon="location">Perto <br/>de Mim</a></li>
+		                <li><a href="#meus-cartoes" data-icon="bullets">Mais...<br/>&nbsp;</a></li>
 		            </ul>
 		        </div><!-- /navbar -->
 			<h2>Marque Seu Ponto</h2>
@@ -723,7 +717,6 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 				<textarea cols="40" rows="40" id="fale-mensagem" style="180px !important" required></textarea>
 
 				<div style="text-align:center">
-				<img src="img/btEnviarMSG.png"  />
 				<a href="#" onclick="sendMensage()" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Enviar Mensagem</a>
 			</div>
 			</form>
@@ -796,10 +789,18 @@ function getParameterByName(name) {
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
-$( document ).on( "pagebeforeshow", "div", function() {
+$(window).on("navigate", function (event, data) {
+  var direction = data.state.direction;
+  if (direction == 'back') {
     validarSessao();
+  }
+  if (direction == 'forward') {
+    validarSessao();
+  }
 });
-
+$( document ).on( "pagebeforeshow", "div", function() {
+	validarSessao();
+});
 $( document ).on( "pagebeforeshow", "#loja-comentarios", function() {
 
 	var url = " http://services.asxcard.com.br/ClienteService.svc/selecionarComentarios?idCliente="+localStorage.getItem('linkLoja');
@@ -1000,15 +1001,19 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 				linha =  '<div data-role="tabs" id="tabs">';
 				linha += '  <div data-role="navbar">';
 				linha += '    <ul class="menu-cartoes">';
-				for (var i = 0; i < data.Cartoes.length; i++) {
-		            linha += '    <li><a style="text-align: center" href="#'+data.Cartoes[i].ID+'" data-icon="false"><img src="img/icone_Cartao_0'+(i+1)+'.png"/></a></li>';
-		    	}
+				//for (var i = 0; i < data.Cartoes.length; i++) {
+
+				var card2Desativado = data.Cartoes.length > 1 ? "" : "_Desativado";
+				var card3Desativado = data.Cartoes.length > 2 ? "" : "_Desativado";
+
+		        linha += '    <li><a style="text-align: center" href="#1" data-icon="false"><img src="img/icone_Cartao_01.png"/></a></li>'; 
+		        linha += '    <li><a style="text-align: center"  class="nav-bar-desativada" href="#2" data-icon="false"><img src="img/icone_Cartao_02'+card2Desativado+'.png"/></a></li>'; 
+		        linha += '    <li><a style="text-align: center" href="#3" data-icon="false"><img src="img/icone_Cartao_03'+card2Desativado+'.png"/></a></li>'; 
+		    	//}
 
 		        linha += '    </ul>';
 				linha += '  </div>';
 				
-				console.log(data.Cartoes)
-
 				for (var i = data.Cartoes.length-1; i >= 0 ; i--) {
 					console.log(data.Cartoes[i])
 					
@@ -1462,15 +1467,14 @@ $.ajax({
 }
 
 function validarSessao(){
-
-	if(window.location.toString().indexOf("#acessar-conta")  || 
-		window.location.toString().indexOf("#recuperar-senha") || 
-		window.location.toString().indexOf("#cadastro")) { 
+	if(window.location.toString().indexOf("#acessar-conta") > 0  || 
+		window.location.toString().indexOf("#recuperar-senha") > 0|| 
+		window.location.toString().indexOf("#cadastro") > 0) { 
 
 		console.log("Liberado")
 
 	}else{
-		if(localStorage.getItem('Codigo') != null && localStorage.getItem('Codigo').length < 1){
+		if(localStorage.getItem('Codigo') == '' && localStorage.getItem('Codigo').length < 1){
 			$.mobile.changePage( "#index");
 		}
 	}
@@ -1568,7 +1572,7 @@ function atualizarUsuario(){
 
 			if(data['AtualizarDadosResult']['Codigo'] == 1){
 				alert('Conta atualizada com sucesso.');
-				$.mobile.changePage( "#acoes-menu");
+				$.mobile.changePage( "#menus-cartoes");
 			}
 
 			if(data['AtualizarDadosResult']['Codigo'] == -99){

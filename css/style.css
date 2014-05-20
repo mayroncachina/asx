@@ -4,6 +4,17 @@
 }
 */
 
+
+.nav-bar-desativada {
+
+	text-align: center;
+	background-color: #E2E2E2 /*{a-bup-background-color}*/;
+	border-color: #F2F4F5 /*{a-bup-border}*/;
+	color: #ffffff /*{a-bup-color}*/;
+	text-shadow: 0 /*{a-bup-shadow-x}*/ 1px /*{a-bup-shadow-y}*/ 0 /*{a-bup-shadow-radius}*/ #444444 /*{a-bup-shadow-color}*/;
+	font-size: 2em;
+}
+
 .small {
 
 	font-size: 12px !important;
