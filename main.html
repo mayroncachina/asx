@@ -363,7 +363,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#" data-icon="back"></a></li>
+			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
 		        	</ul>
 	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
@@ -415,7 +415,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#" data-icon="back"></a></li>
+			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
 		        	</ul>
 	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
@@ -512,7 +512,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#" data-icon="back"></a></li>
+			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
 		        	</ul>
 	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
@@ -565,7 +565,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#" data-icon="back"></a></li>
+			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
 		        	</ul>
 	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
@@ -882,7 +882,9 @@ $( document ).on( "pagebeforeshow", "#loja-menu", function() {
 			    linha += '<h1>'+dados[i].Descricao+'</h1>'
 			    linha += '<span class="ui-li-count" style="top:27px;">R$ '+dados[i].Valor.toFixed(2)+'</span>';
 			    linha += '</div>';
-			    linha += '<p style="white-space:normal;"> Promoção '+dados[i].Promocao+'</p>';
+			    if(dados[i].Promocao==false){
+			    	linha += '<p style="white-space:normal;"> <img class="icon-loja" src="img/promocao.png" title="sample"/> </p>';
+				}
 			    linha += '</li>';
 
 	    	};
