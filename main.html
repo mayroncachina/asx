@@ -900,7 +900,7 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 
 	console.log('http://services.asxcard.com.br/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude=-23,68319780696537&longitude=-46,700258399999996&raio=40')
 	$.ajax({
-	    url: 'http://services.asxcard.com.br/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude=-23,68319780696537&longitude=-46,700258399999996&raio=40',
+	    url: 'http://services.asxcard.com.br/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude=-23,68319780696537&longitude=-46,700258399999996',
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
