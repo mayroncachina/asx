@@ -28,6 +28,7 @@
     <gap:plugin name="org.apache.cordova.inappbrowser" />
     <gap:plugin name="org.apache.cordova.network-information"/>
     <gap:plugin name="com.pushwoosh.plugins.pushwoosh" />
+    <gap:plugin name="com.phonegap.plugins.barcodescanner" version="1.1.0" />
 
     
     <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
