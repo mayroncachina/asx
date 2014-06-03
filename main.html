@@ -794,7 +794,6 @@ currentPosition = null;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-  scanner()
 }
 
 function getPosition(){
@@ -872,7 +871,8 @@ function scanner(){
 }
 
 function pontuarEstabelecimento(){
-	qrcode = 'CD=12;CT=2';//scanner();
+	//qrcode = 'CD=12;CT=2';//scanner();
+	qrcode = scanner();
 	split = qrcode.split(';')
 	loja_id = split[0].replace('CD=','');
 	tipoCartao = split[1].replace('CT=', '');
