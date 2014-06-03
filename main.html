@@ -592,10 +592,15 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		            </ul>
 		        </div><!-- /navbar -->
 			<h2>Marque Seu Ponto</h2>
-			<img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQncGI8FA5lT_dscTPv5JdFiYmQQBIBANqJQN9Zp2hpcqGbQU_8Ew"/>
+			<div style="text-align:center">
+				<img onclick="pontuarEstabelecimento()" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQncGI8FA5lT_dscTPv5JdFiYmQQBIBANqJQN9Zp2hpcqGbQU_8Ew"/>
 
+				<h4>Aperte Para Ler o QRCode</h4>
 
+			</div>
+<!--
 			<a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-b">ADM...</a>
+-->
 			<div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
 			    <div data-role="header" data-theme="a">
 			    <h1>ASX Card</h1>
@@ -617,7 +622,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#loja" data-icon="camera"></a></li>
+			            <li><a href="#" onclick="pontuarEstabelecimento()" data-icon="camera"></a></li>
 		        	</ul>
 	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
@@ -858,15 +863,39 @@ var latlng = new google.maps.LatLng(-34.397, 150.644);
 function scanner(){
 	 cordova.plugins.barcodeScanner.scan(
       function (result) {
-          alert("We got a barcode\n" +
-                "Result: " + result.text + "\n" +
-                "Format: " + result.format + "\n" +
-                "Cancelled: " + result.cancelled);
+          return result.text;
       }, 
       function (error) {
           alert("Scanning failed: " + error);
       }
    );
+}
+
+function pontuarEstabelecimento(){
+	qrcode = 'CD=12;CT=2';//scanner();
+	split = qrcode.split(';')
+	loja_id = split[0].replace('CD=','');
+	tipoCartao = split[1].replace('CT=', '');
+	var url = 'http://services.asxcard.com.br/CartaoService.svc/marcarPonto?idCliente='+loja_id+'&idTipoCartao='+tipoCartao+'&idParticipante='+localStorage.getItem('Codigo');
+
+	console.log(url)
+
+	$.ajax({
+		    url: url,
+		    type: 'GET',
+		    error : function (data){
+		            
+		            console.log(data);
+		    },
+		    success: function (data) {
+
+		    	console.log(data)
+		    	alert(data['MarcarPontoResult'].Mensagem)
+			    
+		    }
+		});
+
+
 }
 
 function getParameterByName(name) {
