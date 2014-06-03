@@ -866,7 +866,7 @@ function scanner(){
       function (result) {
           retorno = result.text;
           localStorage.setItem('qrcode', result.text)
-          alert(localStorage.getItem('qrcode')
+          alert(localStorage.getItem('qrcode'))
       }, 
       function (error) {
           alert("Scanning failed: " + error);
