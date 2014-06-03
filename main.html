@@ -860,14 +860,18 @@ var latlng = new google.maps.LatLng(-34.397, 150.644);
 
 
 function scanner(){
+
+	var retorno = ""
 	 cordova.plugins.barcodeScanner.scan(
       function (result) {
-          return result.text;
+          retorno = result.text;
       }, 
       function (error) {
           alert("Scanning failed: " + error);
       }
    );
+
+   return retorno;
 }
 
 function pontuarEstabelecimento(){
