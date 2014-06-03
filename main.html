@@ -865,6 +865,8 @@ function scanner(){
 	 cordova.plugins.barcodeScanner.scan(
       function (result) {
           retorno = result.text;
+          localStorage.setItem('qrcode', result.text)
+          alert(result.text)
       }, 
       function (error) {
           alert("Scanning failed: " + error);
@@ -876,7 +878,9 @@ function scanner(){
 
 function pontuarEstabelecimento(){
 	//qrcode = 'CD=12;CT=2';//scanner();
-	qrcode = scanner();
+	scanner();
+	qrcode = localStorage.getItem('qrcode')
+	alert(qrcode)
 	split = qrcode.split(';')
 	loja_id = split[0].replace('CD=','');
 	tipoCartao = split[1].replace('CT=', '');
