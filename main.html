@@ -879,6 +879,12 @@ function scanner(){
 function pontuarEstabelecimento(){
 	//qrcode = 'CD=12;CT=2';//scanner();
 	scanner();
+	
+	if(qrcode == ''){
+		alert('OCORREU UM ERRO AO LER O CARTÃO');
+		return false;
+	}
+	
 	qrcode = localStorage.getItem('qrcode')
 	alert(qrcode)
 	split = qrcode.split(';')
@@ -899,6 +905,7 @@ function pontuarEstabelecimento(){
 
 		    	console.log(data)
 		    	alert(data['MarcarPontoResult'].Mensagem)
+		    	localStorage.setItem('qrcode', '');
 			    
 		    }
 		});
