@@ -31,6 +31,7 @@
     <gap:plugin name="com.phonegap.plugins.barcodescanner" version="1.1.0" />
 
     
+    <icon src="icon.png" />
     <icon gap:density="ldpi" gap:platform="android" src="res/icon/android/icon-36-ldpi.png" />
     <icon gap:density="mdpi" gap:platform="android" src="res/icon/android/icon-48-mdpi.png" />
     <icon gap:density="hdpi" gap:platform="android" src="res/icon/android/icon-72-hdpi.png" />
@@ -41,16 +42,16 @@
     <icon gap:platform="ios" height="144" src="res/icon/ios/icon-72-2x.png" width="144" />
     <icon gap:platform="winphone" src="res/icon/windows-phone/icon-48.png" />
     <icon gap:platform="winphone" gap:role="background" src="res/icon/windows-phone/icon-173.png" />
-    
-    <gap:splash src="screen/320x480.png" width="320" height="480" />
-    <gap:splash src="screen/640x960.png" width="640" height="960" />
-    <gap:splash src="screen/640x1136.png" width="640" height="1136" />
-    <gap:splash src="screen/768x1204.png" width="768" height="1204 " />
-    <gap:splash src="screen/1536x2048.png" width="1536" height="2048" />
-    <gap:splash src="screen/240x400.png" gap:platform="android" gap:density="ldpi" />
-    <gap:splash src="screen/320x480.png" gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="screen/480x800.png" gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="screen/720x960.png" gap:platform="android" gap:density="xhdpi" />
+    <gap:splash src="splash.png" />
+    <gap:splash gap:density="ldpi" gap:platform="android" src="res/screen/android/screen-ldpi-portrait.png" />
+    <gap:splash gap:density="mdpi" gap:platform="android" src="res/screen/android/screen-mdpi-portrait.png" />
+    <gap:splash gap:density="hdpi" gap:platform="android" src="res/screen/android/screen-hdpi-portrait.png" />
+    <gap:splash gap:density="xhdpi" gap:platform="android" src="res/screen/android/screen-xhdpi-portrait.png" />
+    <gap:splash gap:platform="ios" height="480" src="res/screen/ios/screen-iphone-portrait.png" width="320" />
+    <gap:splash gap:platform="ios" height="960" src="res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
+    <gap:splash gap:platform="ios" height="1024" src="res/screen/ios/screen-ipad-portrait.png" width="768" />
+    <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
+    <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
 
     <access origin="*"  />
     <content src="index.html" />

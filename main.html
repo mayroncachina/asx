@@ -622,10 +622,15 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		        </div><!-- /navbar -->
 			<h2>Marque Seu Ponto</h2>
 			<div style="text-align:center">
-				<img onclick="pontuarEstabelecimento()" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQncGI8FA5lT_dscTPv5JdFiYmQQBIBANqJQN9Zp2hpcqGbQU_8Ew"/>
 
-				<h4>Aperte Para Ler o QRCode</h4>
+				<div class="marcacao"></div>
+				<div class="pontuacao">
+					<img onclick="pontuarEstabelecimento()" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQncGI8FA5lT_dscTPv5JdFiYmQQBIBANqJQN9Zp2hpcqGbQU_8Ew"/>
 
+					<h4>Aperte Para Ler o QRCode</h4>
+
+				</div>
+				
 			</div>
 <!--
 			<a href="#popupDialog" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-delete ui-btn-icon-left ui-btn-b">ADM...</a>
@@ -905,24 +910,33 @@ function scanner(){
    return retorno;
 }
 
+function baixaCartao() {
+	alert("IMPLEMENTAR")
+}
+
+function marcarOutroCartao(){
+	$(".pontuacao").show()
+	$(".marcacao").html("")
+}
+
 function pontuarEstabelecimento(){
-	//qrcode = 'CD=12;CT=2';//scanner();
-	scanner();
+	qrcode = 'CD=11;CT=1';//scanner();
+	//scanner();
 	
 	if(qrcode == ''){
 		alert('OCORREU UM ERRO AO LER O CARTÃO');
 		return false;
 	}
 	
-	qrcode = localStorage.getItem('qrcode')
-	alert(qrcode)
+	//qrcode = localStorage.getItem('qrcode')
+	console.log(qrcode)
 	split = qrcode.split(';')
 	loja_id = split[0].replace('CD=','');
 	tipoCartao = split[1].replace('CT=', '');
-	var url = 'http://services.asxcard.com.br/CartaoService.svc/marcarPonto?idCliente='+loja_id+'&idTipoCartao='+tipoCartao+'&idParticipante='+localStorage.getItem('Codigo');
+	var url = 'http://asxcard.cloudapp.net/CartaoService.svc/marcarPonto?idCliente='+loja_id+'&idTipoCartao='+tipoCartao+'&idParticipante='+localStorage.getItem('Codigo');
 
 	console.log(url)
-
+	$(".pontuacao").show()
 	$.ajax({
 		    url: url,
 		    type: 'GET',
@@ -932,8 +946,32 @@ function pontuarEstabelecimento(){
 		    },
 		    success: function (data) {
 
+		    	$(".pontuacao").hide()
 		    	console.log(data)
-		    	alert(data['MarcarPontoResult'].Mensagem)
+		    	//alert(data['MarcarPontoResult'].Mensagem)
+
+		    	if(data['MarcarPontoResult'].Status == '1'){
+
+		    		$(".marcacao").html("<img src='img/imgRetirarPremio.png'/><a href=\"#\" onclick=\"baixaCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">CONFIRMAR</a>");
+		    		console.log(data['MarcarPontoResult'].Mensagem);
+
+		    	}else if(data['MarcarPontoResult'].Status == '2'){
+		    		$(".marcacao").html("<img src='img/imgPontoMarcado.png'/><a href=\"#\" onclick=\"marcarOutroCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">MARCAR OUTRO CARTÃO</a>")
+		    		console.log(data['MarcarPontoResult'].Mensagem);
+
+		    	}else if(data['MarcarPontoResult'].Status == '6'){
+		    		$(".marcacao").html("<img src='img/imgCartaoCompletado.png'/><a href=\"#\" onclick=\"marcarOutroCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">MARCAR OUTRO CARTÃO</a>")
+		    			console.log(data['MarcarPontoResult'].Mensagem);
+
+		    	}else if(data['MarcarPontoResult'].Status == '5'){
+		    		$(".marcacao").html("<img src='img/imgGanhouMiniPremio.png'/><a href=\"#\" onclick=\"marcarOutroCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">MARCAR OUTRO CARTÃO</a>")
+		    			console.log(data['MarcarPontoResult'].Mensagem);
+		    		
+		    	}else {
+		    		$(".marcacao").html("<img src='img/imgGanhouMiniPremio.png'/><a href=\"#\" onclick=\"marcarOutroCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">MARCAR OUTRO CARTÃO</a> "+data['MarcarPontoResult'].Mensagem);
+		    	}
+		    	
+
 		    	localStorage.setItem('qrcode', '');
 			    
 		    }
@@ -961,7 +999,7 @@ $( document ).on( "pagebeforeshow", "div", function() {
 });
 $( document ).on( "pagebeforeshow", "#loja-comentarios", function() {
 
-	var url = " http://services.asxcard.com.br/ClienteService.svc/selecionarComentarios?idCliente="+localStorage.getItem('linkLoja');
+	var url = " http://asxcard.cloudapp.net/ClienteService.svc/selecionarComentarios?idCliente="+localStorage.getItem('linkLoja');
 console.log(url)
 	$.ajax({
 	    url: url,
@@ -1004,7 +1042,7 @@ console.log(url)
 
 $( document ).on( "pagebeforeshow", "#loja-menu", function() {
 
-	var url = " http://services.asxcard.com.br/ClienteService.svc/selecionarProdutosServicos?boolPromocao=N&idCliente="+localStorage.getItem('linkLoja');
+	var url = " http://asxcard.cloudapp.net/ClienteService.svc/selecionarProdutosServicos?boolPromocao=N&idCliente="+localStorage.getItem('linkLoja');
 	console.log(url)
 	$.ajax({
 	    url: url,
@@ -1056,9 +1094,9 @@ $( document ).on( "pagebeforeshow", "#loja-menu", function() {
 
 $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 
-	console.log('http://services.asxcard.com.br/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude=-23,68319780696537&longitude=-46,700258399999996&raio=40')
+	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude=-23,68319780696537&longitude=-46,700258399999996&raio=40')
 	$.ajax({
-	    url: 'http://services.asxcard.com.br/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude=-23,68319780696537&longitude=-46,700258399999996',
+	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude=-23,68319780696537&longitude=-46,700258399999996',
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
@@ -1128,6 +1166,114 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 	});
 });
 
+$( document ).on( "pagebeforeshow", "#meus-cartoes-proximos", function() {
+
+	// onSuccess Callback
+	// This method accepts a Position object, which contains the
+	// current GPS coordinates
+	//
+	var latitude = 0;
+	var longitude = 0;
+	var onSuccess = function(position) {
+
+		latitude = position.coords.latitude;
+		longitude = position.coords.longitude;
+
+	    alert('Latitude: '          + position.coords.latitude          + '\n' +
+	          'Longitude: '         + position.coords.longitude         + '\n' +
+	          'Altitude: '          + position.coords.altitude          + '\n' +
+	          'Accuracy: '          + position.coords.accuracy          + '\n' +
+	          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
+	          'Heading: '           + position.coords.heading           + '\n' +
+	          'Speed: '             + position.coords.speed             + '\n' +
+	          'Timestamp: '         + position.timestamp                + '\n');
+	};
+
+	// onError Callback receives a PositionError object
+	//
+	function onError(error) {
+	    alert('code: '    + error.code    + '\n' +
+	          'message: ' + error.message + '\n');
+	}
+
+	navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude='+latitude+'&longitude='+latitude+'&raio=100000000')
+
+	$.ajax({
+	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude='+latitude+'&longitude='+latitude+'&raio=100000000',
+	    type: 'GET',
+	    error : function (data){
+	            alert('Acesso Negado!');
+	            console.log(data);
+	    },
+	    success: function (data) {
+
+	    	var linha = '<li data-role="list-divider">Seus Lugares <span class="ui-li-count">'+data['ObterCartoesResult']['Clientes'].length+'</span></li>';
+			for (var i = data['ObterCartoesResult']['Clientes'].length - 1; i >= 0; i--) {
+
+
+				linha += '<li>';
+				linha += '<a href="#" onclick="setLinkLoja('+data['ObterCartoesResult']['Clientes'][i]['ID']+')" class="ui-icon-carat-r-custom ui-btn-custom">'
+				linha += '	<div class="wrapper">'
+				linha += '  		<div class="title">'+data['ObterCartoesResult']['Clientes'][i]['Nome']+'</div>'
+				linha += '		<div class="left-block">'
+				linha += '			<img src="'+data['ObterCartoesResult']['Clientes'][i]['Imagem']+'" class="icon-loja">'
+				linha += '		</div>'
+				linha += '		<div class="right-block">'
+				linha += '			<p>'+data['ObterCartoesResult']['Clientes'][i]['Segmento']['Categoria']['Desc_Categoria']+'</p>'
+				linha += '			<p><strong>Distância: '+data['ObterCartoesResult']['Clientes'][i]['distancia_em_metros']+'</strong></p>'
+				linha += '			<p>'
+				linha += '				<img src="img/icone_Usuarios.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeVisitas']+'</strong>'
+				linha += '				<img src="img/icone_Favoritar.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeCurtidas']+'</strong>'
+				linha += '				<img src="img/icone_Comentarios.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeMsgs']+'</strong>'
+				linha += '			</p>'
+				linha += '			<p class="ui-li-aside" style="margin-top:3em">'
+										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]){
+				linha += '				<span>'
+				linha += '					<strong>'
+				linha += '						<img src="img/icone_Cartao_01.png" width="25">'
+				linha += '						<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['QtdeMaximaPontos']+'</span>'
+				linha += '					</strong>'
+				linha += '				</span>'
+										}
+										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]){
+				linha += '				<span>'
+				linha += '					<strong>'
+				linha += '						<img src="img/icone_Cartao_02.png" width="25">'
+				linha += '						<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]['QtdeMaximaPontos']+'</span>'
+				linha += '					</strong>'
+				linha += '				</span>'
+										}
+										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]){
+				linha += '				<span>'
+				linha += '					<strong>'
+				linha += '						<img src="img/icone_Cartao_03.png" width="25">'
+				linha += '						<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]['QtdeMaximaPontos']+'</span>'
+				linha += '					</strong>'
+				linha += '				</span>'
+										}												
+				linha += '				<br>'
+				linha += '			</p>'
+				linha += '		</div>'
+				linha += '	</div>'
+				linha += '</a>'
+				linha += '</li> <!-- /Item -->';
+
+			};
+
+			$("#cards").html(linha);
+			$('#cards').listview('refresh');
+
+
+
+	    }
+	});
+});
+
+
+
+
 function setLinkLoja(id){
 	localStorage.setItem('linkLoja', id);
 	console.log(localStorage.getItem('linkLoja'))
@@ -1136,9 +1282,9 @@ function setLinkLoja(id){
 
 $( document ).on( "pagebeforeshow", "#loja", function() {
 
-	console.log('http://services.asxcard.com.br/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
+	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
 	$.ajax({
-	    url: 'http://services.asxcard.com.br/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
+	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
@@ -1246,7 +1392,7 @@ $( document ).on( "pageinit", "#loja-localizacao", function() {
 
 	getPosition()
 
-	var url = 'http://services.asxcard.com.br/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja');
+	var url = 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja');
 	console.log(url)
 	$.ajax({
 	    url: url,
@@ -1296,7 +1442,7 @@ $( document ).on( "pageinit", "#index, #acessar-conta", function() {
 /*
 function updateToken(codigo){
 	
-	var = 'http://services.asxcard.com.br/TokenService.svc/atualizar?id='+localStorage.getItem('Codigo')
+	var = 'http://asxcard.cloudapp.net/TokenService.svc/atualizar?id='+localStorage.getItem('Codigo')
 	$.ajax({
 	    url: url,
 	    type: 'GET',
@@ -1313,7 +1459,7 @@ function updateToken(codigo){
 }
 */
 function gerarToken(){
-	var url = " http://services.asxcard.com.br/TokenService.svc/gerar";
+	var url = " http://asxcard.cloudapp.net/TokenService.svc/gerar";
 
 	$.ajax({
 	    url: url,
@@ -1350,7 +1496,7 @@ if(mensagem == ""){
 	$("#fale-mensagem").focus();
 	return false;
 } 
-    var url = " http://services.asxcard.com.br/NoticiaService.svc/faleconosco?"+
+    var url = " http://asxcard.cloudapp.net/NoticiaService.svc/faleconosco?"+
     			"id="+localStorage.getItem('Codigo')+
     			"&assunto="+assunto+
     			"&titulo="+titulo+
@@ -1389,7 +1535,7 @@ function recuperarSenha(){
 
 	if(atual != ""){
 
-	    var url = "http://services.asxcard.com.br/CadastroService.svc/recuperarsenha?email="+atual;
+	    var url = "http://asxcard.cloudapp.net/CadastroService.svc/recuperarsenha?email="+atual;
 	    console.log(url)
 		$.ajax({
 		    url: url,
@@ -1419,7 +1565,7 @@ function alterarSenha(){
 
 	if(confirma != "" && nova != "" && confirma === nova){
 
-	    var url = "http://services.asxcard.com.br/CadastroService.svc/mudasenha?"+
+	    var url = "http://asxcard.cloudapp.net/CadastroService.svc/mudasenha?"+
 	    			"id="+localStorage.getItem('Codigo')+
 	    			"&senhaAtual="+atual+
 	    			"&senhaNova="+nova+
@@ -1460,7 +1606,7 @@ function indicar(){
 
 
 
-    var url = "http://services.asxcard.com.br/IndicacaoService.svc/indique?"+
+    var url = "http://asxcard.cloudapp.net/IndicacaoService.svc/indique?"+
     		  "id="+localStorage.getItem('Codigo')+
     		  "&nome="+nome+
     		  "&endereco="+endePublicadoreco+
@@ -1504,7 +1650,7 @@ function fazerLogin(){
 		$("#login-senha").focus();
 		return false;
 	} 
-	var url = "http://services.asxcard.com.br/CadastroService.svc/cadastros?email="+email+"&senha="+senha;
+	var url = "http://asxcard.cloudapp.net/CadastroService.svc/cadastros?email="+email+"&senha="+senha;
 	
 	console.log(url)
 
@@ -1592,7 +1738,7 @@ if(ddd == ""){
 	return false;
 } 
 
-var url = "http://services.asxcard.com.br/CadastroService.svc/cadastro?"+
+var url = "http://asxcard.cloudapp.net/CadastroService.svc/cadastro?"+
 		   "nome="+nome+
 		   "&email="+email+
 		   "&telefone ="+fone+
@@ -1713,7 +1859,7 @@ function atualizarUsuario(){
 	} 
 
 
-	var url = "http://services.asxcard.com.br/CadastroService.svc/atualizacadastro?"+
+	var url = "http://asxcard.cloudapp.net/CadastroService.svc/atualizacadastro?"+
 			   "id="+localStorage.getItem('Codigo')+
 			   "&nome="+nome+
 			   "&email="+email+
