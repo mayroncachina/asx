@@ -1189,9 +1189,6 @@ $("#kms").change(function(){
 	cartoesProximos($(this).val())
 });
 
-latitude=  0;
-longitude = 0;
-
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
@@ -1200,18 +1197,18 @@ function getLocation() {
     }
 }
 function showPosition(position) {
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;	
+	console.log(position)
+	localStorage.setItem('latitude',position.coords.latitude);
+    localStorage.setItem('longitude',position.coords.longitude);	
 }
 
 function cartoesProximos(raio){
 
-	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionarProximos?latitude=-23.543534534&longitude=-46.12345&raio='+raio)
 	getLocation()
-	alert(latitude)
+	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionarProximos?latitude='+localStorage.getItem('latitude')+'&longitude='+localStorage.getItem('longitude')+'&raio='+raio)
 
 	$.ajax({
-    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarProximos?latitude=-23.543534534&longitude=-46.12345&raio='+raio,
+    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarProximos?latitude='+localStorage.getItem('latitude')+'&longitude='+localStorage.getItem('longitude')+'&raio='+raio,
     type: 'GET',
     error : function (data){
             alert('Acesso Negado!');
