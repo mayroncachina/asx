@@ -1189,22 +1189,25 @@ $("#kms").change(function(){
 	cartoesProximos($(this).val())
 });
 
+latitude=  0;
+longitude = 0;
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+function showPosition(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;	
+}
+
 function cartoesProximos(raio){
 
-	navigator.geolocation.getCurrentPosition(onSuccess, onError);
-	var latitude = 0;
-	var longitude = 0;
-	function onSuccess(position) {
-		latitude = position.coords.latitude
-		longitude = position.coords.longitude
-	}
-
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
 	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionarProximos?latitude=-23.543534534&longitude=-46.12345&raio='+raio)
-
+	getLocation()
 	alert(latitude)
 
 	$.ajax({
