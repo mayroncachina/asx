@@ -356,7 +356,6 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 	                <li><a href="#meus-cartoes" data-icon="bullets">Mais...<br/>&nbsp;</a></li>
 	            </ul>
 	        </div><!-- /navbar -->
-
 			<ul data-role="listview" data-inset="true" id="cards" data-theme="c" data-dividertheme="a"></ul>
 	    </div><!-- /main -->
 		<div data-role="footer" data-position="fixed">
@@ -379,14 +378,24 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div role="main" class="ui-content">
 			<div data-role="navbar">
 	            <ul>
-	                <li><a href="#meus-cartoes" data-icon="grid" class="ui-btn-active">Meus<br/>Cartões</a></li>
+	                <li><a href="#meus-cartoes" data-icon="grid" >Meus<br/>Cartões</a></li>
 	                <li><a href="#pontuar" data-icon="tag" >Pontuar<br/>&nbsp;</a></li>
-	                <li><a href="#meus-cartoes-proximo" data-icon="location">Perto <br/>de Mim</a></li>
+	                <li><a href="#meus-cartoes-proximo" class="ui-btn-active" data-icon="location">Perto <br/>de Mim</a></li>
 	                <li><a href="#meus-cartoes" data-icon="bullets">Mais...<br/>&nbsp;</a></li>
 	            </ul>
 	        </div><!-- /navbar -->
-
-			<ul data-role="listview" data-inset="true" id="cards" data-theme="c" data-dividertheme="a"></ul>
+	        <select id="kms">
+	        	<option value="0.5">até 500 metros</option>
+	        	<option value="1">até 1 km</option>
+	        	<option value="3">até 3 km</option>
+	        	<option value="5">até 5 km</option>
+	        	<option value="10">até 10 km</option>
+	        	<option value="20">até 20 km</option>
+	        	<option value="30">até 30 km</option>
+	        	<option value="40">até 40 km</option>
+	        	<option value="50">até 50 km</option>
+	        </select>
+			<ul data-role="listview" data-inset="true" id="cards-meus-cartoes-proximo" data-theme="c" data-dividertheme="a"></ul>
 	    </div><!-- /main -->
 		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
@@ -959,16 +968,21 @@ function pontuarEstabelecimento(){
 		    		$(".marcacao").html("<img src='img/imgPontoMarcado.png'/><a href=\"#\" onclick=\"marcarOutroCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">MARCAR OUTRO CARTÃO</a>")
 		    		console.log(data['MarcarPontoResult'].Mensagem);
 
+				}else if(data['MarcarPontoResult'].Status == '3'){
+					// Brinde consumido (Deverá ser criado um novo cartão)
+				}else if(data['MarcarPontoResult'].Status == '4'){
+
+					$(".marcacao").html("<img src='img/imgGanhouMiniPremio.png'/><a href=\"#\" onclick=\"marcarOutroCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">MARCAR OUTRO CARTÃO</a> "+data['MarcarPontoResult'].Mensagem);
+
+		    	}else if(data['MarcarPontoResult'].Status == '5'){
+		    	
+		    		$(".marcacao").html("<img src='img/imgGanhouMiniPremio.png'/><a href=\"#\" onclick=\"marcarOutroCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">MARCAR OUTRO CARTÃO</a>")
+		    			console.log(data['MarcarPontoResult'].Mensagem);
+		    		
 		    	}else if(data['MarcarPontoResult'].Status == '6'){
 		    		$(".marcacao").html("<img src='img/imgCartaoCompletado.png'/><a href=\"#\" onclick=\"marcarOutroCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">MARCAR OUTRO CARTÃO</a>")
 		    			console.log(data['MarcarPontoResult'].Mensagem);
 
-		    	}else if(data['MarcarPontoResult'].Status == '5'){
-		    		$(".marcacao").html("<img src='img/imgGanhouMiniPremio.png'/><a href=\"#\" onclick=\"marcarOutroCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">MARCAR OUTRO CARTÃO</a>")
-		    			console.log(data['MarcarPontoResult'].Mensagem);
-		    		
-		    	}else {
-		    		$(".marcacao").html("<img src='img/imgGanhouMiniPremio.png'/><a href=\"#\" onclick=\"marcarOutroCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">MARCAR OUTRO CARTÃO</a> "+data['MarcarPontoResult'].Mensagem);
 		    	}
 		    	
 
@@ -1094,9 +1108,9 @@ $( document ).on( "pagebeforeshow", "#loja-menu", function() {
 
 $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 
-	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude=-23,68319780696537&longitude=-46,700258399999996&raio=40')
+	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo'))
 	$.ajax({
-	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude=-23,68319780696537&longitude=-46,700258399999996',
+	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo'),
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
@@ -1166,112 +1180,66 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 	});
 });
 
-$( document ).on( "pagebeforeshow", "#meus-cartoes-proximos", function() {
+$( document ).on( "pagebeforeshow", "#meus-cartoes-proximo", function() {
+	cartoesProximos(0.5);
 
-	// onSuccess Callback
-	// This method accepts a Position object, which contains the
-	// current GPS coordinates
-	//
-	var latitude = 0;
-	var longitude = 0;
-	var onSuccess = function(position) {
+});
 
-		latitude = position.coords.latitude;
-		longitude = position.coords.longitude;
+$("#kms").change(function(){
+	cartoesProximos($(this).val())
+});
 
-	    alert('Latitude: '          + position.coords.latitude          + '\n' +
-	          'Longitude: '         + position.coords.longitude         + '\n' +
-	          'Altitude: '          + position.coords.altitude          + '\n' +
-	          'Accuracy: '          + position.coords.accuracy          + '\n' +
-	          'Altitude Accuracy: ' + position.coords.altitudeAccuracy  + '\n' +
-	          'Heading: '           + position.coords.heading           + '\n' +
-	          'Speed: '             + position.coords.speed             + '\n' +
-	          'Timestamp: '         + position.timestamp                + '\n');
-	};
-
-	// onError Callback receives a PositionError object
-	//
-	function onError(error) {
-	    alert('code: '    + error.code    + '\n' +
-	          'message: ' + error.message + '\n');
-	}
+function cartoesProximos(raio){
 
 	navigator.geolocation.getCurrentPosition(onSuccess, onError);
+	var latitude = 0;
+	var longitude = 0;
+	function onSuccess(position) {
+		latitude = position.coords.latitude
+		longitude = position.coords.longitude
+	}
 
-	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude='+latitude+'&longitude='+latitude+'&raio=100000000')
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionarProximos?latitude=-23.543534534&longitude=-46.12345&raio='+raio)
+
+	alert(latitude)
 
 	$.ajax({
-	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+'&latitude='+latitude+'&longitude='+latitude+'&raio=100000000',
-	    type: 'GET',
-	    error : function (data){
-	            alert('Acesso Negado!');
-	            console.log(data);
-	    },
-	    success: function (data) {
+    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarProximos?latitude=-23.543534534&longitude=-46.12345&raio='+raio,
+    type: 'GET',
+    error : function (data){
+            alert('Acesso Negado!');
+            console.log(data);
+    },
+    success: function (data) {
 
-	    	var linha = '<li data-role="list-divider">Seus Lugares <span class="ui-li-count">'+data['ObterCartoesResult']['Clientes'].length+'</span></li>';
-			for (var i = data['ObterCartoesResult']['Clientes'].length - 1; i >= 0; i--) {
+    	var linha = '<li data-role="list-divider"> Lugares Próximos <span class="ui-li-count">'+data['SelecionarProximosResult']['Clientes'].length+'</span></li>';
+		for (var i = data['SelecionarProximosResult']['Clientes'].length - 1; i >= 0; i--) {
 
 
-				linha += '<li>';
-				linha += '<a href="#" onclick="setLinkLoja('+data['ObterCartoesResult']['Clientes'][i]['ID']+')" class="ui-icon-carat-r-custom ui-btn-custom">'
-				linha += '	<div class="wrapper">'
-				linha += '  		<div class="title">'+data['ObterCartoesResult']['Clientes'][i]['Nome']+'</div>'
-				linha += '		<div class="left-block">'
-				linha += '			<img src="'+data['ObterCartoesResult']['Clientes'][i]['Imagem']+'" class="icon-loja">'
-				linha += '		</div>'
-				linha += '		<div class="right-block">'
-				linha += '			<p>'+data['ObterCartoesResult']['Clientes'][i]['Segmento']['Categoria']['Desc_Categoria']+'</p>'
-				linha += '			<p><strong>Distância: '+data['ObterCartoesResult']['Clientes'][i]['distancia_em_metros']+'</strong></p>'
-				linha += '			<p>'
-				linha += '				<img src="img/icone_Usuarios.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeVisitas']+'</strong>'
-				linha += '				<img src="img/icone_Favoritar.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeCurtidas']+'</strong>'
-				linha += '				<img src="img/icone_Comentarios.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeMsgs']+'</strong>'
-				linha += '			</p>'
-				linha += '			<p class="ui-li-aside" style="margin-top:3em">'
-										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]){
-				linha += '				<span>'
-				linha += '					<strong>'
-				linha += '						<img src="img/icone_Cartao_01.png" width="25">'
-				linha += '						<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['QtdeMaximaPontos']+'</span>'
-				linha += '					</strong>'
-				linha += '				</span>'
-										}
-										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]){
-				linha += '				<span>'
-				linha += '					<strong>'
-				linha += '						<img src="img/icone_Cartao_02.png" width="25">'
-				linha += '						<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]['QtdeMaximaPontos']+'</span>'
-				linha += '					</strong>'
-				linha += '				</span>'
-										}
-										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]){
-				linha += '				<span>'
-				linha += '					<strong>'
-				linha += '						<img src="img/icone_Cartao_03.png" width="25">'
-				linha += '						<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]['QtdeMaximaPontos']+'</span>'
-				linha += '					</strong>'
-				linha += '				</span>'
-										}												
-				linha += '				<br>'
-				linha += '			</p>'
-				linha += '		</div>'
-				linha += '	</div>'
-				linha += '</a>'
-				linha += '</li> <!-- /Item -->';
+			linha += '<li>';
+			linha += '<a href="#" onclick="setLinkLoja('+data['SelecionarProximosResult']['Clientes'][i]['ID']+')" class="ui-icon-carat-r-custom ui-btn-custom">'
+			linha += '	<div class="wrapper">'
+			linha += '  		<div class="title">'+data['SelecionarProximosResult']['Clientes'][i]['Nome']+'</div>'
+			linha += '		<div class="left-block">'
+			linha += '			<img src="'+data['SelecionarProximosResult']['Clientes'][i]['Imagem']+'" class="icon-loja">'
+			linha += '		</div>'
+			linha += '</a>'
+			linha += '</li> <!-- /Item -->';
 
-			};
+		};
 
-			$("#cards").html(linha);
-			$('#cards').listview('refresh');
+		$("#cards-meus-cartoes-proximo").html(linha);
+		$('#cards-meus-cartoes-proximo').listview('refresh');
 
 
 
 	    }
 	});
-});
-
-
+}
 
 
 function setLinkLoja(id){
