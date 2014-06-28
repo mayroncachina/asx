@@ -306,35 +306,33 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
 		</div><!-- /header -->
 
-
-	        <ul data-role="listview" data-inset="true">
-		    <li><a href="#meus-cartoes">
-		        <img src="https://cdn3.iconfinder.com/data/icons/faticons/32/grid-01-64.png" >
-		    <h2>Meus Cartões</h2></a>
-		    </li>
-		    <li><a href="#">
-		        <img src="https://cdn2.iconfinder.com/data/icons/snipicons/500/qrcode-64.png">
-		    <h2>Marcar Pontos</h2></a>
-		    </li>
-		    <li><a href="#meus-cartoes">
-		        <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/64/marker.png">
-		    <h2>Perto de Mim</h2></a>
-		    </li>
-		    <li><a href="#">
-		        <img src="https://cdn1.iconfinder.com/data/icons/windows-8-metro-style/64/ticket.png">
-		    <h2>Meus Cupons</h2></a>
-		    </li>
-		    <li><a href="#">
-		        <img src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/statistics-64.png">
-		    <h2>Estatisticas</h2></a>
-		    </li>
-		    <li><a href="#">
-		        <img src="https://cdn4.iconfinder.com/data/icons/sound-and-audio/32/black_5_favorite_cricle_star-64.png">
-		    <h2>Ofertas Especiais</h2></a>
-		    </li>
-		</ul>
-
-
+		<div role="main" class="ui-content">
+	    	<ul class="list-menu-mais" data-role="listview" data-inset="true">
+			    <li><a href="#meus-cartoes">
+			        <img src="img/grid-01-64.png" >
+			    <h2>Meus Cartões</h2></a>
+			    </li>
+			    <li><a href="#pontuar">
+			        <img src="img/qrcode-64.png">
+			    <h2>Marcar Pontos</h2></a>
+			    </li>
+			    <li><a href="#meus-cartoes-proximo">
+			        <img src="img/marker.png">
+			    <h2>Perto de Mim</h2></a>
+			    </li>
+			    <li><a href="#meus-cartoes">
+			        <img src="img/ticket.png">
+			    <h2>Meus Cartões</h2></a>
+			    </li>
+			    <li><a href="#">
+			        <img src="img/statistics-64.png">
+			    <h2>Estatisticas</h2></a>
+			    </li>
+			    <li><a href="#">
+			        <img src="img/black_5_favorite_cricle_star-64.png">
+			    <h2>Ofertas Especiais</h2></a>
+			    </li>
+			</ul>
 		</div><!-- /content -->
 
 	</div><!-- /page -->
@@ -353,7 +351,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 	                <li><a href="#meus-cartoes" data-icon="grid" class="ui-btn-active">Meus<br/>Cartões</a></li>
 	                <li><a href="#pontuar" data-icon="tag" >Pontuar<br/>&nbsp;</a></li>
 	                <li><a href="#meus-cartoes-proximo" data-icon="location">Perto <br/>de Mim</a></li>
-	                <li><a href="#meus-cartoes" data-icon="bullets">Mais...<br/>&nbsp;</a></li>
+	                <li><a href="#menu-lista" data-icon="bullets">Mais...<br/>&nbsp;</a></li>
 	            </ul>
 	        </div><!-- /navbar -->
 			<ul data-role="listview" data-inset="true" id="cards" data-theme="c" data-dividertheme="a"></ul>
@@ -381,14 +379,14 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 	                <li><a href="#meus-cartoes" data-icon="grid" >Meus<br/>Cartões</a></li>
 	                <li><a href="#pontuar" data-icon="tag" >Pontuar<br/>&nbsp;</a></li>
 	                <li><a href="#meus-cartoes-proximo" class="ui-btn-active" data-icon="location">Perto <br/>de Mim</a></li>
-	                <li><a href="#meus-cartoes" data-icon="bullets">Mais...<br/>&nbsp;</a></li>
+	                <li><a href="#menu-lista" data-icon="bullets">Mais...<br/>&nbsp;</a></li>
 	            </ul>
 	        </div><!-- /navbar -->
 	        <select id="kms">
 	        	<option value="0.5">até 500 metros</option>
 	        	<option value="1">até 1 km</option>
 	        	<option value="3">até 3 km</option>
-	        	<option value="5">até 5 km</option>
+	        	<option selected="selected" value="5">até 5 km</option>
 	        	<option value="10">até 10 km</option>
 	        	<option value="20">até 20 km</option>
 	        	<option value="30">até 30 km</option>
@@ -626,7 +624,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		                <li><a href="#meus-cartoes" data-icon="grid" class="ui-btn-active">Meus<br/>Cartões</a></li>
 		                <li><a href="#pontuar" data-icon="tag" >Pontuar<br/>&nbsp;</a></li>
 		                <li><a href="#meus-cartoes-proximo" data-icon="location">Perto <br/>de Mim</a></li>
-		                <li><a href="#meus-cartoes" data-icon="bullets">Mais...<br/>&nbsp;</a></li>
+		                <li><a href="#menu-lista" data-icon="bullets">Mais...<br/>&nbsp;</a></li>
 		            </ul>
 		        </div><!-- /navbar -->
 			<h2>Marque Seu Ponto</h2>
@@ -1134,7 +1132,7 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 				linha += '			<p><strong>Distância: '+data['ObterCartoesResult']['Clientes'][i]['distancia_em_metros']+'</strong></p>'
 				linha += '			<p>'
 				linha += '				<img src="img/icone_Usuarios.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeVisitas']+'</strong>'
-				linha += '				<img src="img/icone_Favoritar.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeCurtidas']+'</strong>'
+				//linha += '				<img src="img/icone_Favoritar.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeCurtidas']+'</strong>'
 				linha += '				<img src="img/icone_Comentarios.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeMsgs']+'</strong>'
 				linha += '			</p>'
 				linha += '			<p class="ui-li-aside" style="margin-top:3em">'
@@ -1181,8 +1179,8 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 });
 
 $( document ).on( "pagebeforeshow", "#meus-cartoes-proximo", function() {
-	cartoesProximos(0.5);
-
+	cartoesProximos(5);
+	console.log("Cartoes proximas")
 });
 
 $("#kms").change(function(){

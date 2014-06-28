@@ -2,8 +2,30 @@
 .menu-cartoes li a {
 	font-size: 9px !important;
 }
+
+.list-menu-mais a {
+	background-color: #DDD !important;
+}
+
+a:link, a:visited, a:hover, a:active
 */
 
+.loja-cartoes .ui-tabs ul li a:link {
+
+	background-color: #f3f3f3;
+	border-color: #f3f3f3;
+	color: #ffffff;
+
+}
+
+.list-menu-mais h2 {
+	color: #FFF !important;
+	margin-top: 20px !important;
+}
+.list-menu-mais li img {
+	margin-top: 5px;
+	margin-left: 5px;
+}
 
 .nav-bar-desativada {
 
