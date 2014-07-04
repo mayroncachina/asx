@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="css/themes/Blue.css" />
 	<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
 	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/buttons.css" />
+
 	<script src="cordova.js"></script>
 	<script src="js/jquery-1.9.1.min.js"></script>
 	<script src="js/jquery.mobile-1.4.0.min.js"></script>
@@ -1123,25 +1125,17 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 
 	    	var linha = '<li data-role="list-divider">Seus Lugares <span class="ui-li-count">'+data['ObterCartoesResult']['Clientes'].length+'</span></li>';
 			for (var i = data['ObterCartoesResult']['Clientes'].length - 1; i >= 0; i--) {
-
-
-				linha += '<li>';
-				linha += '<a href="#" onclick="setLinkLoja('+data['ObterCartoesResult']['Clientes'][i]['ID']+')" class="ui-icon-carat-r-custom ui-btn-custom">'
-				linha += '	<div class="wrapper">'
-				linha += '  		<div class="title">'+data['ObterCartoesResult']['Clientes'][i]['Nome']+'</div>'
-				linha += '		<div class="left-block">'
-				//linha += '			<img src="'+data['ObterCartoesResult']['Clientes'][i]['Imagem']+'" class="icon-loja">'
-				linha += '			<img src="http://wheresbar.com.br:8080/static/bar/So_Mais_Uma_2.jpg" class="icon-loja">'
-				
-				linha += '		</div>'
-				linha += '		<div class="right-block">'
-				linha += '			<p>'+data['ObterCartoesResult']['Clientes'][i]['Segmento']['Categoria']['Desc_Categoria']+'</p>'
-				linha += '			<p><strong>Distância: '+data['ObterCartoesResult']['Clientes'][i]['distancia_em_metros']+'</strong></p>'
+				linha += '<li><a href="#" onclick="setLinkLoja('+data['ObterCartoesResult']['Clientes'][i]['ID']+')">';
+				linha += '    <img src="http://wheresbar.com.br:8080/static/bar/So_Mais_Uma_2.jpg" class="img-card">';
+				linha += '    <h2>'+data['ObterCartoesResult']['Clientes'][i]['Nome']+'</h2>';
+				linha += '    <p>'+data['ObterCartoesResult']['Clientes'][i]['Segmento']['Categoria']['Desc_Categoria']+'</p><p> Dist.: '+data['ObterCartoesResult']['Clientes'][i]['distancia_em_metros']+'m</p>';
 				linha += '			<p>'
 				linha += '				<img src="img/icone_Usuarios.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeVisitas']+'</strong>'
 				//linha += '				<img src="img/icone_Favoritar.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeCurtidas']+'</strong>'
 				linha += '				<img src="img/icone_Comentarios.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeMsgs']+'</strong>'
-				linha += '			</p>'
+				linha += '			</p>'	
+
+
 				linha += '			<p class="ui-li-aside" style="margin-top:3em">'
 										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]){
 				linha += '				<span>'
@@ -1169,11 +1163,10 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 										}												
 				linha += '				<br>'
 				linha += '			</p>'
-				linha += '		</div>'
-				linha += '	</div>'
-				linha += '</a>'
-				linha += '</li> <!-- /Item -->';
 
+
+
+				linha += '</a></li>';
 			};
 
 			$("#cards").html(linha);
@@ -1273,7 +1266,9 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 		    	$(".loja-nome").html(data.Nome);
 		    	$(".loja-endereco").html(data.Endereco);
 		    	$(".loja-fone").html(data.Telefone);
-		    	$(".loja-imagem").attr('src', data.ImagemUrl)
+		    	//$(".loja-imagem").attr('src', data.ImagemUrl)
+		    	$(".loja-imagem").attr('src', "http://wheresbar.com.br:8080/static/bar/So_Mais_Uma_2.jpg")
+		    	
 		    	$(".loja-homepage").attr('href', data.Homepage)
 
 
@@ -1282,12 +1277,12 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 				linha += '    <ul class="menu-cartoes">';
 				//for (var i = 0; i < data.Cartoes.length; i++) {
 
-				var card2Desativado = data.Cartoes.length > 1 ? "" : "_Desativado";
-				var card3Desativado = data.Cartoes.length > 2 ? "" : "_Desativado";
+				var card2Desativado = data.Cartoes.length > 1 ? "green" : "white";
+				var card3Desativado = data.Cartoes.length > 2 ? "pink" : "white";
 
-		        linha += '    <li><a style="text-align: center" href="#1" data-icon="false"><img src="img/icone_Cartao_01.png"/></a></li>'; 
-		        linha += '    <li><a style="text-align: center"  class="nav-bar-desativada" href="#2" data-icon="false"><img src="img/icone_Cartao_02'+card2Desativado+'.png"/></a></li>'; 
-		        linha += '    <li><a style="text-align: center" href="#3" data-icon="false"><img src="img/icone_Cartao_03'+card2Desativado+'.png"/></a></li>'; 
+		        linha += '    <li><a style="text-align: center" href="#1" data-icon="false" class="button blue bigrounded">1</a></li>'; 
+		        linha += '    <li><a style="text-align: center" href="#2" data-icon="false" class="button '+card2Desativado+' bigrounded">2</a></li>'; 
+		        linha += '    <li><a style="text-align: center" href="#3" data-icon="false" class="button '+card3Desativado+' bigrounded">3</a></li>'; 
 		    	//}
 
 		        linha += '    </ul>';
