@@ -19,6 +19,31 @@ a:link, a:visited, a:hover, a:active
 }
 
 */
+/*.ui-grid-a>.ui-block-a, .ui-grid-a {*/
+.image-loja {
+	width: 36% !important;
+}
+.image-loja div img {
+	margin-top: 8%;
+	float: left;
+	margin-right:5px;
+	width: 92px;
+}
+
+
+.info-adicional {
+	margin-top: -30px;
+	font-weight: bold;
+}
+
+.info-adicional a {
+	text-decoration:none;
+}
+
+.botoes-loja {
+	width: 64% !important;
+}
+
 .list-menu-mais h2 {
 	color: #FFF !important;
 	margin-top: 20px !important;
