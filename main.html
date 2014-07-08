@@ -32,9 +32,6 @@
 		height: 250px;*/
 		text-align: center;
 	}
-
-	/* Disable certain interactions on touch devices */
-	body { -webkit-touch-callout: none; -webkit-text-size-adjust: none; -webkit-user-select: none; -webkit-highlight: none; -webkit-tap-highlight-color: rgba(0,0,0,0); }
 	</style>
 
 </head>
@@ -363,13 +360,6 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 	        </div><!-- /navbar -->
 			<ul data-role="listview" data-inset="true" id="cards" data-theme="c" data-dividertheme="a"></ul>
 	    </div><!-- /main -->
-		<div data-role="footer" data-position="fixed">
-		        <div data-role="navbar">
-			        <ul>
-			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
-		        	</ul>
-	        	</div><!-- /navbar -->
-		</div><!-- /footer -->
 	</div><!-- /page -->
 
 
@@ -404,7 +394,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
+			            <li><a href="#" data-icon="back" onclick="javascript: history.go(-1)"></a></li>
 		        	</ul>
 	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
@@ -464,7 +454,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
+			            <li><a href="#" data-icon="back" onclick="javascript: history.go(-1)"></a></li>
 		        	</ul>
 	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
@@ -478,36 +468,41 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		</div><!-- /header -->
 
 		<div role="main" class="ui-content">
-
-		<div style="text-align:center">
-			<h1 class="loja-localizacao-nome"></h1>
-		</div>
 			<div class="ui-grid-a">
-			    <div class="ui-block-a"><div class="ui-bar " style="height:124px">
-			    	<img class="loja-localizacao-imagem" src="" width="124" style="float: left;margin-right:5px" />
-			    </div></div>
-			    <div class="ui-block-b"><div class="ui-bar " style="height:124px">
-						<p class="small-13 loja-localizacao-endereco"></p>
-						<p class="small-13 loja-localizacao-fone" ><a href="tel:0000000"></a></p>
-			    </div></div>
+			    <div class="ui-block-a image-loja">
+			    	<div class="ui-bar ">
+				    	<img class="loja-imagem" src="" />
+						
+			    	</div>
+			    </div>
+			    <div class="ui-block-b botoes-loja">
+					<h1 class="loja-nome"></h1>
+					<div class="ui-grid-b">
+					    <div class="ui-block-a">
+					    	<div class="btn-loja-utils" style="height:60px">
+					    		<a href="#loja-menu"><img src="img/icone_ProdutosLojista.png" class="btn-loja-utils-img"/></a>
+					    	</div>
+					    </div>
+					    <div class="ui-block-b">
+					    	<div class="btn-loja-utils" style="height:60px">
+								<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" class="btn-loja-utils-img"/></a>
+					    	</div>
+					    </div>
+					    <div class="ui-block-c">
+					    	<div class="btn-loja-utils" style="height:60px">
+					    		<a href="#" class="loja-homepage"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
+					    	</div>
+					    </div>
+					</div><!-- /grid-c -->
+			    </div>
 			</div><!-- /grid-a -->
+		    
 
-			<div class="ui-grid-c">
-			    <div class="ui-block-a"><div class="btn-loja-utils" style="height:60px; ">
-			    	<a href="#loja-localizacao"><img src="img/icone_LocalizacaoLojista.png" class="btn-loja-utils-img"/></a>
-			    </div></div>
-			    <div class="ui-block-b"><div class="btn-loja-utils" style="height:60px">
-			    	<a href="#loja-menu"><img src="img/icone_ProdutosLojista.png" class="btn-loja-utils-img"/></a>
-			    </div></div>
-			    <div class="ui-block-c"><div class=" btn-loja-utils" style="height:60px">
-					<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" class="btn-loja-utils-img"/></a>
-			    </div></div>
-			    <div class="ui-block-d"><div class="btn-loja-utils" style="height:60px">
-			    	<a href="http://google.com.br" class="loja-localizacao-homepage"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
-			    </div></div>
-			</div><!-- /grid-c -->
+		    <div class="info-adicional">
+					<p class="small-13 loja-endereco"></p>
+					<p class="small-13 loja-fone" ><a href="tel:0000000"></a></p>
+		    </div>
 
-			<br/>
 			<div role="main" class="ui-content" id="map-canvas" width="100%" heigth="400px">
 			        <!-- map loads here... -->
 			</div>
@@ -525,34 +520,40 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		</div><!-- /header -->
 
 		<div role="main" class="ui-content">
-
-			<div style="text-align:center">
-			<h1 class="loja-menu-nome"></h1>
-		</div>
 			<div class="ui-grid-a">
-			    <div class="ui-block-a"><div class="ui-bar " style="height:124px">
-			    	<img class="loja-menu-imagem" src="" width="124" style="float: left;margin-right:5px" />
-			    </div></div>
-			    <div class="ui-block-b"><div class="ui-bar " style="height:124px">
-						<p class="small-13 loja-menu-endereco"></p>
-						<p class="small-13 loja-menu-fone" ><a href="tel:0000000"></a></p>
-			    </div></div>
+			    <div class="ui-block-a image-loja">
+			    	<div class="ui-bar ">
+				    	<img class="loja-imagem" src="" />
+						
+			    	</div>
+			    </div>
+			    <div class="ui-block-b botoes-loja">
+					<h1 class="loja-nome"></h1>
+					<div class="ui-grid-b">
+					    <div class="ui-block-a">
+					    	<div class="btn-loja-utils" style="height:60px">
+					    		<a href="#loja-menu"><img src="img/icone_ProdutosLojista.png" class="btn-loja-utils-img"/></a>
+					    	</div>
+					    </div>
+					    <div class="ui-block-b">
+					    	<div class="btn-loja-utils" style="height:60px">
+								<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" class="btn-loja-utils-img"/></a>
+					    	</div>
+					    </div>
+					    <div class="ui-block-c">
+					    	<div class="btn-loja-utils" style="height:60px">
+					    		<a href="#" class="loja-homepage"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
+					    	</div>
+					    </div>
+					</div><!-- /grid-c -->
+			    </div>
 			</div><!-- /grid-a -->
+		    
 
-			<div class="ui-grid-c">
-			    <div class="ui-block-a"><div class="btn-loja-utils" style="height:60px; ">
-			    	<a href="#loja-localizacao"><img src="img/icone_LocalizacaoLojista.png" class="btn-loja-utils-img"/></a>
-			    </div></div>
-			    <div class="ui-block-b"><div class=" btn-loja-utils" style="height:60px">
-			    	<a href="#"><img src="img/icone_ProdutosLojista.png" class="btn-loja-utils-img"/></a>
-			    </div></div>
-			    <div class="ui-block-c"><div class="btn-loja-utils" style="height:60px">
-					<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" class="btn-loja-utils-img"/></a>
-			    </div></div>
-			    <div class="ui-block-d"><div class=" btn-loja-utils" style="height:60px">
-			    	<a href="http://google.com.br" class="loja-menu-homepage"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
-			    </div></div>
-			</div><!-- /grid-c -->
+		    <div class="info-adicional">
+					<p class="small-13 loja-endereco"></p>
+					<p class="small-13 loja-fone" ><a href="tel:0000000"></a></p>
+		    </div>
 
 			<ul data-role="listview" data-inset="true"></ul>
 
@@ -561,7 +562,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
+			            <li><a href="#" data-icon="back" onclick="javascript: history.go(-1)"></a></li>
 		        	</ul>
 	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
@@ -580,41 +581,49 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 
 		<div role="main" class="ui-content">
 
-			<div style="text-align:center">
-			<h1 class="loja-comentarios-nome"></h1>
-		</div>
 			<div class="ui-grid-a">
-			    <div class="ui-block-a"><div class="ui-bar " style="height:124px">
-			    	<img class="loja-comentarios-imagem" src="" width="124" style="float: left;margin-right:5px" />
-			    </div></div>
-			    <div class="ui-block-b"><div class="ui-bar " style="height:124px">
-						<p class="small-13 loja-comentarios-endereco"></p>
-						<p class="small-13 loja-comentarios-fone" ><a href="tel:0000000"></a></p>
-			    </div></div>
+			    <div class="ui-block-a image-loja">
+			    	<div class="ui-bar ">
+				    	<img class="loja-imagem" src="" />
+						
+			    	</div>
+			    </div>
+			    <div class="ui-block-b botoes-loja">
+					<h1 class="loja-nome"></h1>
+					<div class="ui-grid-b">
+					    <div class="ui-block-a">
+					    	<div class="btn-loja-utils" style="height:60px">
+					    		<a href="#loja-menu"><img src="img/icone_ProdutosLojista.png" class="btn-loja-utils-img"/></a>
+					    	</div>
+					    </div>
+					    <div class="ui-block-b">
+					    	<div class="btn-loja-utils" style="height:60px">
+								<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" class="btn-loja-utils-img"/></a>
+					    	</div>
+					    </div>
+					    <div class="ui-block-c">
+					    	<div class="btn-loja-utils" style="height:60px">
+					    		<a href="#" class="loja-homepage"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
+					    	</div>
+					    </div>
+					</div><!-- /grid-c -->
+			    </div>
 			</div><!-- /grid-a -->
+		    
 
-			<div class="ui-grid-c">
-			    <div class="ui-block-a"><div class="btn-loja-utils" style="height:60px; ">
-			    	<a href="#loja-localizacao"><img src="img/icone_LocalizacaoLojista.png" class="btn-loja-utils-img"/></a>
-			    </div></div>
-			    <div class="ui-block-b"><div class="btn-loja-utils" style="height:60px">
-			    	<a href="#loja-menu"><img src="img/icone_ProdutosLojista.png" class="btn-loja-utils-img"/></a>
-			    </div></div>
-			    <div class="ui-block-c"><div class="btn-loja-utils" style="height:60px">
-					<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" class="btn-loja-utils-img"/></a>
-			    </div></div>
-			    <div class="ui-block-d"><div class="btn-loja-utils" style="height:60px">
-			    	<a href="http://google.com.br" class="loja-comentarios-homepage"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
-			    </div></div>
-			</div><!-- /grid-c -->
-			<ul data-role="listview" data-inset="true"></ul>
+		    <div class="info-adicional">
+					<p class="small-13 loja-endereco"></p>
+					<p class="small-13 loja-fone" ><a href="tel:0000000"></a></p>
+		    </div>
+
+			<ul data-role="listview" data-inset="true" class="lista-comentarios"></ul>
 
 		</div><!-- /content -->
 
 		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#" data-icon="back" data-rel="back"></a></li>
+			            <li><a href="#" data-icon="back" onclick="javascript: history.go(-1)"></a></li>
 		        	</ul>
 	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
@@ -1052,7 +1061,7 @@ console.log(url)
 	    	for (var i = 0; i < dados.length; i++) {
 
 	    		linha += '<li class="" style="padding-right: 0;"><div>';
-			    linha += '<h1>'+dados[i].Participante+'</h1>'
+			    linha += '<h3 class="text-small">'+dados[i].Participante+'</h3>'
 			    linha += '<span class="ui-li-count" style="top:27px;">'+dados[i].Data+'</span></div>';
 			    linha += '<p style="white-space:normal;">  '+dados[i].Mensagem+'</p>';
 			    
@@ -1273,7 +1282,7 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 				
 				console.log(data)
 		    	$(".loja-nome").html(data.Nome);
-		    	$(".loja-endereco").html('<a href="#loja-localizacao"><image src="img/maps-small.png"> ' + data.Endereco +', '+ data.Numero +', '+ data.Bairro+ '</a>');
+		    	$(".loja-endereco").html('<a href="#loja-localizacao"><image src="img/maps-small.png"> ' + data.Endereco + '</a>');
 		    	$(".loja-fone").html('<image src="img/phone.png"> <a href="tel:' + data.Telefone +'">'+ data.Telefone+ '</a>');
 		    	//$(".loja-imagem").attr('src', data.ImagemUrl)
 		    	$(".loja-imagem").attr('src', "http://wheresbar.com.br:8080/static/bar/So_Mais_Uma_2.jpg")
@@ -1894,24 +1903,24 @@ $(document).ajaxComplete(function() {
     $.mobile.loading( 'hide');
 });
 
-
+/*
 $('input').on('focus click tap vclick', function (event) {
 	event.stopImmediatePropagation();
 	event.preventDefault();
 
 	$('.keyboard').blur();
 });
-
+*/
 
 
 /** Replace default blur with version, which also hides the keyboard 
-*/ 
 HTMLElement.prototype.defaultblur = HTMLElement.prototype.blur; 
 HTMLElement.prototype.blur = function(){ 
     this.defaultblur(); 
     window.Keyboard.hide(); 
 }; 
 
+*/ 
 
 </script>
 

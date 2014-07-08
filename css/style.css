@@ -20,6 +20,10 @@ a:link, a:visited, a:hover, a:active
 
 */
 /*.ui-grid-a>.ui-block-a, .ui-grid-a {*/
+.text-small {
+	font-size: smaller !important;
+}
+
 .image-loja {
 	width: 36% !important;
 }
