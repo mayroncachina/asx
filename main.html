@@ -654,12 +654,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 			<div style="text-align:center">
 
 				<div class="marcacao"></div>
-				<div class="pontuacao">
-					<img onclick="pontuarEstabelecimento()" src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQncGI8FA5lT_dscTPv5JdFiYmQQBIBANqJQN9Zp2hpcqGbQU_8Ew"/>
-
-					<h4>Aperte Para Ler o QRCode</h4>
-
-				</div>
+				<div class="pontuacao"></div>
 				
 			</div>
 <!--
@@ -941,6 +936,12 @@ function scanner(){
    return retorno;
 }
 
+
+
+$( document ).on( "pagebeforeshow", "#pontuar", function() {
+	pontuarEstabelecimento();
+});
+
 function baixaCartao() {
 	alert("IMPLEMENTAR")
 }
@@ -1112,9 +1113,9 @@ $( document ).on( "pagebeforeshow", "#loja-menu", function() {
 	    		linha += '<img class="icon-loja" src="'+dados[i].ImagemUrl+'" title="sample"/>';
 	    		linha += '<div>';
 			    linha += '<h1>'+dados[i].Descricao+'</h1>'
-			    linha += '<span class="ui-li-count" style="top:27px;">R$ '+dados[i].Valor.toFixed(2)+'</span>';
+			    linha += '<span class="ui-li-count" style="top:27px;color:green">R$ '+dados[i].Valor.toFixed(2)+'</span>';
 			    linha += '</div>';
-			    if(dados[i].Promocao==false){
+			    if(dados[i].Promocao==true){
 			    	linha += '<p style="white-space:normal;"> <img class="icon-loja" src="img/promocao.png" title="sample"/> </p>';
 				}
 			    linha += '</li>';
@@ -1196,6 +1197,7 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 });
 
 $( document ).on( "pagebeforeshow", "#meus-cartoes-proximo", function() {
+	$('#kms').val("5").selectmenu('refresh');
 	cartoesProximos(5);
 	console.log("Cartoes proximas")
 });
