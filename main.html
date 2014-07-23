@@ -161,10 +161,10 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 			<h1>Acessar sua Conta</h1>
 
 	        <label for="nome" style="text-align:left">Email:</label>
-	        <input name="nome" id="login-email" value="mayroncachina@gmail.com" type="text">
+	        <input name="nome" id="login-email" value="" type="text">
 
 	        <label for="senha" style="text-align:left">Senha:</label>
-	        <input name="senha" id="login-senha" value="teste" type="password">
+	        <input name="senha" id="login-senha" value="" type="password">
 	        <div style="text-align:center;margin-top:40px">
 		        <a href="#recuperar-senha" data-role="none">Esqueci minha senha</a>
 		        <br/><br/>
@@ -454,7 +454,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 		<div data-role="footer" data-position="fixed">
 		        <div data-role="navbar">
 			        <ul>
-			            <li><a href="#" data-icon="back" onclick="javascript: history.go(-1)"></a></li>
+			            <li><a href="#" data-icon="back" id="back-loja" onclick="javascript: history.go(-1)"></a></li>
 		        	</ul>
 	        	</div><!-- /navbar -->
 		</div><!-- /footer -->
@@ -926,7 +926,7 @@ function scanner(){
       function (result) {
           retorno = result.text;
           localStorage.setItem('qrcode', result.text)
-          alert(localStorage.getItem('qrcode'))
+          //alert(localStorage.getItem('qrcode'))
       }, 
       function (error) {
           alert("Scanning failed: " + error);
@@ -1144,7 +1144,7 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 	    	var linha = '<li data-role="list-divider">Seus Lugares <span class="ui-li-count">'+data['ObterCartoesResult']['Clientes'].length+'</span></li>';
 			for (var i = data['ObterCartoesResult']['Clientes'].length - 1; i >= 0; i--) {
 				linha += '<li><a href="#" onclick="setLinkLoja('+data['ObterCartoesResult']['Clientes'][i]['ID']+')">';
-				linha += '    <img src="http://wheresbar.com.br:8080/static/bar/So_Mais_Uma_2.jpg" class="img-card">';
+				linha += '    <img src="'+ data['ObterCartoesResult']['Clientes'][i]['Imagem'] +'" class="img-card">';
 				linha += '    <h2>'+data['ObterCartoesResult']['Clientes'][i]['Nome']+'</h2>';
 				linha += '    <p>'+data['ObterCartoesResult']['Clientes'][i]['Segmento']['Categoria']['Desc_Categoria']+'</p><p> Dist.: '+data['ObterCartoesResult']['Clientes'][i]['distancia_em_metros']+'m</p>';
 				linha += '			<p>'
@@ -1234,18 +1234,14 @@ function cartoesProximos(raio){
     success: function (data) {
 
     	var linha = '<li data-role="list-divider"> Lugares Próximos <span class="ui-li-count">'+data['SelecionarProximosResult']['Clientes'].length+'</span></li>';
+    	console.log(data)
 		for (var i = data['SelecionarProximosResult']['Clientes'].length - 1; i >= 0; i--) {
 
-
-			linha += '<li>';
-			linha += '<a href="#" onclick="setLinkLoja('+data['SelecionarProximosResult']['Clientes'][i]['ID']+')" class="ui-icon-carat-r-custom ui-btn-custom">'
-			linha += '	<div class="wrapper">'
-			linha += '  		<div class="title">'+data['SelecionarProximosResult']['Clientes'][i]['Nome']+'</div>'
-			linha += '		<div class="left-block">'
-			linha += '			<img src="'+data['SelecionarProximosResult']['Clientes'][i]['Imagem']+'" class="icon-loja">'
-			linha += '		</div>'
-			linha += '</a>'
-			linha += '</li> <!-- /Item -->';
+				linha += '<li><a href="#" onclick="setLinkLoja('+data['SelecionarProximosResult']['Clientes'][i]['ID']+')">';
+				linha += '    <img src="'+ data['SelecionarProximosResult']['Clientes'][i]['Imagem'] +'" class="img-card">';
+				linha += '    <h2>'+data['SelecionarProximosResult']['Clientes'][i]['Nome']+'</h2>';
+				linha += '    <p>'+data['SelecionarProximosResult']['Clientes'][i]['Nm_Categoria']+' > '+data['SelecionarProximosResult']['Clientes'][i]['Nm_Segmento']+'</p><p> Dist.: '+data['SelecionarProximosResult']['Clientes'][i]['distancia_em_metros']+'</p>';
+				linha += '</a></li><!-- /Item -->';
 
 		};
 
@@ -1257,7 +1253,6 @@ function cartoesProximos(raio){
 	    }
 	});
 }
-
 
 function setLinkLoja(id){
 	localStorage.setItem('linkLoja', id);
@@ -1286,8 +1281,7 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 		    	$(".loja-nome").html(data.Nome);
 		    	$(".loja-endereco").html('<a href="#loja-localizacao"><image src="img/maps-small.png"> ' + data.Endereco + '</a>');
 		    	$(".loja-fone").html('<image src="img/phone.png"> <a href="tel:' + data.Telefone +'">'+ data.Telefone+ '</a>');
-		    	//$(".loja-imagem").attr('src', data.ImagemUrl)
-		    	$(".loja-imagem").attr('src', "http://wheresbar.com.br:8080/static/bar/So_Mais_Uma_2.jpg")
+		    	$(".loja-imagem").attr('src', data.ImagemUrl)
 		    	
 		    	$(".loja-homepage").attr('href', data.Homepage)
 
