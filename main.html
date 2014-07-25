@@ -957,7 +957,7 @@ function scanner(){
 
 
 $( document ).on( "pagebeforeshow", "#pontuar", function() {
-	pontuarEstabelecimento();
+	setTimeout(function(){ pontuarEstabelecimento() }, 2000); 
 });
 
 function baixaCartao() {
@@ -972,7 +972,7 @@ function marcarOutroCartao(){
 function pontuarEstabelecimento(){
 	
 	scanner();
-	qrcode = (localStorage.getItem('qrcode');//'CD=11;CT=1';//scanner();
+	qrcode = localStorage.getItem('qrcode');//'CD=11;CT=1';//scanner();
 	
 	if(qrcode == ''){
 		alert('OCORREU UM ERRO AO LER O CARTÃO');
