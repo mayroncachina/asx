@@ -943,19 +943,15 @@ var latlng = new google.maps.LatLng(-34.397, 150.644);
 
 function scanner(){
 
-	var retorno = ""
-	 cordova.plugins.barcodeScanner.scan(
-      function (result) {
-          retorno = result.text;
+   cordova.plugins.barcodeScanner.scan(
+      function (result) 
           localStorage.setItem('qrcode', result.text)
-          //alert(localStorage.getItem('qrcode'))
+         alert(localStorage.getItem('qrcode'))
       }, 
       function (error) {
           alert("Scanning failed: " + error);
       }
    );
-
-   return retorno;
 }
 
 
@@ -974,8 +970,9 @@ function marcarOutroCartao(){
 }
 
 function pontuarEstabelecimento(){
-	//qrcode = 'CD=11;CT=1';//scanner();
+	
 	scanner();
+	qrcode = (localStorage.getItem('qrcode');//'CD=11;CT=1';//scanner();
 	
 	if(qrcode == ''){
 		alert('OCORREU UM ERRO AO LER O CARTÃO');
@@ -1035,7 +1032,7 @@ function pontuarEstabelecimento(){
 			    
 		    }
 		});
-	$.mobile.changePage( "#pontuar", { transition: "slide", changeHash: false });
+	
 
 }
 
