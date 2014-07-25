@@ -944,12 +944,12 @@ var latlng = new google.maps.LatLng(-34.397, 150.644);
 function scanner(){
 
    cordova.plugins.barcodeScanner.scan(
-      function (result) 
-          localStorage.setItem('qrcode', result.text)
+      function (result){
+         localStorage.setItem('qrcode', result.text)
          alert(localStorage.getItem('qrcode'))
       }, 
       function (error) {
-          alert("Scanning failed: " + error);
+         alert("Scanning failed: " + error);
       }
    );
 }
