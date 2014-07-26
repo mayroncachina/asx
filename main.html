@@ -946,7 +946,7 @@ function scanner(){
    cordova.plugins.barcodeScanner.scan(
       function (result){
          localStorage.setItem('qrcode', result.text)
-         //alert(localStorage.getItem('qrcode'))
+         alert(localStorage.getItem('qrcode'))
       }, 
       function (error) {
          alert("Scanning failed: " + error);
@@ -1151,9 +1151,9 @@ $( document ).on( "pagebeforeshow", "#loja-menu", function() {
 
 $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 
-	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+ '&latitude='+localStorage.getItem('latitude')+'&longitude='+localStorage.getItem('longitude')+'&raio=50')
+	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+ '&latitude='+localStorage.getItem('latitude')+'&longitude='+localStorage.getItem('longitude')+'&raio=5')
 	$.ajax({
-	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+ '&latitude='+localStorage.getItem('latitude')+'&longitude='+localStorage.getItem('longitude')+'&raio=50',
+	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+ '&latitude='+localStorage.getItem('latitude')+'&longitude='+localStorage.getItem('longitude')+'&raio=5',
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
