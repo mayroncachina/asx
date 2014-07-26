@@ -946,7 +946,7 @@ function scanner(){
    cordova.plugins.barcodeScanner.scan(
       function (result){
          localStorage.setItem('qrcode', result.text)
-         alert(localStorage.getItem('qrcode'))
+         //alert(localStorage.getItem('qrcode'))
       }, 
       function (error) {
          alert("Scanning failed: " + error);
@@ -957,6 +957,7 @@ function scanner(){
 
 
 $( document ).on( "pagebeforeshow", "#pontuar", function() {
+	marcarOutroCartao()
 	setTimeout(function(){ pontuarEstabelecimento() }, 2000); 
 });
 
