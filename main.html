@@ -976,7 +976,7 @@ function pontuarEstabelecimento(){
 	qrcode = localStorage.getItem('qrcode');//'CD=11;CT=1';//scanner();
 	
 	if(qrcode == ''){
-		alert('OCORREU UM ERRO AO LER O CARTÃO');
+		alert('OCORREU UM ERRO AO LER O CARTÃO TENTE NOVAMENTE');
 		return false;
 	}
 	
@@ -1671,6 +1671,9 @@ function fazerLogin(){
 	var url = "http://asxcard.cloudapp.net/CadastroService.svc/cadastros?email="+email+"&senha="+senha;
 	
 	console.log(url)
+	
+	$("#login-email").val('');
+	$("#login-senha").val('');
 
 
 	$.ajax({
