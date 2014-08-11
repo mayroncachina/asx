@@ -82,7 +82,7 @@
 	        <tr>
 	        	<td></td>
 	        	<td style="text-align: justify;">Neste item, você encontra os locais
-mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se não encontrar algum lugar que deseja usar cartão voce pode indicar para que possamos credenciá-lo.</td>
+mais perto de voce, e escolhe onde quer usar seu cartão fidelidade, e ainda se não encontrar algum lugar que deseja usar cartão voce pode indicar para que possamos credenciá-lo.</td>
 	        </tr>	        
 	        </table>
 	        </div>
@@ -728,10 +728,6 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 			<p style="text-align: justify;">A ASX Card é um cartão de fidelidade Digital, com ele voce irá ganhar
 			prêmios se divertindo nos lugares onde voce mais gosta de frequentar.</p>
 
-			<p style="text-align: justify;">Voce poderá receber cupons de descontos de vários estabelecimentos
-			credenciados nas regiões proximos a voce, além disto voce poderá divulgar
-			as suas opniões dos locais onde utilizou o seu cartão de fidelidade.</p>
-
 			<p style="text-align: justify;">O Cartão Fidelidade Digital é uma forma inteligente de voce ter em seu 
 			celular todos os cartões fidelidades dos locais que voce mais gosta de 
 			frequentar, sem o inconveniente de esquecer, rasgar, perder, estará sempre
@@ -769,9 +765,7 @@ mais perto de voce, e escolher onde quer usar seu cartão fidelidade, e ainda se
 			fidelidade Digital&quot; (os &quot;Parceiros&quot;), com a finalidade de, após alcançado 
 			a quantidade de visitas onde serão controlados como (&quot;Pontuação no cartão
 			de Fidelidade&quot;) o Usuário recebe o benefício estabelecido pelo Parceiro, 
-			(o &quot;Benefício&quot;) vinculado ao (&quot;Programa de Fidelidade&quot;), são descritos abaixo,
-			estando o uso do sistema ASX Card pelo Usuário condicionado à sua concordância 
-			e adesão integral.</p>
+			(o &quot;Benefício&quot;) vinculado ao (&quot;Programa de Fidelidade&quot;), São de total responsabilidade do estabelecimento comercial credenciado no sistema "ASX Card Fidelidade Digital.</p>
 			<br/><br/><br/>
 			<a href="#principal" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">OK</a>
 		</div><!-- /content -->
@@ -1166,7 +1160,7 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 				linha += '<li><a href="#" onclick="setLinkLoja('+data['ObterCartoesResult']['Clientes'][i]['ID']+')">';
 				linha += '    <img src="'+ data['ObterCartoesResult']['Clientes'][i]['Imagem'] +'" class="img-card">';
 				linha += '    <h2>'+data['ObterCartoesResult']['Clientes'][i]['Nome']+'</h2>';
-				linha += '    <p>'+data['ObterCartoesResult']['Clientes'][i]['Segmento']['Categoria']['Desc_Categoria']+'</p><p> Dist.: '+data['ObterCartoesResult']['Clientes'][i]['distancia_em_metros']+'m</p>';
+				linha += '    <p>'+data['ObterCartoesResult']['Clientes'][i]['Segmento']['Categoria']['Desc_Categoria']+' -> '+data['ObterCartoesResult']['Clientes'][i]['Segmento']['Categoria']['Desc_Categoria']+'</p>';
 				linha += '			<p>'
 				linha += '				<img src="img/icone_Usuarios.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeVisitas']+'</strong>'
 				//linha += '				<img src="img/icone_Favoritar.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeCurtidas']+'</strong>'
