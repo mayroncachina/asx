@@ -1147,7 +1147,8 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 
 	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+ '&latitude='+localStorage.getItem('latitude')+'&longitude='+localStorage.getItem('longitude')+'&raio=5')
 	$.ajax({
-	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+ '&latitude='+localStorage.getItem('latitude')+'&longitude='+localStorage.getItem('longitude')+'&raio=5',
+	    //url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo')+ '&latitude='+localStorage.getItem('latitude')+'&longitude='+localStorage.getItem('longitude')+'&raio=5',
+	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('Codigo'),
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
