@@ -939,8 +939,9 @@ function scanner(){
 
    cordova.plugins.barcodeScanner.scan(
       function (result){
-         localStorage.setItem('qrcode', result.text)
-         console.log(localStorage.getItem('qrcode'))
+         //localStorage.setItem('qrcode', result.text)
+         //console.log(localStorage.getItem('qrcode'))
+         pontuarEstabelecimento(result.text);
       }, 
       function (error) {
          alert("Scanning failed: " + error);
@@ -952,7 +953,7 @@ function scanner(){
 
 $( document ).on( "pagebeforeshow", "#pontuar", function() {
 	marcarOutroCartao()
-	setTimeout(function(){ pontuarEstabelecimento() }, 1000); 
+	setTimeout(function(){ scaner() }, 1000); 
 });
 
 function baixaCartao() {
@@ -964,10 +965,10 @@ function marcarOutroCartao(){
 	$(".marcacao").html("")
 }
 
-function pontuarEstabelecimento(){
+function pontuarEstabelecimento(qrcode){
 	
-	scanner();
-	qrcode = localStorage.getItem('qrcode');//'CD=11;CT=1';//scanner();
+	
+	//qrcode = localStorage.getItem('qrcode');//'CD=11;CT=1';//scanner();
 	
 	if(qrcode == ''){
 		alert('OCORREU UM ERRO AO LER O CARTÃO TENTE NOVAMENTE');
