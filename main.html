@@ -952,8 +952,9 @@ function scanner(){
 
 
 $( document ).on( "pagebeforeshow", "#pontuar", function() {
-	marcarOutroCartao()
-	setTimeout(function(){ scaner() }, 1000); 
+	marcarOutroCartao();
+	scanner();
+	//setTimeout(function(){ scaner() }, 1000); 
 });
 
 function baixaCartao() {
