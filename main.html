@@ -753,7 +753,7 @@ mais perto de voce, e escolhe onde quer usar seu cartão fidelidade, e ainda se 
 		</div><!-- /header -->
 
 		<div role="main" class="ui-content">
-			 <h1>ASX Card</h1>
+			 <h1>Termos de Uso ASX Card</h1>
 
 			<p style="text-align: justify;">Os termos de uso e condições gerais do aplicativo para aparelhos moveis
 			( SmartPhones e tablets ), para as plataformas Android, iOS e Windows Phone
@@ -998,28 +998,33 @@ function pontuarEstabelecimento(qrcode){
 		    	console.log(data)
 		    	//alert(data['MarcarPontoResult'].Mensagem)
 
-		    	if(data['MarcarPontoResult'].Status == '1'){
+		    	if(data['MarcarPontoResult'].Status == '2'){
 
 		    		$(".marcacao").html("<img src='img/imgRetirarPremio.png'/><a href=\"#\" onclick=\"baixaCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">CONFIRMAR</a>");
 		    		console.log(data['MarcarPontoResult'].Mensagem);
 
-		    	}else if(data['MarcarPontoResult'].Status == '2'){
-		    		$(".marcacao").html("<img src='img/imgPontoMarcado.png'/><a href=\"#\" onclick=\"marcarOutroCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">MARCAR OUTRO CARTÃO</a>")
+		    	}else if(data['MarcarPontoResult'].Status == '1'){
+
+		    		$(".marcacao").html("<img src='img/imgPontoMarcado.png'/>")
 		    		console.log(data['MarcarPontoResult'].Mensagem);
 
 				}else if(data['MarcarPontoResult'].Status == '3'){
 					// Brinde consumido (Deverá ser criado um novo cartão)
+		    		$(".marcacao").html("<img src='img/imgPontoMarcado.png'/>")
+		    		console.log(data['MarcarPontoResult'].Mensagem);
+
+
 				}else if(data['MarcarPontoResult'].Status == '4'){
 
-					$(".marcacao").html("<img src='img/imgGanhouMiniPremio.png'/><a href=\"#\" onclick=\"marcarOutroCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">MARCAR OUTRO CARTÃO</a> "+data['MarcarPontoResult'].Mensagem);
+					$(".marcacao").html("<img src='img/imgGanhouMiniPremio.png'/> <br/>"+data['MarcarPontoResult'].Mensagem);
 
 		    	}else if(data['MarcarPontoResult'].Status == '5'){
 		    	
-		    		$(".marcacao").html("<img src='img/imgGanhouMiniPremio.png'/><a href=\"#\" onclick=\"marcarOutroCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">MARCAR OUTRO CARTÃO</a>")
+		    		$(".marcacao").html("<img src='img/imgGanhouMiniPremio.png'/>")
 		    			console.log(data['MarcarPontoResult'].Mensagem);
 		    		
 		    	}else if(data['MarcarPontoResult'].Status == '6'){
-		    		$(".marcacao").html("<img src='img/imgCartaoCompletado.png'/><a href=\"#\" onclick=\"marcarOutroCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">MARCAR OUTRO CARTÃO</a>")
+		    		$(".marcacao").html("<img src='img/imgCartaoCompletado.png'/>")
 		    			console.log(data['MarcarPontoResult'].Mensagem);
 
 		    	}
