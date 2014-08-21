@@ -1168,7 +1168,7 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 				linha += '<li><a href="#" onclick="setLinkLoja('+data['ObterCartoesResult']['Clientes'][i]['ID']+')">';
 				linha += '    <img src="'+ data['ObterCartoesResult']['Clientes'][i]['Imagem'] +'" class="img-card">';
 				linha += '    <h2>'+data['ObterCartoesResult']['Clientes'][i]['Nome']+'</h2>';
-				linha += '    <p>'+data['ObterCartoesResult']['Clientes'][i]['Segmento']['Categoria']['Desc_Categoria']+' -> '+data['ObterCartoesResult']['Clientes'][i]['Segmento']['Categoria']['Desc_Categoria']+'</p>';
+				linha += '    <p>'+data['ObterCartoesResult']['Clientes'][i]['Segmento']['Desc_Segmento']+' <br/> '+data['ObterCartoesResult']['Clientes'][i]['Segmento']['Categoria']['Desc_Categoria']+'</p>';
 				linha += '			<p>'
 				linha += '				<img src="img/icone_Usuarios.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeVisitas']+'</strong>'
 				//linha += '				<img src="img/icone_Favoritar.png" width="20"><strong>'+data['ObterCartoesResult']['Clientes'][i]['QtdeCurtidas']+'</strong>'
