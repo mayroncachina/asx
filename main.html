@@ -434,7 +434,7 @@ mais perto de voce, e escolhe onde quer usar seu cartão fidelidade, e ainda se 
 						    </div>
 						    <div class="ui-block-b">
 						    	<div class="btn-loja-utils" style="height:60px">
-									<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" class="btn-loja-utils-img"/></a>
+									
 						    	</div>
 						    </div>
 						    <div class="ui-block-c">
@@ -497,7 +497,7 @@ mais perto de voce, e escolhe onde quer usar seu cartão fidelidade, e ainda se 
 					    </div>
 					    <div class="ui-block-b">
 					    	<div class="btn-loja-utils" style="height:60px">
-								<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" class="btn-loja-utils-img"/></a>
+								
 					    	</div>
 					    </div>
 					    <div class="ui-block-c">
@@ -554,7 +554,7 @@ mais perto de voce, e escolhe onde quer usar seu cartão fidelidade, e ainda se 
 					    </div>
 					    <div class="ui-block-b">
 					    	<div class="btn-loja-utils" style="height:60px">
-								<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" class="btn-loja-utils-img"/></a>
+								
 					    	</div>
 					    </div>
 					    <div class="ui-block-c">
@@ -620,7 +620,7 @@ mais perto de voce, e escolhe onde quer usar seu cartão fidelidade, e ainda se 
 					    </div>
 					    <div class="ui-block-b">
 					    	<div class="btn-loja-utils" style="height:60px">
-								<a href="#loja-comentarios"><img src="img/icone_ComentariosClientesLoja.png" class="btn-loja-utils-img"/></a>
+								
 					    	</div>
 					    </div>
 					    <div class="ui-block-c">
@@ -1218,6 +1218,7 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 	});
 });
 
+
 $( document ).on( "pagebeforeshow", "#meus-cartoes-proximo", function() {
 	$('#kms').val("5").selectmenu('refresh');
 	cartoesProximos(5);
@@ -1319,6 +1320,7 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 		    	$(".loja-imagem").attr('src', data.ImagemUrl)
 		    	
 		    	$(".loja-homepage").attr('href', data.Homepage)
+		    	$(".loja-homepage").attr('target', '_blank')
 
 
 				linha =  '<div data-role="tabs" id="tabs">';
