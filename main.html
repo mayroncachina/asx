@@ -996,7 +996,8 @@ function pontuarEstabelecimento(qrcode){
 
 		    	$(".pontuacao").hide()
 		    	console.log(data)
-		    	//alert(data['MarcarPontoResult'].Mensagem)
+		    	
+		    	alert( data['MarcarPontoResult'].Status +" - " +data['MarcarPontoResult'].Mensagem)
 
 		    	if(data['MarcarPontoResult'].Status == '2'){
 
@@ -1028,10 +1029,6 @@ function pontuarEstabelecimento(qrcode){
 		    			console.log(data['MarcarPontoResult'].Mensagem);
 
 		    	}
-		    	
-
-		    	localStorage.setItem('qrcode', '');
-			    
 		    }
 		});
 	
