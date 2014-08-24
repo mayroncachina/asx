@@ -1001,7 +1001,7 @@ function pontuarEstabelecimento(qrcode){
 
 		    	if(data['MarcarPontoResult'].Status == '2'){
 
-		    		$(".marcacao").html("<img src='img/imgRetirarPremio.png'/><a href=\"#\" onclick=\"baixaCartao()\" data-theme=\"a\" data-form=\"ui-btn-up-a\" class=\" ui-btn ui-btn-a ui-shadow ui-corner-all\">CONFIRMAR</a>");
+		    		$(".marcacao").html("<img src='img/imgRetirarPremio.png'/>");
 		    		console.log(data['MarcarPontoResult'].Mensagem);
 
 		    	}else if(data['MarcarPontoResult'].Status == '1'){
