@@ -312,7 +312,7 @@ mais perto de voce, e escolhe onde quer usar seu cartão fidelidade, e ainda se 
 
 		<div role="main" class="ui-content">
 	    	<ul class="list-menu-mais" data-role="listview" data-inset="true">
-			    <li><a href="#meus-cartoes" class="ui-disabled">
+			    <li><a href="#meus-cartoes" >
 			        <img src="img/grid-01-64.png" >
 			    <h2>Meus Cartões</h2></a>
 			    </li>
@@ -324,7 +324,7 @@ mais perto de voce, e escolhe onde quer usar seu cartão fidelidade, e ainda se 
 			        <img src="img/marker.png">
 			    <h2>Perto de Mim</h2></a>
 			    </li>
-			    <li><a href="#meus-cartoes">
+			    <li><a href="#meus-cartoes" class="ui-disabled">
 			        <img src="img/ticket.png">
 			    <h2>Meus Cupons</h2></a>
 			    </li>
@@ -1177,11 +1177,11 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]){
 				linha += '				<span>'
 				linha += '					<strong>'
-												if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['Nome'] == 'Cartão Primário'){
+												if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['ID'] == '1'){
 													
 													linha += '<img src="img/icone_Cartao_01.png" width="25">'
 
-												}else if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['Nome'] == 'Cartão Secundário'){
+												}else if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['ID'] == '2'){
 
 													linha += '<img src="img/icone_Cartao_02.png" width="25">'
 
@@ -1195,11 +1195,11 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]){
 				linha += '				<span>'
 				linha += '					<strong>'
-												if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['Nome'] == 'Cartão Primário'){
+												if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['ID'] == '1'){
 													
 													linha += '<img src="img/icone_Cartao_01.png" width="25">'
 
-												}else if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['Nome'] == 'Cartão Secundário'){
+												}else if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['ID'] == '2'){
 
 													linha += '<img src="img/icone_Cartao_02.png" width="25">'
 
@@ -1213,11 +1213,11 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]){
 				linha += '				<span>'
 				linha += '					<strong>'
-												if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['Nome'] == 'Cartão Primário'){
+												if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['ID'] == '1'){
 													
 													linha += '<img src="img/icone_Cartao_01.png" width="25">'
 
-												}else if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['Nome'] == 'Cartão Secundário'){
+												}else if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['ID'] == '2'){
 
 													linha += '<img src="img/icone_Cartao_02.png" width="25">'
 
