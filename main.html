@@ -159,19 +159,18 @@ mais perto de voce, e escolhe onde quer usar seu cartão fidelidade, e ainda se 
 			<h1>Entrar</h1>
 			
 			<h1>Acessar sua Conta</h1>
-			<form id="loginForm">
-		        <label for="nome" style="text-align:left">Email:</label>
-		        <input name="nome" id="login-email" value="" type="text">
 
-		        <label for="senha" style="text-align:left">Senha:</label>
-		        <input name="senha" id="login-senha" value="" type="password">
-		        <div style="text-align:center;margin-top:40px">
-			        <a href="#recuperar-senha" data-role="none">Esqueci minha senha</a>
-			        <br/><br/>
-			        <input type="submit" onclick="fazerLogin()" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Login</div>
+	        <label for="nome" style="text-align:left">Email:</label>
+	        <input name="nome" id="login-email" value="" type="text">
 
-		        </div>
-	        </form>
+	        <label for="senha" style="text-align:left">Senha:</label>
+	        <input name="senha" id="login-senha" value="" type="password">
+	        <div style="text-align:center;margin-top:40px">
+		        <a href="#recuperar-senha" data-role="none">Esqueci minha senha</a>
+		        <br/><br/>
+	        	<a href="#" onclick="fazerLogin()" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Login</a>
+
+	        </div>
 
 		</div><!-- /content -->
 
@@ -1178,7 +1177,17 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]){
 				linha += '				<span>'
 				linha += '					<strong>'
-				linha += '						<img src="img/icone_Cartao_01.png" width="25">'
+												if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['Nome'] == 'Cartão Primário'){
+													
+													linha += '<img src="img/icone_Cartao_01.png" width="25">'
+
+												}else if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['Nome'] == 'Cartão Secundário'){
+
+													linha += '<img src="img/icone_Cartao_02.png" width="25">'
+
+												}else{
+													linha += '<img src="img/icone_Cartao_03.png" width="25">'
+												}
 				linha += '						<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['QtdeMaximaPontos']+'</span>'
 				linha += '					</strong>'
 				linha += '				</span>'
@@ -1186,7 +1195,17 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]){
 				linha += '				<span>'
 				linha += '					<strong>'
-				linha += '						<img src="img/icone_Cartao_02.png" width="25">'
+												if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['Nome'] == 'Cartão Primário'){
+													
+													linha += '<img src="img/icone_Cartao_01.png" width="25">'
+
+												}else if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['Nome'] == 'Cartão Secundário'){
+
+													linha += '<img src="img/icone_Cartao_02.png" width="25">'
+
+												}else{
+													linha += '<img src="img/icone_Cartao_03.png" width="25">'
+												}
 				linha += '						<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]['QtdeMaximaPontos']+'</span>'
 				linha += '					</strong>'
 				linha += '				</span>'
@@ -1194,13 +1213,21 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]){
 				linha += '				<span>'
 				linha += '					<strong>'
-				linha += '						<img src="img/icone_Cartao_03.png" width="25">'
+												if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['Nome'] == 'Cartão Primário'){
+													
+													linha += '<img src="img/icone_Cartao_01.png" width="25">'
+
+												}else if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['Nome'] == 'Cartão Secundário'){
+
+													linha += '<img src="img/icone_Cartao_02.png" width="25">'
+
+												}else{
+													linha += '<img src="img/icone_Cartao_03.png" width="25">'
+												}
 				linha += '						<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]['QtdeMaximaPontos']+'</span>'
 				linha += '					</strong>'
 				linha += '				</span>'
-										}		
-
-
+										}												
 				linha += '				<br>'
 				linha += '			</p>'
 
