@@ -159,18 +159,19 @@ mais perto de voce, e escolhe onde quer usar seu cartão fidelidade, e ainda se 
 			<h1>Entrar</h1>
 			
 			<h1>Acessar sua Conta</h1>
+			<form id="loginForm">
+		        <label for="nome" style="text-align:left">Email:</label>
+		        <input name="nome" id="login-email" value="" type="text">
 
-	        <label for="nome" style="text-align:left">Email:</label>
-	        <input name="nome" id="login-email" value="" type="text">
+		        <label for="senha" style="text-align:left">Senha:</label>
+		        <input name="senha" id="login-senha" value="" type="password">
+		        <div style="text-align:center;margin-top:40px">
+			        <a href="#recuperar-senha" data-role="none">Esqueci minha senha</a>
+			        <br/><br/>
+			        <input type="submit" onclick="fazerLogin()" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Login</div>
 
-	        <label for="senha" style="text-align:left">Senha:</label>
-	        <input name="senha" id="login-senha" value="" type="password">
-	        <div style="text-align:center;margin-top:40px">
-		        <a href="#recuperar-senha" data-role="none">Esqueci minha senha</a>
-		        <br/><br/>
-	        	<a href="#" onclick="fazerLogin()" data-theme="a" data-form="ui-btn-up-a" class=" ui-btn ui-btn-a ui-shadow ui-corner-all">Login</a>
-
-	        </div>
+		        </div>
+	        </form>
 
 		</div><!-- /content -->
 
@@ -1199,7 +1200,7 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 				linha += '				</span>'
 										}		
 
-																				
+
 				linha += '				<br>'
 				linha += '			</p>'
 
