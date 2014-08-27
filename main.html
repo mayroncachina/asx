@@ -1174,17 +1174,14 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 
 
 				linha += '			<p class="ui-li-aside" style="margin-top:3em">'
-										for(j=0; i < data['ObterCartoesResult']['Clientes'][i]['Cartoes'].length; j++){
+										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]){
 				linha += '				<span>'
 				linha += '					<strong>'
 				linha += '						<img src="img/icone_Cartao_01.png" width="25">'
-				linha += '						<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][j]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][j]['QtdeMaximaPontos']+'</span>'
+				linha += '						<span style="color:green;font-size:14px"> '+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['PontosMarcados']+'</span>/<span style="color:blue;font-size:14px">'+data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['QtdeMaximaPontos']+'</span>'
 				linha += '					</strong>'
 				linha += '				</span>'
 										}
-
-
-/*										
 										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]){
 				linha += '				<span>'
 				linha += '					<strong>'
@@ -1201,8 +1198,8 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 				linha += '					</strong>'
 				linha += '				</span>'
 										}		
-*/
 
+																				
 				linha += '				<br>'
 				linha += '			</p>'
 
