@@ -1325,6 +1325,8 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 	$('.loading').show();
 	$('.dados-loja').hide();
 
+	alert(localStorage.getItem('Codigo'))
+	alert(localStorage.getItem('linkLoja'))
 	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
 	$.ajax({
 	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
