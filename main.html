@@ -1325,8 +1325,6 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 	$('.loading').show();
 	$('.dados-loja').hide();
 
-	alert(localStorage.getItem('Codigo'))
-	alert(localStorage.getItem('linkLoja'))
 	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
 	$.ajax({
 	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
@@ -1355,16 +1353,29 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 				linha =  '<div data-role="tabs" id="tabs">';
 				linha += '  <div data-role="navbar">';
 				linha += '    <ul class="menu-cartoes">';
-				//for (var i = 0; i < data.Cartoes.length; i++) {
 
-				var card1Desativado = data.Cartoes.length > 0 ? "blue" : "white";
-				var card2Desativado = data.Cartoes.length > 1 ? "green" : "white";
-				var card3Desativado = data.Cartoes.length > 2 ? "pink" : "white";
+				for (var i = 0; i < data.Cartoes.length; i++) {
 
-		        linha += '    <li><a style="text-align: center" href="#1" data-icon="false" class="button '+card1Desativado+' bigrounded">1</a></li>'; 
-		        linha += '    <li><a style="text-align: center" href="#2" data-icon="false" class="button '+card2Desativado+' bigrounded">2</a></li>'; 
-		        linha += '    <li><a style="text-align: center" href="#3" data-icon="false" class="button '+card3Desativado+' bigrounded">3</a></li>'; 
-		    	//}
+					var cardColor = "white";
+
+					if(data.Cartoes[i].ID == 1){
+						cardColor = "blue";
+					}else if(data.Cartoes[i].ID == 2){
+						cardColor = "green";
+					}else if(data.Cartoes[i].ID == 3){
+						cardColor = "pink";
+					}
+
+					linha += '    <li><a style="text-align: center" href="#1" data-icon="false" class="button '+cardColor+' bigrounded">1</a></li>'; 
+
+				//var card1Desativado = data.Cartoes.length > 0 ? "blue" : "white";
+				//var card2Desativado = data.Cartoes.length > 1 ? "green" : "white";
+				//var card3Desativado = data.Cartoes.length > 2 ? "pink" : "white";
+
+		        //linha += '    <li><a style="text-align: center" href="#1" data-icon="false" class="button '+card1Desativado+' bigrounded">1</a></li>'; 
+		        //linha += '    <li><a style="text-align: center" href="#2" data-icon="false" class="button '+card2Desativado+' bigrounded">2</a></li>'; 
+		        //linha += '    <li><a style="text-align: center" href="#3" data-icon="false" class="button '+card3Desativado+' bigrounded">3</a></li>'; 
+		    	}
 
 		        linha += '    </ul>';
 				linha += '  </div>';
