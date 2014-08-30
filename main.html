@@ -1028,6 +1028,10 @@ function pontuarEstabelecimento(qrcode){
 		    		$(".marcacao").html("<img src='img/imgCartaoCompletado.png'/>")
 		    			console.log(data['MarcarPontoResult'].Mensagem);
 
+		    	}else if(data['MarcarPontoResult'].Status == '-1'){
+		    		alert("QRCODE invalida! Cartão (Numero) não está Ativado para este estabelecimento.")
+		    		console.log(data['MarcarPontoResult'].Mensagem);
+
 		    	}
 		    }
 		});
@@ -1354,10 +1358,11 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 				linha += '  <div data-role="navbar">';
 				linha += '    <ul class="menu-cartoes">';
 
-				for (var i = 0; i < data.Cartoes.length; i++) {
+				//for (var i = 0; i < data.Cartoes.length; i++) {
 
-					var cardColor = "white";
+				//	var cardColor = "white";
 
+				/*
 					if(data.Cartoes[i].ID == 1){
 						cardColor = "blue";
 					}else if(data.Cartoes[i].ID == 2){
@@ -1367,15 +1372,15 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 					}
 
 					linha += '    <li><a style="text-align: center" href="#1" data-icon="false" class="button '+cardColor+' bigrounded">'+data.Cartoes[i].ID+'</a></li>'; 
+				*/
+				var card1Desativado = data.Cartoes[0].ID == "0" ? "blue" : "white";
+				var card2Desativado = data.Cartoes[1].ID == "1" ? "green" : "white";
+				var card3Desativado = data.Cartoes[2].ID == "2" ? "pink" : "white";
 
-				//var card1Desativado = data.Cartoes.length > 0 ? "blue" : "white";
-				//var card2Desativado = data.Cartoes.length > 1 ? "green" : "white";
-				//var card3Desativado = data.Cartoes.length > 2 ? "pink" : "white";
-
-		        //linha += '    <li><a style="text-align: center" href="#1" data-icon="false" class="button '+card1Desativado+' bigrounded">1</a></li>'; 
-		        //linha += '    <li><a style="text-align: center" href="#2" data-icon="false" class="button '+card2Desativado+' bigrounded">2</a></li>'; 
-		        //linha += '    <li><a style="text-align: center" href="#3" data-icon="false" class="button '+card3Desativado+' bigrounded">3</a></li>'; 
-		    	}
+		        linha += '    <li><a style="text-align: center" href="#1" data-icon="false" class="button '+card1Desativado+' bigrounded">1</a></li>'; 
+		        linha += '    <li><a style="text-align: center" href="#2" data-icon="false" class="button '+card2Desativado+' bigrounded">2</a></li>'; 
+		        linha += '    <li><a style="text-align: center" href="#3" data-icon="false" class="button '+card3Desativado+' bigrounded">3</a></li>'; 
+		    	//}
 
 		        linha += '    </ul>';
 				linha += '  </div>';
