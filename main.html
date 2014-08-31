@@ -1354,15 +1354,14 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 		    	$(".loja-homepage").attr('target', '_blank')
 
 
-				var linha =  '<div data-role="tabs" id="tabs">';
+				var linha =  '<div id="tabs">';
 				linha += '  <div data-role="navbar">';
 				linha += '    <ul class="menu-cartoes">';
 
-				//for (var i = 0; i < data.Cartoes.length; i++) {
+				for (var i = 0; i < data.Cartoes.length; i++) {
 
-				//	var cardColor = "white";
+				var cardColor = "white";
 
-				/*
 					if(data.Cartoes[i].ID == 1){
 						cardColor = "blue";
 					}else if(data.Cartoes[i].ID == 2){
@@ -1372,8 +1371,8 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 					}
 
 					linha += '    <li><a style="text-align: center" href="#1" data-icon="false" class="button '+cardColor+' bigrounded">'+data.Cartoes[i].ID+'</a></li>'; 
-				*/
 
+				/*
 				var card1Desativado = data.Cartoes[0].ID == "0" ? "blue" : "white";
 				var card2Desativado = data.Cartoes[1].ID == "1" ? "green" : "white";
 				var card3Desativado = data.Cartoes[2].ID == "2" ? "pink" : "white";
@@ -1381,7 +1380,8 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 		        linha += '    <li><a style="text-align: center" href="#1" data-icon="false" class="button '+card1Desativado+' bigrounded">1</a></li>'; 
 		        linha += '    <li><a style="text-align: center" href="#2" data-icon="false" class="button '+card2Desativado+' bigrounded">2</a></li>'; 
 		        linha += '    <li><a style="text-align: center" href="#3" data-icon="false" class="button '+card3Desativado+' bigrounded">3</a></li>'; 
-		    	//}
+				*/
+		    	}
 
 		        linha += '    </ul>';
 				linha += '  </div>';
