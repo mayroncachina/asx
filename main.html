@@ -1356,84 +1356,11 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 		    	var linha = "";
 				linha +=  '<div data-role="tabs" id="tabs">';
 				linha += '  <div data-role="navbar">';
-				linha += '    <ul class="menu-cartoes">';
-
-				//for (var i = 0; i < data.Cartoes.length; i++) {
-
-				//	var cardColor = "white";
-
-				/*
-					if(data.Cartoes[i].ID == 1){
-						cardColor = "blue";
-					}else if(data.Cartoes[i].ID == 2){
-						cardColor = "green";
-					}else if(data.Cartoes[i].ID == 3){
-						cardColor = "pink";
-					}
-
-					linha += '    <li><a style="text-align: center" href="#1" data-icon="false" class="button '+cardColor+' bigrounded">'+data.Cartoes[i].ID+'</a></li>'; 
-				*/
-
-				//var card1Desativado = data.Cartoes[0].ID == "0" ? "blue" : "white";
-				//var card2Desativado = data.Cartoes[1].ID == "1" ? "green" : "white";
-				//var card3Desativado = data.Cartoes[2].ID == "2" ? "pink" : "white";
-
-		        //linha += '    <li><a style="text-align: center" href="#1" data-icon="false" class="button '+card1Desativado+' bigrounded">1</a></li>'; 
-		        //linha += '    <li><a style="text-align: center" href="#2" data-icon="false" class="button '+card2Desativado+' bigrounded">2</a></li>'; 
-		        //linha += '    <li><a style="text-align: center" href="#3" data-icon="false" class="button '+card3Desativado+' bigrounded">3</a></li>'; 
-		    	//}
+				linha += '    <ul class="menu-cartoes"> TESTE';
 
 		        linha += '    </ul>';
 				linha += '  </div>';
 				
-				for (var i = data.Cartoes.length-1; i >= 0 ; i--) {
-					console.log(data.Cartoes[i])
-					
-					linha += '  <div id="'+data.Cartoes[i].ID+'" class="ui-body-d ui-content">';
-					linha += '    <fieldset data-role="controlgroup" data-type="horizontal" style="background:none repeat scroll 0% 0% rgb(233, 233, 233);font-size:10px">';
-					linha += '  <h1 style="text-align:center">'+data.Cartoes[i].Nome+'</h1>';
-				    linha += '        <div style="text-align:center">';
-
-				    	for (var j = 1; j <= data.Cartoes[i].Maximo; j++) {
-
-				    		if(data.Cartoes[i].Pontos < j){
-				    			
-				    			if(data.Cartoes[i].Maximo == j){
-				    				linha += '		<img src="img/img_Premio_off.png" width="15%" />';
-				    			}else{
-				    				linha += '		<img src="img/img_P'+j+'_off.png" width="15%" />';
-				    			}
-				    		}else{
-						
-								if(data.Cartoes[i].Maximo == j){
-									linha += '		<img src="img/img_Premio_on.png" width="15%" />';
-								}else{
-									linha += '		<img src="img/img_P'+j+'_on.png" width="15%" />';
-								}
-				    	
-				    		}
-				    	};
-
-						
-			    	
-				    linha += '        </div>';
-				    
-					if(data.Cartoes[i].Maximo == data.Cartoes[i].Pontos){
-						linha += '		<p style="text-align:center;color:#0071bc;font-size:12px"><strong>PARABENS, CARTÃO COMPLETADO!!!</strong>'
-					}
-
-					linha += '		<p style="text-align:center"><b>Validade: '+data.Cartoes[i].Validade.replace(/-/g,'/')+'</b></p>';
-
-					if(data.Cartoes[i].Maximo != null){
-						linha += '		<p style="text-align:center">Ao juntar '+data.Cartoes[i].Maximo+' pontos,  '+data.Cartoes[i].BrindeMaximo+'</p>';	
-					}else if(data.Cartoes[i].Minimo != null){
-						linha += '		<p style="text-align:center">Ao juntar '+data.Cartoes[i].Minimo+' pontos,  '+data.Cartoes[i].BrindeMinimo+'</p>';	
-					}else{
-						linha += '		<p style="text-align:center">Ao juntar '+data.Cartoes[i].Minimo+' pontos,  '+data.Cartoes[i].BrindeMinimo+', e ao juntar '+data.Cartoes[i].Maximo+' pontos,  '+data.Cartoes[i].BrindeMaximo+'</p>';	
-					}
-					linha += '	</fieldset>';
-					linha += '  </div>';
-				}
 				$('.loja-cartoes').html(linha).trigger('create');
 
 				$('.loading').hide();
