@@ -1199,11 +1199,11 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]){
 				linha += '				<span>'
 				linha += '					<strong>'
-												if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['ID'] == '1'){
+												if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]['ID'] == '1'){
 													
 													linha += '<img src="img/icone_Cartao_01.png" width="25">'
 
-												}else if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['ID'] == '2'){
+												}else if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][1]['ID'] == '2'){
 
 													linha += '<img src="img/icone_Cartao_02.png" width="25">'
 
@@ -1217,11 +1217,11 @@ $( document ).on( "pagebeforeshow", "#meus-cartoes", function() {
 										if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]){
 				linha += '				<span>'
 				linha += '					<strong>'
-												if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['ID'] == '1'){
+												if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]['ID'] == '1'){
 													
 													linha += '<img src="img/icone_Cartao_01.png" width="25">'
 
-												}else if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][0]['ID'] == '2'){
+												}else if(data['ObterCartoesResult']['Clientes'][i]['Cartoes'][2]['ID'] == '2'){
 
 													linha += '<img src="img/icone_Cartao_02.png" width="25">'
 
@@ -1373,13 +1373,14 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 
 					linha += '    <li><a style="text-align: center" href="#1" data-icon="false" class="button '+cardColor+' bigrounded">'+data.Cartoes[i].ID+'</a></li>'; 
 				*/
-				var card1Desativado = data.Cartoes[0].ID == "0" ? "blue" : "white";
-				var card2Desativado = data.Cartoes[1].ID == "1" ? "green" : "white";
-				var card3Desativado = data.Cartoes[2].ID == "2" ? "pink" : "white";
 
-		        linha += '    <li><a style="text-align: center" href="#1" data-icon="false" class="button '+card1Desativado+' bigrounded">1</a></li>'; 
-		        linha += '    <li><a style="text-align: center" href="#2" data-icon="false" class="button '+card2Desativado+' bigrounded">2</a></li>'; 
-		        linha += '    <li><a style="text-align: center" href="#3" data-icon="false" class="button '+card3Desativado+' bigrounded">3</a></li>'; 
+				//var card1Desativado = data.Cartoes[0].ID == "0" ? "blue" : "white";
+				//var card2Desativado = data.Cartoes[1].ID == "1" ? "green" : "white";
+				//var card3Desativado = data.Cartoes[2].ID == "2" ? "pink" : "white";
+
+		        //linha += '    <li><a style="text-align: center" href="#1" data-icon="false" class="button '+card1Desativado+' bigrounded">1</a></li>'; 
+		        //linha += '    <li><a style="text-align: center" href="#2" data-icon="false" class="button '+card2Desativado+' bigrounded">2</a></li>'; 
+		        //linha += '    <li><a style="text-align: center" href="#3" data-icon="false" class="button '+card3Desativado+' bigrounded">3</a></li>'; 
 		    	//}
 
 		        linha += '    </ul>';
