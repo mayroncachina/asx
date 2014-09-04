@@ -1668,6 +1668,42 @@ function indicar(){
 	var telefone = $("#indique-telefone").val();
 
 
+	if(nome == ""){
+		alert("Informe um Nome");
+		$("#indique-nome").focus();
+		return false;
+	} 
+	
+	if(endePublicadoreco == ""){
+		alert("Informe um Endereço");
+		$("#indique-endereco").focus();
+		return false;
+	} 
+	
+	if(cidade == ""){
+		alert("Informe um Cidade");
+		$("#indique-cidade").focus();
+		return false;
+	} 
+	
+	if(mensagem == ""){
+		alert("Informe uma mensagem");
+		$("#indique-mensagem").focus();
+		return false;
+	} 
+	
+	if(ddd == ""){
+		alert("Informe um DDD");
+		$("#indique-ddd").focus();
+		return false;
+	} 
+
+
+	if(telefone == ""){
+		alert("Informe um Telefone");
+		$("#indique-telefone").focus();
+		return false;
+	} 
 
     var url = "http://asxcard.cloudapp.net/IndicacaoService.svc/indique?"+
     		  "id="+localStorage.getItem('Codigo')+
