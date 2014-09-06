@@ -875,7 +875,9 @@ function onDeviceReady() {
 }
 
 function initPushwoosh() {
+
     var pushNotification = window.plugins.pushNotification;
+    alert( 'ready')
     pushNotification.onDeviceReady();
 
     pushNotification.registerDevice({ alert:true, badge:true, pw_appid:"F01D3-5F31D", appname:"ASX-Card", projectid: "185333746805", appid : "F01D3-5F31D" },
