@@ -873,6 +873,41 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
 	FastClick.attach(document.body);
+	initPushwoosh();
+}
+
+function initPushwoosh() {
+    var pushNotification = window.plugins.pushNotification;
+    pushNotification.onDeviceReady();
+    pushNotification.registerDevice({
+            alert: true,
+            badge: true,
+            pw_appid: "F01D3-5F31D",
+            appname: "ASX-Card",
+            projectid: "185333746805",
+            appid: "F01D3-5F31D"
+        },
+        function(status) {
+            //PPR.info.push_token = push_token = status['deviceToken'] || status || '';
+        },
+        function(status) {
+
+        }
+    );
+
+    if (pushNotification.setApplicationIconBadgeNumber)
+        pushNotification.setApplicationIconBadgeNumber(0);
+
+	document.addEventListener('push-notification', function(event) {
+        var title = event.notification.title;
+            var userData = event.notification.userdata;
+
+        if(typeof(userData) != "undefined") {
+            console.warn('user data: ' + JSON.stringify(userData));
+        }
+        alert('mudar para pagina do bar');
+        navigator.notification.alert(title);
+    });
 }
 
 function getPosition(){
