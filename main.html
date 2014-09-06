@@ -877,26 +877,19 @@ function onDeviceReady() {
 function initPushwoosh() {
     var pushNotification = window.plugins.pushNotification;
     pushNotification.onDeviceReady();
-    pushNotification.registerDevice({
-            alert: true,
-            badge: true,
-            pw_appid: "F01D3-5F31D",
-            appname: "ASX-Card",
-            projectid: "185333746805",
-            appid: "F01D3-5F31D"
-        },
-        function(status) {
-            //PPR.info.push_token = push_token = status['deviceToken'] || status || '';
-        },
-        function(status) {
 
+    pushNotification.registerDevice({ alert:true, badge:true, pw_appid:"F01D3-5F31D", appname:"ASX-Card", projectid: "185333746805", appid : "F01D3-5F31D" },
+        function(status) {
+            var pushToken = status;
+            navigator.notification.alert(status);
+            console.warn('push token: ' + pushToken);
+        },
+        function(status) {
+            navigator.notification.alert(JSON.stringify(['failed to register ', status]));
         }
     );
 
-    if (pushNotification.setApplicationIconBadgeNumber)
-        pushNotification.setApplicationIconBadgeNumber(0);
-
-	document.addEventListener('push-notification', function(event) {
+    document.addEventListener('push-notification', function(event) {
         var title = event.notification.title;
             var userData = event.notification.userdata;
 
