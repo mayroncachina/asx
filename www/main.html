@@ -899,14 +899,13 @@ function initPushwoosh() {
     if (pushNotification.setApplicationIconBadgeNumber)
         pushNotification.setApplicationIconBadgeNumber(0);
 
-	document.addEventListener('push-notification', function(event) {
+    document.addEventListener('push-notification', function(event) {
         var title = event.notification.title;
-            var userData = event.notification.userdata;
+        var userData = event.notification.userdata;
 
         if(typeof(userData) != "undefined") {
             console.warn('user data: ' + JSON.stringify(userData));
         }
-        alert('mudar para pagina do bar');
         navigator.notification.alert(title);
     });
 }
