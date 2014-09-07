@@ -1010,13 +1010,11 @@ function pontuarEstabelecimento(qrcode){
 	if(qrcode == ''){
 		alert('OCORREU UM ERRO AO LER O CARTÃO TENTE NOVAMENTE');
 		return false;
-	}
-	alert(qrcode.indexOf("CD="))
-	/*else if(qrcode.indexOf("CD=") > 0){
+	}else if(qrcode.indexOf("CD=") >= 0){
 		alert('CARTÃO INVÁLIDO');
 		scanner();
 		return false;
-	}*/
+	}
 	
 	console.log(qrcode)
 	split = qrcode.split(';')
