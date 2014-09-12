@@ -51,7 +51,7 @@
 	        </div>
 		</div><!-- /content -->
 		<div data-role="footer" data-position="fixed">
-			<span class="center">build 1.0.41</span>
+			<span class="center version">build 1.0.41</span>
 		</div>
 	
 	</div><!-- /page -->
@@ -875,6 +875,11 @@ document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
 	FastClick.attach(document.body);
 	initPushwoosh();
+
+	cordova.getAppVersion().then(function (version) {
+	    $('.version').html("build "+version);
+	});
+
 }
 
 function initPushwoosh() {
