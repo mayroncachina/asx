@@ -1371,9 +1371,9 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 	$('.loading').show();
 	$('.dados-loja').hide();
 
-	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
+	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionar?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
 	$.ajax({
-	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
+	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('linkLoja'),
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
@@ -1381,10 +1381,6 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 	    },
 	    success: function (data) {
 	    	
-	    	if(data.Nome == null){
-	    		alert('SEM CARTÕES PARA ESSE ESTABELECIMENTO!')
-	    		$.mobile.changePage( "#meus-cartoes-proximo", { transition: "slide", changeHash: false });
-	    	}else{
 				
 				console.log(data)
 		    	$(".loja-nome").html(data.Nome);
@@ -1397,6 +1393,7 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 
 		    	$('.loja-cartoes').html("");
 
+	    	if(data.Cartoes.length > 0){
 				var linha =  '<div id="tabs">';
 				linha += '  <div data-role="navbar">';
 				linha += '    <ul class="menu-cartoes">';
