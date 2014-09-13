@@ -1557,9 +1557,9 @@ $( document ).on( "pagebeforeshow", "#loja-info", function() {
 	$('.loading').show();
 	$('.dados-loja').hide();
 
-	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
+	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('linkLoja'))
 	$.ajax({
-	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?id='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
+	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('linkLoja'),
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
