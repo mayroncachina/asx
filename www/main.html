@@ -471,73 +471,6 @@ mais perto de voce, e escolhe onde quer usar seu cartão fidelidade, e ainda se 
 		</div><!-- /footer -->
 	</div><!-- /page -->
 
-
-	<div data-role="page" id="loja-info">
-
-		<div data-role="header" style="text-align:center">
-			<a href="#principal" data-role="button" data-icon="bars" data-iconpos="notext"></a>
-			<img src="img/logo.png" width="35%" style="margin-botton:10px;"/>
-		</div><!-- /header -->
-
-		<div role="main" class="ui-content">
-
-			<div class="loading">Loading...</div>
-			<div class="dados-loja">
-				<div class="ui-grid-a">
-				    <div class="ui-block-a image-loja">
-				    	<div class="ui-bar ">
-					    	<img class="loja-imagem" src="" />
-							
-				    	</div>
-				    </div>
-				    <div class="ui-block-b botoes-loja">
-						<h1 class="loja-nome"></h1>
-						<div class="ui-grid-b">
-						    <div class="ui-block-a">
-						    	<!--
-						    	<div class="btn-loja-utils" style="height:60px">
-						    		<a href="#loja-menu"><img src="img/icone_ProdutosLojista.png" class="btn-loja-utils-img"/></a>
-						    	</div>
-						    	-->
-						    	<div class="btn-loja-utils" style="height:60px">
-						    		<a href="#loja-localizacao"><img src="img/icone_LocalizacaoLojista.png" class="btn-loja-utils-img"/></a>
-						    	</div>					    	
-						    	
-						    </div>
-						    <div class="ui-block-b">
-						    	<div class="btn-loja-utils" style="height:60px">
-									
-						    	</div>
-						    </div>
-						    <div class="ui-block-c">
-						    	<div class="btn-loja-utils" style="height:60px">
-						    		<a href="#" class="loja-homepage"><img src="img/icone_HomePageLojista.png" class="btn-loja-utils-img" /></a>
-						    	</div>
-						    </div>
-						</div><!-- /grid-c -->
-				    </div>
-				</div><!-- /grid-a -->
-			    
-
-			    <div class="info-adicional">
-						<p class="small-13 loja-endereco"></p>
-						<p class="small-13 loja-fone" ><a href="tel:0000000"></a></p>
-			    </div>
-				
-				</div>
-			</div>
-		</div><!-- /content -->
-		<div data-role="footer" data-position="fixed">
-		        <div data-role="navbar">
-			        <ul>
-			            <li><a href="#" data-icon="back" class="loja-back"></a></li>
-		        	</ul>
-	        	</div><!-- /navbar -->
-		</div><!-- /footer -->
-	</div><!-- /page -->
-
-
-
 	<div data-role="page" id="loja-localizacao">
 
 		<div data-role="header" style="text-align:center">
@@ -1429,8 +1362,10 @@ function setLinkLoja(id){
 
 function setLinkLojaProxima(id){
 	localStorage.setItem('linkLoja', id);
+	localStorage.setItem('loja-info', true);
 	console.log(localStorage.getItem('linkLoja'))
-	$.mobile.changePage( "#loja-info", { transition: "slide", changeHash: false });
+
+	$.mobile.changePage( "#loja", { transition: "slide", changeHash: false });
 	$('.loja-back').attr('href', '#meus-cartoes-proximo')
 }
 
@@ -1445,7 +1380,20 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 	$('.loading').show();
 	$('.dados-loja').hide();
 
-	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
+
+	var url = "";
+
+	if(localStorage.getItem('loja-info');){
+		
+		url = 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('linkLoja')
+		localStorage.setItem('loja-info', false);
+		
+	}else{
+
+		url = 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja')
+	}
+
+	console.log(url)
 	$.ajax({
 	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?id='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
 	    type: 'GET',
@@ -1549,42 +1497,6 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 	    }
 	});
 });
-
-
-$( document ).on( "pagebeforeshow", "#loja-info", function() {
-
-
-	$('.loading').show();
-	$('.dados-loja').hide();
-
-	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('linkLoja'))
-	$.ajax({
-	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('linkLoja'),
-	    type: 'GET',
-	    error : function (data){
-	            alert('Acesso Negado!');
-	            console.log(data);
-	    },
-	    success: function (data) {
-	    	
-				
-				console.log(data)
-		    	$(".loja-nome").html(data.Nome);
-		    	$(".loja-endereco").html('<a href="#loja-localizacao"><image src="img/maps-small.png"> ' + data.Endereco + '</a>');
-		    	$(".loja-fone").html('<image src="img/phone.png"> <a href="tel:' + data.Telefone +'">'+ data.Telefone+ '</a>');
-		    	$(".loja-imagem").attr('src', data.ImagemUrl)
-		    	
-		    	$(".loja-homepage").attr('href', data.Homepage)
-		    	$(".loja-homepage").attr('target', '_blank')
-
-		    	$('.loja-cartoes').html("");
-
-				$('.loading').hide();
-				$('.dados-loja').show();
-	    }
-	});
-});
-
 
 
 
