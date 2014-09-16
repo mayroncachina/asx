@@ -59,14 +59,10 @@ module.exports = function(grunt) {
       files: ['test/**/*.html']
     },
     watch: {
-      gruntfile: {
-        files: '<%= jshint.gruntfile.src %>',
-        tasks: ['jshint:gruntfile']
+      zip: {
+        files: 'www/**/*',
+        tasks: ['zip']
       },
-      lib_test: {
-        files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint:lib_test', 'qunit']
-      }
     },
 
     zip: {
