@@ -1491,10 +1491,10 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 				}
 				$('.loja-cartoes').append(linha);
 				$('.loja-cartoes').trigger('create');
-
-			}
+				console.log("PASSOU!!!!!!!!")
 				$('.loading').hide();
 				$('.dados-loja').show();
+			}
 	    }
 	});
 });
