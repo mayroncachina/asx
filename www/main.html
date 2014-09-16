@@ -1416,7 +1416,7 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 
 		    	$('.loja-cartoes').html("");
 
-	    	if(data.Cartoes.length > 0){
+	    	if(data.Cartoes !== null && data.Cartoes.length > 0){
 				var linha =  '<div id="tabs">';
 				linha += '  <div data-role="navbar">';
 				linha += '    <ul class="menu-cartoes">';
@@ -1492,9 +1492,9 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 				$('.loja-cartoes').append(linha);
 				$('.loja-cartoes').trigger('create');
 
+			}
 				$('.loading').hide();
 				$('.dados-loja').show();
-			}
 	    }
 	});
 });
