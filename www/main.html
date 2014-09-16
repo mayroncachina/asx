@@ -1416,6 +1416,7 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 
 		    	$('.loja-cartoes').html("");
 
+		    	alert(data.Cartoes !== null);
 	    	if(data.Cartoes !== null && data.Cartoes.length > 0){
 				var linha =  '<div id="tabs">';
 				linha += '  <div data-role="navbar">';
