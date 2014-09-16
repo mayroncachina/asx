@@ -28,7 +28,7 @@
     <gap:plugin name="org.apache.cordova.network-information"/>
     <gap:plugin name="com.pushwoosh.plugins.pushwoosh" version="3.0.2" />
     <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
-    <gap:plugin name="uk.co.whiteoctober.cordova.appversion" version="0.1.4" />
+    <!--<gap:plugin name="uk.co.whiteoctober.cordova.appversion" version="0.1.4" />-->
     <gap:plugin name="de.appplant.cordova.plugin.hidden-statusbar-overlay" version="1.1.0" />
     
     <icon src="icon.png" />
