@@ -1364,9 +1364,11 @@ function setLinkLoja(id){
 
 
 function setLinkLojaProxima(id){
+
 	localStorage.setItem('linkLoja', id);
 	localStorage.setItem('loja-info', true);
 	console.log(localStorage.getItem('linkLoja'))
+	alert(localStorage.getItem('loja-info'))
 
 	$.mobile.changePage( "#loja", { transition: "slide", changeHash: false });
 	$('.loja-back').attr('href', '#meus-cartoes-proximo')
@@ -1385,7 +1387,7 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 	$('.dados-loja').hide();
 
 
-	alert(localStorage.getItem('loja-info') == true)
+	alert(localStorage.getItem('loja-info'))
 	if(localStorage.getItem('loja-info') == true){
 		
 		getLojaInfo()
