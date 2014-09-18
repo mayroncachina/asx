@@ -1385,7 +1385,7 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 	$('.dados-loja').hide();
 
 
-
+	alert(localStorage.getItem('loja-info') == true)
 	if(localStorage.getItem('loja-info') == true){
 		
 		getLojaInfo()
