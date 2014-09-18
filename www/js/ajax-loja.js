@@ -109,9 +109,9 @@ function getLojaMeuCartao(){
 
 
 function getLojaInfo(){
-	
+	alert()
 	$.ajax({
-	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
+	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('linkLoja'),
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
