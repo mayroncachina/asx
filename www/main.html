@@ -51,7 +51,7 @@
 	        </div>
 		</div><!-- /content -->
 		<div data-role="footer" data-position="fixed">
-			<span class="center version">build 1.0.50</span>
+			<span class="center version">build 1.0.60</span>
 		</div>
 	
 	</div><!-- /page -->
@@ -1382,9 +1382,8 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 	$('.loading').show();
 	$('.dados-loja').hide();
 
-	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
 	$.ajax({
-	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?id='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja')),
+	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?id='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
