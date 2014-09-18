@@ -1454,8 +1454,6 @@ $( document ).on( "pagebeforeshow", "#loja-informacoes", function() {
 	$('.loading').show();
 	$('.dados-loja').hide();
 
-	alert('no canto certo')
-
 	$.ajax({
 	    url: 'http://asxcard.cloudapp.net/ClienteService.svc/selecionar?id='+localStorage.getItem('linkLoja'),
 	    type: 'GET',
