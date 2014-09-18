@@ -1358,6 +1358,7 @@ function setLinkLoja(id){
 	console.log(localStorage.getItem('linkLoja'))
 	alert(localStorage.getItem('linkLoja'))
 	alert(localStorage.getItem('Codigo'))
+	alert('CartaoService.svc/selecionarDetalhe?id='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
 	$.mobile.changePage( "#loja", { transition: "slide", changeHash: false });
 	$('.loja-back').attr('href', '#meus-cartoes')
 }
