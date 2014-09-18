@@ -1447,8 +1447,46 @@ function showCard(id) {
 	$("#card-"+id).show();
 }
 
-$( document ).on( "pagebeforeshow", "#loja", function() {
-	alert('funcione porra!!!');
+$( document ).on( "pagebeforeshow", "#loja-informacoes", function() {
+
+
+
+	$('.loading').show();
+	$('.dados-loja').hide();
+
+	alert('no canto certo')
+
+	$.ajax({
+	    url: 'http://asxcard.cloudapp.net/ClienteService.svc/selecionar?id='+localStorage.getItem('linkLoja'),
+	    type: 'GET',
+	    error : function (data){
+	            alert('Acesso Negado!');
+	            console.log(data);
+	    },
+	    success: function (data) {
+	    	
+				
+				console.log(data)
+		    	$(".loja-nome").html(data.Nome);
+		    	$(".loja-endereco").html('<a href="#loja-localizacao"><image src="img/maps-small.png"> ' + data.Endereco + '</a>');
+		    	$(".loja-fone").html('<image src="img/phone.png"> <a href="tel:' + data.Telefone +'">'+ data.Telefone+ '</a>');
+		    	$(".loja-imagem").attr('src', data.ImagemUrl)
+		    	
+		    	$(".loja-homepage").attr('href', data.Homepage)
+		    	$(".loja-homepage").attr('target', '_blank')
+
+		    	$('.loja-cartoes').html("");
+
+				
+
+				$('.loading').hide();
+				$('.dados-loja').show();
+	    }
+	});
+
+
+
+	
 });
 $( document ).on( "pagebeforeshow", "#loja", function() {
 
@@ -1456,7 +1494,6 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 	$('.loading').show();
 	$('.dados-loja').hide();
 
-	alert(localStorage.getItem('loja-info'))
 
 	$.ajax({
 	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
