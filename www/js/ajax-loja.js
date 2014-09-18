@@ -1,5 +1,7 @@
 function getLojaMeuCartao(url){
 	
+	alert(url)
+
 	$.ajax({
 	    url: url,
 	    type: 'GET',

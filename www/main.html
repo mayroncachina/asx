@@ -52,7 +52,7 @@
 	        </div>
 		</div><!-- /content -->
 		<div data-role="footer" data-position="fixed">
-			<span class="center version">build 1.0.60</span>
+			<span class="center version">build 1.0.61</span>
 		</div>
 	
 	</div><!-- /page -->
@@ -1392,7 +1392,7 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 		localStorage.setItem('loja-info', false);
 		
 	}else{
-		
+
 		getLojaMeuCartao('http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
 		localStorage.setItem('loja-info', false);
 	}
