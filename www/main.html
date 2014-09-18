@@ -1386,7 +1386,7 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 	$('.loading').show();
 	$('.dados-loja').hide();
 
-	alert(localStorage.getItem('linkLoja'))
+	alert(localStorage.getItem('loja-info'))
 
 	$.ajax({
 	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
