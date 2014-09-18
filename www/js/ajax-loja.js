@@ -1,7 +1,7 @@
-function getLojaMeuCartao(){
+function getLojaMeuCartao(url){
 	
 	$.ajax({
-	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
+	    url: url,
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
@@ -103,38 +103,4 @@ function getLojaMeuCartao(){
 	    }
 	});
 
-}
-
-
-
-
-function getLojaInfo(){
-	alert()
-	$.ajax({
-	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('linkLoja'),
-	    type: 'GET',
-	    error : function (data){
-	            alert('Acesso Negado!');
-	            console.log(data);
-	    },
-	    success: function (data) {
-	    	
-				alert(data.ID)
-				console.log(data)
-				/*
-		    	$(".loja-nome").html(data.Nome);
-		    	$(".loja-endereco").html('<a href="#loja-localizacao"><image src="img/maps-small.png"> ' + data.Endereco + '</a>');
-		    	$(".loja-fone").html('<image src="img/phone.png"> <a href="tel:' + data.Telefone +'">'+ data.Telefone+ '</a>');
-		    	$(".loja-imagem").attr('src', data.ImagemUrl)
-		    	
-		    	$(".loja-homepage").attr('href', data.Homepage)
-		    	$(".loja-homepage").attr('target', '_blank')
-
-		    	$('.loja-cartoes').html("");
-				*/
-
-				$('.loading').hide();
-				$('.dados-loja').show();
-	    }
-	});
 }

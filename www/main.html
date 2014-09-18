@@ -1388,11 +1388,13 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 
 	if(localStorage.getItem('loja-info') == true){
 		
-		getLojaInfo()
+		getLojaMeuCartao('http://asxcard.cloudapp.net/ClienteService.svc/selecionar?id='+localStorage.getItem('linkLoja'))
 		localStorage.setItem('loja-info', false);
 		
 	}else{
-		getLojaMeuCartao()
+		
+		getLojaMeuCartao('http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
+		localStorage.setItem('loja-info', false);
 	}
 
 });
