@@ -1386,10 +1386,10 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 	$('.loading').show();
 	$('.dados-loja').hide();
 
+	alert(localStorage.getItem('linkLoja'))
 
 	$.ajax({
 	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
-	    url: url,
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
@@ -1408,6 +1408,15 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 		    	$(".loja-homepage").attr('target', '_blank')
 
 		    	$('.loja-cartoes').html("");
+
+		    	if(localStorage.getItem('linkLoja') == true){
+
+					$('.loading').hide();
+					$('.dados-loja').show();
+					alert('kill')
+					return false
+		    	}
+
 
 	    	if(data.Cartoes.length > 0){
 				var linha =  '<div id="tabs">';
