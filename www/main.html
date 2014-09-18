@@ -1388,7 +1388,7 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 
 	if(localStorage.getItem('loja-info') == true){
 		
-		url = 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('linkLoja')
+		getLojaInfo()
 		localStorage.setItem('loja-info', false);
 		
 	}else{

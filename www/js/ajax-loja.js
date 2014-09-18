@@ -109,7 +109,6 @@ function getLojaMeuCartao(){
 
 
 function getLojaInfo(){
-	function getLojaMeuCartao(){
 	
 	$.ajax({
 	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
@@ -138,6 +137,4 @@ function getLojaInfo(){
 				$('.dados-loja').show();
 	    }
 	});
-
-}
 }
