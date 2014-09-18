@@ -1375,28 +1375,16 @@ function showCard(id) {
 	$("#card-"+id).show();
 }
 
+
 $( document ).on( "pagebeforeshow", "#loja", function() {
 
 
 	$('.loading').show();
 	$('.dados-loja').hide();
 
-
-	var url = "";
-
-	if(localStorage.getItem('loja-info')){
-		
-		url = 'http://asxcard.cloudapp.net/ClienteService.svc/selecionar?id='+localStorage.getItem('linkLoja')
-		localStorage.setItem('loja-info', false);
-		
-	}else{
-
-		url = 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja')
-	}
-
-	console.log(url)
+	console.log('http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
 	$.ajax({
-	    url: url,
+	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?id='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja')),
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
@@ -1416,8 +1404,7 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 
 		    	$('.loja-cartoes').html("");
 
-		    	alert(data.hasOwnProperty('Cartoes'));
-	    	if(data.hasOwnProperty('Cartoes') && data.Cartoes.length > 0){
+	    	if(data.Cartoes.length > 0){
 				var linha =  '<div id="tabs">';
 				linha += '  <div data-role="navbar">';
 				linha += '    <ul class="menu-cartoes">';
@@ -1492,13 +1479,14 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 				}
 				$('.loja-cartoes').append(linha);
 				$('.loja-cartoes').trigger('create');
-				console.log("PASSOU!!!!!!!!")
+
 				$('.loading').hide();
 				$('.dados-loja').show();
 			}
 	    }
 	});
 });
+
 
 
 
