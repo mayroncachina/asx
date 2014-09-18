@@ -1,9 +1,7 @@
-function getLojaMeuCartao(url){
+function getLojaMeuCartao(){
 	
-	alert(url)
-
 	$.ajax({
-	    url: url,
+	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?idParticipante='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
@@ -102,6 +100,43 @@ function getLojaMeuCartao(url){
 				$('.loading').hide();
 				$('.dados-loja').show();
 			}
+	    }
+	});
+
+}
+
+
+
+
+
+function getLojaInfo(){
+	
+	var url_info = 'http://asxcard.cloudapp.net/ClienteService.svc/selecionar?id='+localStorage.getItem('linkLoja')
+	alert(url_info)
+
+	$.ajax({
+	    url: url_info,
+	    type: 'GET',
+	    error : function (data){
+	            alert('Acesso Negado!');
+	            console.log(data);
+	    },
+	    success: function (data) {
+	    	
+				
+				console.log(data)
+		    	$(".loja-nome").html(data.Nome);
+		    	$(".loja-endereco").html('<a href="#loja-localizacao"><image src="img/maps-small.png"> ' + data.Endereco + '</a>');
+		    	$(".loja-fone").html('<image src="img/phone.png"> <a href="tel:' + data.Telefone +'">'+ data.Telefone+ '</a>');
+		    	$(".loja-imagem").attr('src', data.ImagemUrl)
+		    	
+		    	$(".loja-homepage").attr('href', data.Homepage)
+		    	$(".loja-homepage").attr('target', '_blank')
+
+		    	$('.loja-cartoes').html("");
+
+				$('.loading').hide();
+				$('.dados-loja').show();
 	    }
 	});
 
