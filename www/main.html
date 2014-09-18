@@ -1356,9 +1356,7 @@ function cartoesProximos(raio){
 function setLinkLoja(id){
 	localStorage.setItem('linkLoja', id);
 	console.log(localStorage.getItem('linkLoja'))
-	//alert(localStorage.getItem('linkLoja'))
-	//alert(localStorage.getItem('Codigo'))
-	//alert('CartaoService.svc/selecionarDetalhe?id='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
+	localStorage.setItem('loja-info', false);
 	$.mobile.changePage( "#loja", { transition: "slide", changeHash: false });
 	$('.loja-back').attr('href', '#meus-cartoes')
 }
@@ -1367,8 +1365,6 @@ function setLinkLoja(id){
 function setLinkLojaProxima(id){
 	localStorage.setItem('linkLoja', id);
 	localStorage.setItem('loja-info', true);
-	//alert(localStorage.getItem('linkLoja'))
-	//alert(localStorage.getItem('Codigo'))
 	console.log(localStorage.getItem('linkLoja'))
 
 	$.mobile.changePage( "#loja", { transition: "slide", changeHash: false });
@@ -1389,7 +1385,7 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 
 
 
-	if(localStorage.getItem('loja-info')){
+	if(localStorage.getItem('loja-info') == true){
 		
 		url = 'http://asxcard.cloudapp.net/CartaoService.svc/selecionar?id='+localStorage.getItem('linkLoja')
 		localStorage.setItem('loja-info', false);
