@@ -1356,9 +1356,9 @@ function cartoesProximos(raio){
 function setLinkLoja(id){
 	localStorage.setItem('linkLoja', id);
 	console.log(localStorage.getItem('linkLoja'))
-	alert(localStorage.getItem('linkLoja'))
-	alert(localStorage.getItem('Codigo'))
-	alert('CartaoService.svc/selecionarDetalhe?id='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
+	//alert(localStorage.getItem('linkLoja'))
+	//alert(localStorage.getItem('Codigo'))
+	//alert('CartaoService.svc/selecionarDetalhe?id='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'))
 	$.mobile.changePage( "#loja", { transition: "slide", changeHash: false });
 	$('.loja-back').attr('href', '#meus-cartoes')
 }
@@ -1367,8 +1367,8 @@ function setLinkLoja(id){
 function setLinkLojaProxima(id){
 	localStorage.setItem('linkLoja', id);
 	localStorage.setItem('loja-info', true);
-	alert(localStorage.getItem('linkLoja'))
-	alert(localStorage.getItem('Codigo'))
+	//alert(localStorage.getItem('linkLoja'))
+	//alert(localStorage.getItem('Codigo'))
 	console.log(localStorage.getItem('linkLoja'))
 
 	$.mobile.changePage( "#loja", { transition: "slide", changeHash: false });
@@ -1388,7 +1388,8 @@ $( document ).on( "pagebeforeshow", "#loja", function() {
 	$('.dados-loja').hide();
 
 	$.ajax({
-	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?id='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
+	    //url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?id='+localStorage.getItem('Codigo')+'&idCliente='+localStorage.getItem('linkLoja'),
+	    url: 'http://asxcard.cloudapp.net/CartaoService.svc/selecionarDetalhe?id=28&idCliente=65',
 	    type: 'GET',
 	    error : function (data){
 	            alert('Acesso Negado!');
