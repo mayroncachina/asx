@@ -1357,6 +1357,7 @@ function setLinkLoja(id){
 	localStorage.setItem('linkLoja', id);
 	console.log(localStorage.getItem('linkLoja'))
 	alert(localStorage.getItem('linkLoja'))
+	alert(localStorage.getItem('Codigo'))
 	$.mobile.changePage( "#loja", { transition: "slide", changeHash: false });
 	$('.loja-back').attr('href', '#meus-cartoes')
 }
@@ -1366,6 +1367,7 @@ function setLinkLojaProxima(id){
 	localStorage.setItem('linkLoja', id);
 	localStorage.setItem('loja-info', true);
 	alert(localStorage.getItem('linkLoja'))
+	alert(localStorage.getItem('Codigo'))
 	console.log(localStorage.getItem('linkLoja'))
 
 	$.mobile.changePage( "#loja", { transition: "slide", changeHash: false });
