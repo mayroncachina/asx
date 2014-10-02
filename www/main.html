@@ -51,7 +51,7 @@
 	        </div>
 		</div><!-- /content -->
 		<div data-role="footer" data-position="fixed">
-			<span class="center version">build 1.0.60</span>
+			<span class="center version">build 1.0.70</span>
 		</div>
 	
 	</div><!-- /page -->
@@ -1082,21 +1082,8 @@ function marcarOutroCartao(){
 
 function pontuarEstabelecimento(qrcode){
 	
-	
-	if(qrcode == ''){
-		alert('OCORREU UM ERRO AO LER O CARTÃO TENTE NOVAMENTE');
-		return false;
-	}else if(qrcode.indexOf("CD=") < 0){
-		alert('CARTÃO INVÁLIDO');
-		scanner();
-		return false;
-	}
-	
 	console.log(qrcode)
-	split = qrcode.split(';')
-	loja_id = split[0].replace('CD=','');
-	tipoCartao = split[1].replace('CT=', '');
-	var url = 'http://asxcard.cloudapp.net/CartaoService.svc/marcarPonto?idCliente='+loja_id+'&idTipoCartao='+tipoCartao+'&idParticipante='+localStorage.getItem('Codigo');
+	var url = 'http://asxcard.cloudapp.net/CartaoService.svc/marcarPonto?qrCode='+qrcode+'&IdParticipante='+localStorage.getItem('Codigo');
 
 	console.log(url)
 	$(".pontuacao").show()
@@ -1112,38 +1099,41 @@ function pontuarEstabelecimento(qrcode){
 		    	$(".pontuacao").hide()
 		    	console.log(data)
 		    	
-		    	if(data['MarcarPontoResult'].Status == '1'){
+		    	if(data['MarcarPontoCryptResult'].Status == '1'){
 
 		    		$(".marcacao").html("<img src='img/imgPontoMarcado.png'/>")
-		    		console.log(data['MarcarPontoResult'].Mensagem);
+		    		console.log(data['MarcarPontoCryptResult'].Mensagem);
 
-		    	}else if(data['MarcarPontoResult'].Status == '2'){
+		    	}else if(data['MarcarPontoCryptResult'].Status == '2'){
 
 		    		$(".marcacao").html("<img src='img/imgRetirarPremio.png'/>");
-		    		console.log(data['MarcarPontoResult'].Mensagem);
+		    		console.log(data['MarcarPontoCryptResult'].Mensagem);
 
-				}else if(data['MarcarPontoResult'].Status == '3'){
+				}else if(data['MarcarPontoCryptResult'].Status == '3'){
 					// Brinde consumido (Deverá ser criado um novo cartão)
 		    		$(".marcacao").html("<img src='img/imgPontoMarcado.png'/>")
-		    		console.log(data['MarcarPontoResult'].Mensagem);
+		    		console.log(data['MarcarPontoCryptResult'].Mensagem);
 
+				}else if(data['MarcarPontoCryptResult'].Status == '4'){
 
-				}else if(data['MarcarPontoResult'].Status == '4'){
+					$(".marcacao").html("<img src='img/imgPontoMarcado.png'/> <br/>"+data['MarcarPontoCryptResult'].Mensagem);
 
-					$(".marcacao").html("<img src='img/imgPontoMarcado.png'/> <br/>"+data['MarcarPontoResult'].Mensagem);
-
-		    	}else if(data['MarcarPontoResult'].Status == '5'){
+		    	}else if(data['MarcarPontoCryptResult'].Status == '5'){
 		    	
 		    		$(".marcacao").html("<img src='img/imgGanhouMiniPremio.png'/>")
-		    			console.log(data['MarcarPontoResult'].Mensagem);
+		    			console.log(data['MarcarPontoCryptResult'].Mensagem);
 		    		
-		    	}else if(data['MarcarPontoResult'].Status == '6'){
+		    	}else if(data['MarcarPontoCryptResult'].Status == '6'){
 		    		$(".marcacao").html("<img src='img/imgCartaoCompletado.png'/>")
-		    			console.log(data['MarcarPontoResult'].Mensagem);
+		    			console.log(data['MarcarPontoCryptResult'].Mensagem);
 
-		    	}else if(data['MarcarPontoResult'].Status == '-1'){
+		    	}else if(data['MarcarPontoCryptResult'].Status == '-1'){
 		    		alert("QRCODE invalida! Cartão (Numero) não está Ativado para este estabelecimento.")
-		    		console.log(data['MarcarPontoResult'].Mensagem);
+		    		console.log(data['MarcarPontoCryptResult'].Mensagem);
+
+		    	}else if(data['MarcarPontoCryptResult'].Status == '-2'){
+		    		alert("QRCode inválido.")
+		    		console.log(data['MarcarPontoCryptResult'].Mensagem);
 
 		    	}
 		    }
