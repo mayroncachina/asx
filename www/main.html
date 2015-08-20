@@ -1075,6 +1075,10 @@ function marcarOutroCartao(){
 function pontuarEstabelecimento(qrcode){
 	
 	console.log(qrcode)
+	if(qrcode.indexOf("@URL") > -1){
+		window.open(qrcode.replace("@URL=",""));
+		return null;
+	}
 	var url = 'http://asxcard.cloudapp.net/CartaoService.svc/MarcarPontoCrypt?qrCode='+qrcode+'&IdParticipante='+localStorage.getItem('Codigo');
 
 	console.log(url)
