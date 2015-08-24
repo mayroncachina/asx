@@ -1079,13 +1079,18 @@ function pontuarEstabelecimento(qrcode){
 		window.open(qrcode.replace("@URL=",""));
 		return null;
 	}
-	var url = 'http://asxcard.cloudapp.net/CartaoService.svc/MarcarPontoCrypt?qrCode='+qrcode+'&IdParticipante='+localStorage.getItem('Codigo');
+	
+	
+	var url = 'http://api.asxcard.com.br/Cartoes?idCadastro='+localStorage.getItem('Codigo')+'&encryptQrCode='+qrcode+;
 
 	console.log(url)
 	$(".pontuacao").show()
 	$.ajax({
 		    url: url,
 		    type: 'GET',
+		    headers: {
+		    	"Authorization": "Basic YXN4LWFwaTpTYWxhemFyMzg="
+		    },
 		    error : function (data){
 		            
 		            console.log(data);
